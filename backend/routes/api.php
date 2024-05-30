@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\GuideController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,5 +11,5 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::name('api.v1.')
     ->prefix('v1')
     ->group(function(){
-        // Route::get()
+        Route::get('/guides', [GuideController::class, 'index'])->name('guides.index');
     });

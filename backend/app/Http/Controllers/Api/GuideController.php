@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Guide;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGuideRequest;
 use App\Http\Requests\UpdateGuideRequest;
 
@@ -13,7 +14,8 @@ class GuideController extends Controller
      */
     public function index()
     {
-        //
+        $guides = Guide::with('stops')->get();
+        return $guides;
     }
 
     /**
