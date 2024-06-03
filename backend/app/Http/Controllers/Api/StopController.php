@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
 
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
 use App\Models\Stop;
 use App\Http\Requests\StoreStopRequest;
 use App\Http\Requests\UpdateStopRequest;

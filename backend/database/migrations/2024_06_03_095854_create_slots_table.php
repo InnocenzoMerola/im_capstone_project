@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guide_user', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('guide_id')->constrained();
-            $table->enum('status', ['rejected', 'pending', 'accepted'])->nullable();
+        Schema::create('slots', function (Blueprint $table) {
+            $table->id();
+            $table->dateTime('date');
+            $table->timestamps();
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guide_user');
+        Schema::dropIfExists('slots');
     }
 };

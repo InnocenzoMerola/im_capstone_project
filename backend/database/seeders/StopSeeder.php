@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Guide;
 use App\Models\Stop;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,35 @@ class StopSeeder extends Seeder
      */
     public function run(): void
     {
+
+        Stop::create([
+            'name' => 'Maschio Angioino',
+            'description_it' => "Una grande opera d'arte",
+            'location' => 'Napoli',
+        ]);
+
+        Stop::create([
+            'name' => 'Quartieri Spagnoli',
+            'description_it' => "Simbolo di Napoli",
+            'location' => 'Napoli',
+        ]);
+
+        Stop::create([
+            'name' => 'Ischia',
+            'description_it' => "La grande isola",
+            'location' => 'Ischia',
+        ]);
+
         Stop::factory(5)->create();
+
+        $guides = Guide::all()->all();
+        $stops_ids = Stop::all()->pluck('id')->all();
+
+        foreach ($guides as $guide) {
+            $stops_for_guide = fake()->randomElements($stops_ids, rand(1, count($stops_ids)));
+            foreach ($stops_for_guide as $stop_id) {
+                $guide->stops()->attach($stop_id);
+            }
+        }
     }
 }

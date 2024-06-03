@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\GuideController;
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -12,4 +13,7 @@ Route::name('api.v1.')
     ->prefix('v1')
     ->group(function(){
         Route::get('/guides', [GuideController::class, 'index'])->name('guides.index');
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('/guides/{id}', [GuideController::class, 'show'])->name('guides.show');
+        // Route::get('/guides/')
     });

@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Guide;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreGuideRequest;
-use App\Http\Requests\UpdateGuideRequest;
 
-class GuideController extends Controller
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
+
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $guides = Guide::with('stops')->get();
-        // $guides = Guide::all();
-        return $guides;
+        $categories = Category::with('children')->whereNull('parent_id')->get();
+        // return response()->json($categories);
+        return $categories;
     }
 
     /**
@@ -30,7 +31,7 @@ class GuideController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGuideRequest $request)
+    public function store(StoreCategoryRequest $request)
     {
         //
     }
@@ -38,21 +39,15 @@ class GuideController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        $guide = Guide::with('stops', 'slots')->find($id);
-        if(!$guide){
-            return response(['message' => 'Not found'], 404);
-        }
-        return [
-            'data' => $guide
-        ];
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Guide $guide)
+    public function edit(Category $category)
     {
         //
     }
@@ -60,7 +55,7 @@ class GuideController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGuideRequest $request, Guide $guide)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
         //
     }
@@ -68,7 +63,7 @@ class GuideController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Guide $guide)
+    public function destroy(Category $category)
     {
         //
     }

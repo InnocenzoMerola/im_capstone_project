@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('location', 200);
             $table->string('image')->nullable();
-            $table->string('description_it', 400)->nullable();
-            $table->string('description_en', 400)->nullable();
-            $table->string('description_fr', 400)->nullable();
-            $table->string('description_na', 400)->nullable();
+            $table->text('description_it')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_fr')->nullable();
+            $table->text('description_na')->nullable();
             $table->timestamps();
         });
     }

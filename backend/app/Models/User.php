@@ -54,4 +54,7 @@ class User extends Authenticatable
     public function rates(): HasMany{
         return $this->hasMany(Rate::class);
     }
+
+
+       
 }

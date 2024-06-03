@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guide_user', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
+        Schema::create('guide_slot', function (Blueprint $table) {
             $table->foreignId('guide_id')->constrained();
-            $table->enum('status', ['rejected', 'pending', 'accepted'])->nullable();
+            $table->foreignId('slot_id')->constrained();
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guide_user');
+        //
     }
 };

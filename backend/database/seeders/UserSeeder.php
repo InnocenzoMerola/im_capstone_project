@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\Guide;
 use App\Models\User;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,15 +16,26 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'name' => 'Mario',
-            'email' => 'mario@mario.mario',
+            'name' => 'Enzo',
+            'surname' => 'Merola',
+            'email' => 'enzo@enzo.com',
             'profile_img' => null,
             'role' => 'admin',
-            'surname' => 'Rossi',
             'phone' => '123456789',
-            'age' => 50,
+            'age' => 21,
         ]);
 
         User::factory(5)->create();
+
+        // $users = User::all()->all();
+        // $guides_ids = Guide::all()->pluck('id')->all();
+
+
+        // foreach ($users as $user) {
+        //     $guides_for_user = fake()->randomElements($guides_ids, rand(1, count($guides_ids)));
+        //     foreach ($guides_for_user as $guide_id) {
+        //         $user->courses()->attach($guide_id, ['status' => 'pending']);
+        //     }
+        // }
     }
 }
