@@ -1,37 +1,97 @@
 import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
+import { Link } from "react-router-dom";
 
 const MyNav = function () {
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <Link className="navbar-brand" to="/">
+              I&M
+            </Link>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" href="#">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="#">
+                  Link
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link disabled" aria-disabled="true">
+                  Disabled
+                </Link>
+              </li>
+              <li className="parent nav-item">
+                <a href="#">Itinerari</a>
+                <ul className="child">
+                  <li className="parent">
+                    <a href="#">
+                      Spiagge <span className="expand">»</span>
+                    </a>
+                    <ul className="child right">
+                      <li>
+                        <a href="#">Margellina</a>
+                      </li>
+                      <li>
+                        <a href="#">Lungomare</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="parent ">
+                    <a href="#">
+                      Cibo <span className="expand">»</span>
+                    </a>
+                    <ul className="child right">
+                      <li>
+                        <a href="#">Pizza</a>
+                      </li>
+                      <li>
+                        <a href="#">Carne</a>
+                      </li>
+                      <li>
+                        <a href="#">Pesce</a>
+                      </li>
+                      <li>
+                        <a href="#">Fritto</a>
+                      </li>
+                      {/* <li className="parent">
+                  <a href="#">
+                    Level 2 - Menu 3<span className="expand">»</span>
+                  </a>
+                  <ul className="child">
+                    <li>
+                      <a href="#">Level 3 - Menu 1</a>
+                    </li>
+                    <li>
+                      <a href="#">Level 3 - Menu 2</a>
+                    </li>
+                  </ul>
+                </li> */}
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 };

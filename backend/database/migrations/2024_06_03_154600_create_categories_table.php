@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         #TODO Migration e sistemare
-        // Schema::create('categories', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name');
-        //     $table->unsignedBigInteger('parent_id')->nullable();
-        //     $table->foreignId('parent_id')->references('id')->on('categories')->constrained()->onDelete('cascade');
-        //     $table->foreignId('stop_id')->constrained();
-        //     $table->foreignId('category_id')->constrained();
-        // });
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignId('parent_id')->nullable()->constrained('categories')->cascadeOnDelete();
+            // $table->foreignId('stop_id')->constrained();
+            // $table->foreignId('category_id')->constrained();
+        });
     }
 
     /**

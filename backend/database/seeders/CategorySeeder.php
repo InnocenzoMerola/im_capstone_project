@@ -15,12 +15,17 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             ['name' => 'Cibo', 'parent_id' => null],
+            ['name' => 'Spiagge', 'parent_id' => null],
+            ['name' => 'Soggiorno', 'parent_id' => null],
             ['name' => 'Pizze', 'parent_id' => 1],
             ['name' => 'Carni', 'parent_id' => 1],
             ['name' => 'Fritti', 'parent_id' => 1],
-            ['name' => 'Spiagge', 'parent_id' => null],
             ['name' => 'Libera', 'parent_id' => 2],
             ['name' => 'Privata', 'parent_id' => 2],
+            ['name' => 'Hotel', 'parent_id' => 3],
+            ['name' => 'Appartamento', 'parent_id' => 3],
         ]);
+
+        
     }
 }

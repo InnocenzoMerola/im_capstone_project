@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Guide;
 use App\Models\Stop;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -42,6 +43,16 @@ class StopSeeder extends Seeder
             $stops_for_guide = fake()->randomElements($stops_ids, rand(1, count($stops_ids)));
             foreach ($stops_for_guide as $stop_id) {
                 $guide->stops()->attach($stop_id);
+            }
+        }
+
+        $categories = Category::all()->all();
+        // $categories_ids = Category::all()->pluck('id')->all();
+
+        foreach ($categories as $category) {
+            $stops_for_categories = fake()->randomElements($stops_ids, rand(1, count($stops_ids)));
+            foreach ($stops_for_categories as $stop_id) {
+                $category->stops()->attach($stop_id);
             }
         }
     }
