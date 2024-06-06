@@ -20,6 +20,10 @@ a {
   text-align: center;
 }
 
+.big-parent a {
+  padding: 6px 87px;
+}
+
 .parent {
   display: block;
   position: relative;
@@ -55,6 +59,11 @@ a {
   font-size: 20px;
 }
 
+.big-parent a:hover {
+  color: white;
+  font-weight: bold;
+}
+
 .parent:hover > ul {
   display: block;
   position: absolute;
@@ -68,8 +77,13 @@ a {
 }
 
 .child li a {
-  color: #000000;
+  color: white;
   font-size: 1.2rem;
+}
+
+.child li a:hover {
+  color: black;
+  font-weight: normal;
 }
 
 ul {
@@ -125,6 +139,16 @@ li:hover {
   float: right;
   margin-right: 5px;
 }
+
+.big-parent:hover > a,
+.child ~ a {
+  color: white !important;
+}
+
+/* .parent:hover > a,
+.child.show ~ a {
+  color: black !important;
+} */
 
 /* --------------------------------- */
 /* NAVBAR */

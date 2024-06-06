@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGOUT } from "../redux/actions";
 import Dropdown from "react-bootstrap/Dropdown";
 import Nav from "react-bootstrap/Nav";
@@ -56,7 +56,7 @@ const MyNav = function () {
                   Disabled
                 </Link>
               </li>
-              <li className="parent nav-item">
+              <li className="parent nav-item big-parent">
                 <Link to="/#">Itinerari</Link>
                 <ul className="child">
                   <li className="parent">
@@ -326,7 +326,7 @@ const MyNav = function () {
             </div>
             <div className="container third">
               <ul className="nav-step-3">
-                <li className="parent nav-item">
+                <li className="parent nav-item big-parent">
                   <Link to="/#">Itinerari</Link>
                   <ul className="child">
                     <li className="parent">
@@ -363,7 +363,7 @@ const MyNav = function () {
                     </li>
                   </ul>
                 </li>
-                <li className="parent nav-item">
+                <li className="parent nav-item big-parent">
                   <Link to="/#">Itinerari</Link>
                   <ul className="child">
                     <li className="parent">
@@ -400,7 +400,7 @@ const MyNav = function () {
                     </li>
                   </ul>
                 </li>
-                <li className="parent nav-item">
+                <li className="parent nav-item big-parent">
                   <Link to="/#">Itinerari</Link>
                   <ul className="child">
                     <li className="parent">
@@ -437,7 +437,7 @@ const MyNav = function () {
                     </li>
                   </ul>
                 </li>
-                <li className="parent nav-item">
+                <li className="parent nav-item big-parent">
                   <Link to="/#">Itinerari</Link>
                   <ul className="child">
                     <li>
