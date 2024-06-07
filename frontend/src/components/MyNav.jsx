@@ -7,11 +7,48 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const MyNav = function () {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+
+  const handleShowLoginForm = () => {
+    setShowLoginForm(true);
+    setShowRegisterForm(false);
+  };
+
+  const handleCloseLoginForm = () => {
+    setShowLoginForm(false);
+  };
+
+  const handleShowRegisterForm = () => {
+    setShowRegisterForm(true);
+    setShowLoginForm(false);
+  };
+
+  const handleCloseRegisterForm = () => {
+    setShowRegisterForm(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showLoginForm && !document.querySelector(".login-container").contains(event.target)) {
+        handleCloseLoginForm();
+        // handleCloseRegisterForm();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showLoginForm, showRegisterForm]);
 
   const logout = () => {
     axios
@@ -92,83 +129,83 @@ const MyNav = function () {
                     </ul>
                   </li>
                 </ul>
-              </li>
+              </li>*/}
+        {user && (
+          <>
+            {/* <Nav.Link className="text-decoration-none align-items-center me-4">
+              <Dropdown className="d-flex flex-column  align-items-center">
+                <img className="rounded-circle shadow-4-strong resized-avatar" alt="user" src={user.image} />
 
-              {user ? (
-                <>
-                  <Nav.Link className="text-decoration-none align-items-center me-4">
-                    
-                    <Dropdown className="d-flex flex-column  align-items-center">
-                      <img className="rounded-circle shadow-4-strong resized-avatar" alt="user" src={user.image} />
+                <Dropdown.Toggle className="bg-white text-dark border-0 p-0 d-flex align-items-center d-flex text-sm">
+                  <p className="navbar-top">Tu </p>
+                </Dropdown.Toggle>
+                <Dropdown.Menu
+                  className="mt-2"
+                  align="end"
+                  style={{ maxHeight: "400px", width: "280px", overflowY: "auto" }}
+                >
+                  <ListGroup className="mb-2">
+                    <ListGroup.Item className="border-0">
+                      <div className="d-flex align-items-start gap-2">
+                        <img
+                          src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                          alt="draft_picture"
+                          width="60px"
+                          height={"60px"}
+                          className="image_dropdown_navbar object-fit-cover"
+                        />
 
-                      <Dropdown.Toggle className="bg-white text-dark border-0 p-0 d-flex align-items-center d-flex text-sm">
-                        <p className="navbar-top">Tu </p>
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu
-                        className="mt-2"
-                        align="end"
-                        style={{ maxHeight: "400px", width: "280px", overflowY: "auto" }}
-                      >
-                        <ListGroup className="mb-2">
-                          <ListGroup.Item className="border-0">
-                            <div className="d-flex align-items-start gap-2">
-                              <img
-                                src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="draft_picture"
-                                width="60px"
-                                height={"60px"}
-                                className="image_dropdown_navbar object-fit-cover"
-                              />
-
-                              <div>
-                                <div className="d-flex flex-column align-items-start">
-                                  <h5 className="fw-semibold m-0">Innocenzo</h5>
-                                  <p className="text-secondary text-sm">Full Stack Developer</p>
-                                </div>
-                              </div>
-                            </div>
-                            <Link to={"/profile/660e54b613df0a001949f3df"}>
-                              <Button className="w-100 p-0  rounded-pill bg-transparent text-primary" size="sm">
-                                Visualizza Profilo
-                              </Button>
-                            </Link>
-                          </ListGroup.Item>
-                          <ListGroup.Item className="border-0">
-                            <h5>Account</h5>
-                            <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
-                              Prova Premium per 0 EUR
-                            </p>
-                            <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
-                              Impostazioni e privacy
-                            </p>
-                            <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
-                              Guida
-                            </p>
-                            <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
-                              Lingua
-                            </p>
-                          </ListGroup.Item>
-                        </ListGroup>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Nav.Link>
-                  <span>{user.name}</span>
-                  <img src={user.profile_img} alt="" className="" style={{ height: "50px", width: "50px" }} />
-                  <button onClick={logout} className="btn btn-primary">
-                    Esci
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link className="btn btn-primary" to="/login">
-                    Accedi
-                  </Link>
-                  <Link className="btn btn-primary" to="/register">
-                    Registrati
-                  </Link>
-                </>
-              )}
-            </ul>
+                        <div>
+                          <div className="d-flex flex-column align-items-start">
+                            <h5 className="fw-semibold m-0">Innocenzo</h5>
+                            <p className="text-secondary text-sm">Full Stack Developer</p>
+                          </div>
+                        </div>
+                      </div>
+                      <Link to={"/profile/660e54b613df0a001949f3df"}>
+                        <Button className="w-100 p-0  rounded-pill bg-transparent text-primary" size="sm">
+                          Visualizza Profilo
+                        </Button>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="border-0">
+                      <h5>Account</h5>
+                      <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
+                        Prova Premium per 0 EUR
+                      </p>
+                      <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
+                        Impostazioni e privacy
+                      </p>
+                      <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
+                        Guida
+                      </p>
+                      <p className="m-1 text-secondary" style={{ fontSize: "14px" }}>
+                        Lingua
+                      </p>
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Nav.Link> */}
+            <span className="text-white">{user.name}</span>
+            {/* <img src={user.profile_img} alt="" className="" style={{ height: "50px", width: "50px" }} /> */}
+            <button onClick={logout} className="btn btn-primary">
+              Esci
+            </button>
+          </>
+        )}{" "}
+        {/*  (
+          <>
+            <Link className="btn btn-primary" to="/login">
+              Accedi
+            </Link>
+            <Link className="btn btn-primary" to="/register">
+              Registrati
+            </Link>
+          </>
+        )
+        }
+        {/*</ul>
           </div>
         </div>
       </nav> */}
@@ -180,6 +217,7 @@ const MyNav = function () {
               </div>
               <div className="logo-div">
                 <img src={"/image/Stemma-napoli.png"} alt="" />
+                {user && <p className="text-white">{user.name}</p>}
               </div>
             </div>
           </div>
@@ -214,21 +252,31 @@ const MyNav = function () {
             <div className="container second">
               <div className="nav-step-2">
                 <div className="user-slot">
-                  <Link>
+                  <button onClick={handleShowLoginForm} className="btn-none">
                     <p>ACCESSO UTENTE</p>
-                  </Link>
-                  <Link>
+                  </button>
+                  <button className="btn-none" onClick={handleShowLoginForm}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-lock-fill"
+                      className="bi bi-lock-fill"
                       viewBox="0 0 16 16"
                     >
                       <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
                     </svg>
-                  </Link>
+                  </button>
+                  {showLoginForm && (
+                    <Login onCloseLogin={handleCloseLoginForm} onShowRegister={handleShowRegisterForm} />
+                  )}
+                  {showRegisterForm && (
+                    <Register
+                      onCloseRegister={handleCloseRegisterForm}
+                      modalShow={handleShowRegisterForm}
+                      show={showRegisterForm}
+                    />
+                  )}
                 </div>
                 <div className="icon-container">
                   <div className="icon-div rounded-circle">
@@ -281,9 +329,9 @@ const MyNav = function () {
                   </div>
                 </div>
                 <div>
-                  <div class="dropdown">
+                  <div className="dropdown">
                     <button
-                      class=" language-btn dropdown-toggle"
+                      className=" language-btn dropdown-toggle"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -294,27 +342,27 @@ const MyNav = function () {
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-caret-down-fill text-white"
+                        className="bi bi-caret-down-fill text-white"
                         viewBox="0 0 16 16"
                       >
                         <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                       </svg>
                     </button>
-                    <ul class="dropdown-menu language-btn">
+                    <ul className="dropdown-menu language-btn">
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                           <img src="/image/bandiera-Regno-Unito.png" alt="" />
                           English
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                           <img src="/image/bandiera-Francia.png" alt="" />
                           French
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                           <img src="/image/bandiera-Napoli.png" alt="" />
                           Napolitan
                         </a>

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('location', 200);
             $table->string('image')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('url', 800)->nullable();
             $table->text('description_it')->nullable();
             $table->text('description_en')->nullable();
             $table->text('description_fr')->nullable();
