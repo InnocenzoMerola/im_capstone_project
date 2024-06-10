@@ -30,9 +30,9 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
     setProfileImg(e.target.files[0]);
   };
 
-  const submitLogin = (e) => {
+  const submitRegister = (e) => {
     e.preventDefault();
-
+    console.log("ciao");
     axios
       .get("/sanctum/csrf-cookie")
       .then(() => {
@@ -50,14 +50,15 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
           type: LOGIN,
           payload: response.data,
         });
-      });
+      })
+      .catch((error) => console.log("Errore durande la registrazione", error));
   };
 
   return (
     <>
       <Modal show={show} onHide={modalShow}>
         <Modal.Header>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>REGISTRAZIONE</Modal.Title>
           <div className="register-x-button">
             <button onClick={onCloseRegister} className="btn-none">
               <svg
@@ -65,7 +66,7 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
                 width="30"
                 height="30"
                 fill="currentColor"
-                class="bi bi-x-lg"
+                className="bi bi-x-lg"
                 viewBox="0 0 16 16"
               >
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
@@ -74,7 +75,7 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
           </div>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={(e) => submitLogin(e)} noValidate>
+          <form onSubmit={(e) => submitRegister(e)} noValidate>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Nome utente
@@ -137,16 +138,18 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
                 id="profile_img"
                 name="profile_img"
                 onChange={(e) => updateImageField(e)}
-                value={formData.profile_img}
+                // value={formData.profile_img}
               />
+              {profileImg && <img src={URL.createObjectURL(profileImg)} alt="" style={{ width: "100%" }} />}
+            </div>
+            <div className="spessor"></div>
+            <div className="register-form-btn">
+              <button type="submit" className="btn btn-primary">
+                Registrati
+              </button>
             </div>
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          <button type="submit" className="btn btn-primary">
-            Registrati
-          </button>
-        </Modal.Footer>
       </Modal>
     </>
   );

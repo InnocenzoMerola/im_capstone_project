@@ -11,6 +11,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 
 const MyNav = function () {
+  const [categories, setCategories] = useState([]);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
@@ -56,6 +58,29 @@ const MyNav = function () {
       .then(() => dispatch({ type: LOGOUT }))
       .then(() => navigate("/"));
   };
+
+  // CATEGORIE
+
+  useEffect(() => {
+    fetch(`/api/v1/categories`)
+      .then((response) => {
+        if (!response.ok) navigate("/404");
+        return response.json();
+      })
+      .then((data) => setCategories(data))
+      .catch((error) => {
+        console.log("Errore nella chiamata api", error);
+      });
+  }, []);
+
+  // const renderCategories = (categories) => {
+  //   return categories.map((category) => (
+  //     <li key={category.id}>
+  //       {category.name}
+  //       {category.children && category.children.length > 0 && <ul>{renderCategories(category.children)}</ul>}
+  //     </li>
+  //   ));
+  // };
 
   return (
     <div>
@@ -218,6 +243,7 @@ const MyNav = function () {
               <div className="logo-div">
                 <img src={"/image/Stemma-napoli.png"} alt="" />
                 {user && <p className="text-white">{user.name}</p>}
+                {user && <img src={user.image} alt="" />}
               </div>
             </div>
           </div>
@@ -226,7 +252,9 @@ const MyNav = function () {
 
       <div className="title-container">
         <div className="title-div">
-          <h1 className="title">Benvenuti a Napoli</h1>
+          <Link to="/">
+            <h1 className="title">Benvenuti a Napoli</h1>
+          </Link>
         </div>
       </div>
 
@@ -350,22 +378,22 @@ const MyNav = function () {
                     </button>
                     <ul className="dropdown-menu language-btn">
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" href="#">
                           <img src="/image/bandiera-Regno-Unito.png" alt="" />
                           English
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" href="#">
                           <img src="/image/bandiera-Francia.png" alt="" />
                           French
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" href="#">
                           <img src="/image/bandiera-Napoli.png" alt="" />
                           Napolitan
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -375,127 +403,35 @@ const MyNav = function () {
             <div className="container third">
               <ul className="nav-step-3">
                 <li className="parent nav-item big-parent">
-                  <Link to="/#">Itinerari</Link>
-                  <ul className="child">
-                    <li className="parent">
-                      <Link to="/#">
-                        Spiagge <span className="expand">»</span>
-                      </Link>
-                      <ul className="child right">
-                        <li>
-                          <Link to="/#">Margellina</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Lungomare</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="parent ">
-                      <Link to="/#">
-                        Cibo <span className="expand">»</span>
-                      </Link>
-                      <ul className="child right">
-                        <li>
-                          <Link to="/#">Pizza</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Carne</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Pesce</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Fritto</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className="parent nav-item big-parent">
-                  <Link to="/#">Itinerari</Link>
-                  <ul className="child">
-                    <li className="parent">
-                      <Link to="/#">
-                        Spiagge <span className="expand">»</span>
-                      </Link>
-                      <ul className="child right">
-                        <li>
-                          <Link to="/#">Margellina</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Lungomare</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="parent ">
-                      <Link to="/#">
-                        Cibo <span className="expand">»</span>
-                      </Link>
-                      <ul className="child right">
-                        <li>
-                          <Link to="/#">Pizza</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Carne</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Pesce</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Fritto</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className="parent nav-item big-parent">
-                  <Link to="/#">Itinerari</Link>
-                  <ul className="child">
-                    <li className="parent">
-                      <Link to="/#">
-                        Spiagge <span className="expand">»</span>
-                      </Link>
-                      <ul className="child right">
-                        <li>
-                          <Link to="/#">Margellina</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Lungomare</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="parent ">
-                      <Link to="/#">
-                        Cibo <span className="expand">»</span>
-                      </Link>
-                      <ul className="child right">
-                        <li>
-                          <Link to="/#">Pizza</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Carne</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Pesce</Link>
-                        </li>
-                        <li>
-                          <Link to="/#">Fritto</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className="parent nav-item big-parent">
-                  <Link to="/#">Itinerari</Link>
+                  <Link to="/#">Scopri Napoli</Link>
                   <ul className="child">
                     <li>
-                      <Link to="/#">Spiagge</Link>
+                      <Link to="/#">La Storia</Link>
                     </li>
                     <li>
-                      <Link to="/#">Cibo</Link>
+                      <Link to="/#">Partenope</Link>
+                    </li>
+                    <li>
+                      <Link to="/#">Vesuvio</Link>
+                    </li>
+                    <li>
+                      <Link to="/#">Le voci di Napoli</Link>
                     </li>
                   </ul>
                 </li>
+                {categories.map((category) => (
+                  <li className="parent nav-item big-parent" key={category.id}>
+                    <Link to={`/category/${category.id}`}>{category.name}</Link>
+
+                    <ul className="child">
+                      {category.children.map((childCategory) => (
+                        <li key={childCategory.id}>
+                          <Link to={`/category/${childCategory.id}`}>{childCategory.name}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
               </ul>
             </div>
           </nav>

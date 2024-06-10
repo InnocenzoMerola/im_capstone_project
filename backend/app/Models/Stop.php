@@ -20,6 +20,18 @@ class Stop extends Model
     }
 
     public function categories(): BelongsToMany{
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'category_stop', 'stop_id', 'category_id');
     }
+
+    protected $fillable = [
+        'name',
+        'location', 
+        'image',
+        'phone',
+        'url',
+        'description_it',
+        'description_en',
+        'description_fr',
+        'description_na',
+    ];
 }

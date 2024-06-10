@@ -12,10 +12,17 @@ import Home from "./pages/Home";
 import Guest from "./pages/Guest";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import CreateStop from "./pages/stops/CreateStop";
+import ShowStops from "./pages/stops/ShowStops";
+import StopDetail from "./pages/stops/StopDetail";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
+import CategoryShow from "./pages/CategoryShow";
+import EditStop from "./pages/stops/EditStop";
 
 function App() {
   axios.defaults.withCredentials = true;
   axios.defaults.withXSRFToken = true;
+  axios.defaults.baseURL = "http://localhost:8000";
 
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
@@ -43,8 +50,17 @@ function App() {
 
             <Route element={<Guest />}>
               {/* <Route path="/login" element={<Login />} /> */}
-              <Route path="/register" element={<Register />} />
+              {/* <Route path="/register" element={<Register />} /> */}
             </Route>
+
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/create-stops" element={<CreateStop />} />
+              <Route path="/stops/:id" element={<StopDetail />} />
+              <Route path="/stops/:id/edit" element={<EditStop />} />
+            </Route>
+
+            <Route path="/category/:id" element={<CategoryShow />} />
+            <Route path="/stops" element={<ShowStops />} />
 
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />

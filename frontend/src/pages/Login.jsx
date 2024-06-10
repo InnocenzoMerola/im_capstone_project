@@ -39,7 +39,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
       <div className="login-container">
         <form onSubmit={(e) => submitLogin(e)} noValidate>
           <div className="input-field">
-            <label>Email:</label>
+            <label>Email</label>
             <input
               type="email"
               className="form-control"
@@ -50,7 +50,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
             />
           </div>
           <div className="input-field">
-            <label>Password:</label>
+            <label>Password</label>
             <input
               type="password"
               className="form-control"
@@ -64,13 +64,17 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
             <input type="checkbox" id="remember-me" />
             <label htmlFor="remember-me">Ricordami</label>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Accedi
-          </button>
+          <div className="d-flex justify-content-center">
+            <button type="submit" className="login-btn">
+              ACCEDI
+            </button>
+          </div>
         </form>
         <div className="register">
-          <span>NON SEI ANCORA REGISTRATO?</span>
-          <button onClick={onShowRegister}>Registrati</button>
+          <span className="not-register">NON SEI ANCORA REGISTRATO?</span>
+          <button onClick={onShowRegister} className="register-btn">
+            REGISTRATI
+          </button>
         </div>
       </div>
     </div>

@@ -33,19 +33,19 @@ a {
 }
 
 .parent.nav-item:first-child {
-  background-color: blue;
+  background-color: #3ea7fa;
 }
 
 .parent.nav-item:nth-child(2) {
-  background-color: green;
+  background-color: #008eff;
 }
 
 .parent.nav-item:nth-child(3) {
-  background-color: red;
+  background-color: #3ea7fa;
 }
 
 .parent.nav-item:last-child {
-  background-color: #5d3200;
+  background-color: #008eff;
 }
 .parent.nav-item:first-child:hover,
 .parent.nav-item:nth-child(2):hover,
@@ -115,7 +115,7 @@ ul {
 }
 
 li:hover {
-  background-color: #005ba3;
+  /* background-color: #005ba3; */
 }
 
 .parent li:hover {
@@ -137,7 +137,7 @@ li:hover {
 /* NAVBAR */
 
 .top-nav-container {
-  background-color: #48494a;
+  background-color: #3393df;
   padding-block: 5px;
 }
 
@@ -163,7 +163,7 @@ li:hover {
 }
 
 .title-container {
-  background-color: #1a2123;
+  background-color: #dbdbdb;
 }
 
 .title-div {
@@ -177,12 +177,13 @@ li:hover {
 }
 
 .menu-container {
+  background-color: #1a2123;
 }
 
 /* NAV-1 */
 .container.first {
   padding: 0.5rem 0.2rem;
-  background-color: #005ba3;
+  background-color: #3393df;
 }
 
 .nav-step-1 {
@@ -210,7 +211,7 @@ li:hover {
 /* NAV-2 */
 .container.second {
   padding: 0.5rem 0.2rem;
-  background-color: black;
+  background-color: #1a2123;
 }
 
 .nav-step-2 {
@@ -235,6 +236,10 @@ li:hover {
   color: gray;
 }
 
+.user-slot svg:hover {
+  color: #03a9f4;
+}
+
 .icon-container {
   display: flex;
   gap: 20px;
@@ -244,8 +249,12 @@ li:hover {
 .icon-div {
   border: 2px solid white;
   padding: 8px;
-  background-color: black;
+  background-color: #1a2123;
   display: flex;
+}
+
+.icon-div:hover {
+  border: 2px solid #03a9f4;
 }
 
 .dropdown-toggle::after {
@@ -298,7 +307,7 @@ li:hover {
 }
 
 .login-container {
-  width: 300px;
+  width: 340px;
   background-color: #f7f7f7;
   padding: 20px;
   border: 1px solid #ddd;
@@ -307,9 +316,10 @@ li:hover {
   transform: translate(-195px, 27px);
   z-index: 1000;
   position: absolute;
+  font-weight: 400;
 }
 
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -321,10 +331,12 @@ li:hover {
   font-size: 18px;
   font-weight: bold;
   color: #666;
-}
+} */
 
 .input-field {
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .input-field label {
@@ -333,7 +345,8 @@ li:hover {
 }
 
 .input-field input {
-  width: 100%;
+  /* width: 100%; */
+  width: 190px;
   height: 30px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -344,6 +357,7 @@ li:hover {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  justify-content: center;
 }
 
 .remember-me input[type="checkbox"] {
@@ -368,7 +382,40 @@ li:hover {
   text-decoration: none;
 }
 
-.footer {
+.login-btn {
+  width: 6rem;
+  padding-block: 4px;
+  background-color: #b2f0ff;
+  border: none;
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  background-color: #008dff;
+}
+
+.not-register {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: black;
+  display: block;
+}
+
+.register-btn {
+  width: 8rem;
+  background-color: #7f7f7f;
+  font-weight: 600;
+  padding-block: 5px;
+  color: white;
+  border: none;
+}
+
+.register-btn:hover {
+  background-color: #b2f0ff;
+  color: black;
+}
+
+/* .footer {
   padding-top: 20px;
   border-top: 1px solid #ddd;
 }
@@ -387,7 +434,7 @@ li:hover {
   font-size: 16px;
   color: #337ab7;
   text-decoration: none;
-}
+} */
 
 /* REGISTER */
 
@@ -402,4 +449,15 @@ li:hover {
 .btn-none {
   background-color: transparent;
   border: none;
+}
+
+.register-form-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.spessor {
+  height: 1px;
+  background-color: #818080;
+  margin-block: 10px;
 }

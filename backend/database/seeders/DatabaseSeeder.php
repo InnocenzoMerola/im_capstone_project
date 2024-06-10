@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SlotSeeder::class,
             GuideSeeder::class,
-            StopSeeder::class,
             CategorySeeder::class,
+            StopSeeder::class,
             RateSeeder::class,
             PageSeeder::class
         ]);
