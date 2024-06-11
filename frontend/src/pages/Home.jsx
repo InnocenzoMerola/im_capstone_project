@@ -1,8 +1,11 @@
 const Home = function () {
   return (
-    <div>
-      <img src="/image/Napoli-sfondo-bottom.jpg" alt="" className="vesusio-home" />
-    </div>
+    <>
+      <div></div>
+      <div>
+        <img src="/image/Napoli-sfondo-bottom.jpg" alt="" className="vesusio-home" />
+      </div>
+    </>
   );
 };
 

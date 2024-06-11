@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LOGOUT } from "../redux/actions";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,8 @@ const MyNav = function () {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const [showLoginForm, setShowLoginForm] = useState(false);
+
+  const loginRef = useRef();
 
   const handleShowLoginForm = () => {
     setShowLoginForm(true);
@@ -28,7 +30,7 @@ const MyNav = function () {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (showLoginForm && !document.querySelector(".login-container").contains(event.target)) {
+      if (showLoginForm && !document.querySelector(".login-container")) {
         handleCloseLoginForm();
       }
     };
@@ -99,6 +101,7 @@ const MyNav = function () {
           {/* </div>
 
         <div className="menu-container"> */}
+          <div className="nav-transp"></div>
           <div className="menu-container">
             <nav>
               <div className="container first">
@@ -138,7 +141,9 @@ const MyNav = function () {
                           </svg>
                         </button>
                         {showLoginForm && (
-                          <Login onCloseLogin={handleCloseLoginForm} onShowRegister={handleShowRegisterForm} />
+                          <div ref={loginRef}>
+                            <Login onCloseLogin={handleCloseLoginForm} onShowRegister={handleShowRegisterForm} />
+                          </div>
                         )}
                       </>
                     )}
@@ -394,6 +399,7 @@ const MyNav = function () {
               </div>
             </nav>
           </div>
+          <div className="nav-transp"></div>
         </div>
       </div>
     </>

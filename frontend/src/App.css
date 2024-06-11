@@ -315,6 +315,11 @@ li:hover {
   gap: 0.15rem;
 }
 
+.nav-transp {
+  height: 10px;
+  background-color: #1a2123d4;
+}
+
 /* LOGIN */
 
 .login-big-cont {
