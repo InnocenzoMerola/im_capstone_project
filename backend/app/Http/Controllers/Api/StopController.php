@@ -9,6 +9,8 @@ use App\Http\Requests\StoreStopRequest;
 use App\Http\Requests\UpdateStopRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class StopController extends Controller
 {
@@ -34,6 +36,9 @@ class StopController extends Controller
      */
     public function store(StoreStopRequest $request)
     {
+        $data = $request->all();
+        error_log('Request Data: ' . print_r($data, true));
+
         $request->validate([
             'name' => 'required|string|max:100',
             'location' => 'required|string|max:200',
@@ -46,11 +51,13 @@ class StopController extends Controller
             'description_na' => 'nullable|string',
         ]);
 
+        $file_path = $request['image'] ? Storage::put('/stops', $request['image']) : null;
         $stop = Stop::create($request->all());
 
         if($request->hasFile('image')){
             $stop->image = $request->file('image')->store('stops', 'public');
         }
+
 
         $stop->save();
 
@@ -74,35 +81,64 @@ class StopController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Stop $stop)
+    public function edit($id)
     {
-        $stops = Stop::all();
-        return response()->json($stops);
+        $stop = Stop::FindOrFail($id);
+        
+        return response()->json([
+            'status' => 200,
+            'stop' => $stop
+        ],200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStopRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
-        // if($request->hasFile('image')){
-        //     $data->image = $request->file('image')->store('stops', 'public');  
-        // }
+        error_log('Request Data: ' . print_r($data, true));
+        error_log('Id Data: ', $id);
+        
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'location' => 'required|string|max:200',
+            'image' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'url' => 'nullable|string|max:800',
+            'description_it' => 'nullable|string',
+            'description_en' => 'nullable|string',
+            'description_fr' => 'nullable|string',
+            'description_na' => 'nullable|string',
+            'category:id' => 'nullable|exists:categories,id'
+        ]);
 
+        // if($request->fails()){
+        //     return response()->json(['error' => $validator->messages()], 422);
+        // }
         $stop = Stop::findOrFail($id);
-        $stop->name = $data['name'];
-        $stop->location = $data['location'];
-        $stop->image = $data['image'];
-        $stop->phone = $data['phone'];
-        $stop->url = $data['url'];
-        $stop->description_it = $data['description_it'];
-        $stop->description_en = $data['description_en'];
-        $stop->description_fr = $data['description_fr'];
-        $stop->description_na = $data['description_na'];
+
+        if($request->hasFile('image')){
+            $stop->image = $request->file('image')->store('stops', 'public');
+        }
+
+        $stop->name = $request->input('name');
+        $stop->location = $request->input('location');
+        // $stop->image = $data['image'] ?? $stop->image;
+        $stop->phone = $request->input('phone');
+        $stop->url = $request->input('url');
+        $stop->description_it = $request->input('description_it');
+        $stop->description_en = $request->input('description_en');
+        $stop->description_fr = $request->input('description_fr');
+        $stop->description_na = $request->input('description_na');
+        
+        if($request->hasFile('image')){
+            $stop->image = $request->file('image')->store('stops', 'public');  
+        }
+        
         $stop->save();
 
-        return redirect()->route('stops.index', ['id' => $stop->id]);
+        return response()->json($stop, 200);
 
     }
 
@@ -111,6 +147,7 @@ class StopController extends Controller
      */
     public function destroy(Stop $stop)
     {
+        
         $stop->delete();
 
         return redirect()->route('stops.index');

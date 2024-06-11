@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
@@ -24,22 +25,21 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'profile_img' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp,heic|max:2048'
+            'profile_img' => ['nullable', 'image', 'max:2048']
         ]);
+
+        // $file_path = $request['profile_img'] ? Storage::put('/profiles', $request['profile_img']) : null;
+        $file_path = $request->file('profile_img') ? $request->file('profile_img')->store('profiles', 'public') : null;
+
+        
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->string('password')),
+            'profile_img' => $file_path ? 'storage/' . $file_path : null
         ]);
 
-        if($request->hasFile('profile_img')){
-            $image = $request->file('profile_img');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
-            $user->profile_img = $imageName;
-            $user->save();
-        }
 
         event(new Registered($user));
 

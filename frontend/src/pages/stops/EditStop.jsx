@@ -12,7 +12,7 @@ const EditStop = function () {
   const [formData, setFormData] = useState({
     name: "",
     location: "",
-    image: "",
+    image: null,
     phone: "",
     url: "",
     description_it: "",
@@ -25,10 +25,21 @@ const EditStop = function () {
 
   useEffect(() => {
     console.log("StopId:", id);
+
     axios
-      .get(`/api/v1/stops/${id}`)
+      .get("/sanctum/csrf-cookie")
+      .then(() => {
+        fetchStopData();
+        fetchCategories();
+      })
+      .catch((error) => console.log("Errore nel reperimento del CSRF Token", error));
+  }, [id]);
+
+  const fetchStopData = () => {
+    axios
+      .get(`/api/v1/stops/${id}/edit`)
       .then((response) => {
-        const data = response.data;
+        const data = response.data.stop;
         console.log("Dati dall'API", data);
         setFormData({
           name: data.name || "",
@@ -44,12 +55,14 @@ const EditStop = function () {
         });
       })
       .catch((error) => console.log("Errore durante il recupero dei dati", error));
+  };
 
+  const fetchCategories = () => {
     axios
       .get("/api/v1/categories")
       .then((response) => setCategories(response.data))
       .catch((error) => console.log("Errore durante il recupero delle categorie", error));
-  }, [id]);
+  };
 
   const updateInputValue = (e) => {
     setFormData((oldFormData) => ({
@@ -59,7 +72,7 @@ const EditStop = function () {
   };
 
   const updateImageField = (e) => {
-    updateInputValue((oldFormData) => ({
+    setFormData((oldFormData) => ({
       ...oldFormData,
       image: e.target.files[0],
     }));
@@ -68,24 +81,26 @@ const EditStop = function () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form inviato");
+    console.log("Invio Form Modifica");
+
+    const body = new FormData();
+    body.append("name", formData.name);
+    body.append("location", formData.location);
+    body.append("image", formData.image);
+    body.append("phone", formData.phone);
+    body.append("url", formData.url);
+    body.append("description_it", formData.description_it);
+    body.append("description_en", formData.description_en);
+    body.append("description_fr", formData.description_fr);
+    body.append("description_na", formData.description_na);
+    body.append("category_id", formData.category_id);
+    body.append("_method", "put");
 
     axios
-      .get("/sanctum/csrf-cookie")
-      .then(() => {
-        const body = new FormData();
-        body.append("name", formData.name);
-        body.append("location", formData.location);
-        body.append("image", formData.image);
-        body.append("phone", formData.phone);
-        body.append("url", formData.url);
-        body.append("description_it", formData.description_it);
-        body.append("description_en", formData.description_en);
-        body.append("description_fr", formData.description_fr);
-        body.append("description_na", formData.description_na);
-        body.append("category_id", formData.category_id);
-
-        return axios.put(`/api/v1/stops/${id}`, body);
+      .post(`/api/v1/stops/${id}`, body, {
+        headers: {
+          "Content-Type": "x-www-form-control",
+        },
       })
       .then((response) => {
         console.log("Aggiornato con successo");
@@ -103,6 +118,7 @@ const EditStop = function () {
   return (
     <div className="">
       <form onSubmit={handleSubmit} method="put">
+        <input type="hidden" name="id" value={id} />
         <div className="input-field">
           <label>Nome</label>
           <input
@@ -197,7 +213,7 @@ const EditStop = function () {
 
         <div className="d-flex justify-content-center">
           <button type="submit" className="login-btn">
-            CREA
+            MODIFICA
           </button>
         </div>
       </form>

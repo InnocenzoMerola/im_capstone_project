@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { LOGIN } from "../redux/actions";
+import { LOGIN } from "../../redux/actions";
 
 const Login = function ({ onCloseLogin, onShowRegister }) {
   const dispatch = useDispatch();
@@ -47,6 +47,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
               name="email"
               onChange={(e) => updateInputValue(e)}
               value={formData.email}
+              required
             />
           </div>
           <div className="input-field">
@@ -58,6 +59,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
               name="password"
               onChange={(e) => updateInputValue(e)}
               value={formData.password}
+              required
             />
           </div>
           <div className="remember-me">

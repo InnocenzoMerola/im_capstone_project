@@ -1,9 +1,7 @@
 const Home = function () {
   return (
     <div>
-      <div>
-        <h1>CViao</h1>
-      </div>
+      <img src="/image/Napoli-sfondo-bottom.jpg" alt="" className="vesusio-home" />
     </div>
   );
 };

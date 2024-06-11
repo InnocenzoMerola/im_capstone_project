@@ -20,20 +20,23 @@ Route::name('api.v1.')
     
     Route::get('/stops', [StopController::class, 'index'])->name('stops.index');
     
-    
-    Route::middleware('auth', 'verified')->group(function(){
-        
-    Route::get('/guides/{id}', [GuideController::class, 'show'])->name('guides.show');
     Route::get('/stops/{id}', [StopController::class, 'show'])->name('stops.show');
     Route::get('/stops/{id}/edit', [StopController::class, 'edit'])->name('stops.edit');
-    Route::post('/stops/{id}/assign-category', [StopController::class, 'assignCategory'])->name('stops.assignCategory');
     Route::put('/stops/{id}', [StopController::class, 'update'])->name('stops.update');
-    Route::delete('/stops/{id}', [StopController::class, 'destroy'])->name('stops.destroy');
-
-        });
     
-    Route::middleware('auth', 'verified', 'admin')->group(function(){
+    Route::middleware('auth:sanctum', 'verified')->group(function(){
+        
+        Route::get('/guides/{id}', [GuideController::class, 'show'])->name('guides.show');
+        Route::post('/stops/{id}/assign-category', [StopController::class, 'assignCategory'])->name('stops.assignCategory');
+        
+        });
+        
+        Route::middleware('auth:sanctum', 'verified', 'admin')->group(function(){
             Route::post('/stops', [StopController::class, 'store'])->name('stops.store');
-    
-        });
-});
+            // Route::middleware(['web', 'auth:sanctum'])->group(function () {
+            //     Route::put('/api/v1/stops/{id}', [StopController::class, 'update'])->name('stops.update');
+            // });
+            Route::delete('/stops/{id}', [StopController::class, 'destroy'])->name('stops.destroy');
+            
+            });
+            });

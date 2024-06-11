@@ -8,6 +8,11 @@ a {
   text-decoration: none !important;
 }
 
+.top-back-img {
+  background-image: url("https://media.istockphoto.com/id/1007286274/it/foto/napoli-italia.jpg?s=2048x2048&w=is&k=20&c=SK71maX1gnmT5O_pdToKnohjmhsXZ0ZG7WpapknO3jI=");
+  background-position: top;
+}
+
 /* Dropdown */
 
 .parent.nav-item {
@@ -20,8 +25,15 @@ a {
   text-align: center;
 }
 
-.big-parent a {
+/* .big-parent a {
   padding: 6px 87px;
+} */
+.bi-linkedin {
+  color: #006dcb;
+}
+
+.bi-youtube {
+  color: red;
 }
 
 .parent {
@@ -69,11 +81,22 @@ a {
   position: absolute;
 }
 
+.child {
+  left: 0px;
+  top: 44px;
+  margin-left: 1px;
+  padding: 0;
+  display: none;
+  text-align: start;
+  border: 1px solid black;
+  width: 100%;
+}
+
 .child li {
   background-color: #005ba3;
   line-height: 40px;
   border-top: none;
-  width: 17.5rem;
+  padding-inline: 11px;
 }
 
 .child li a {
@@ -91,16 +114,6 @@ ul {
   margin: 0;
   padding: 0px;
   min-width: 12em;
-}
-
-.child {
-  left: 0px;
-  top: 44px;
-  margin-left: 1px;
-  padding: 0;
-  display: none;
-  text-align: start;
-  border: 1px solid black;
 }
 
 .child.right {
@@ -137,7 +150,6 @@ li:hover {
 /* NAVBAR */
 
 .top-nav-container {
-  background-color: #3393df;
   padding-block: 5px;
 }
 
@@ -162,22 +174,20 @@ li:hover {
   height: 100%;
 }
 
-.title-container {
-  background-color: #dbdbdb;
-}
-
 .title-div {
   padding-block: 1.5rem;
 }
 
 .title {
+  font-weight: 700;
   text-align: center;
   font-size: 4rem;
   color: white;
+  text-shadow: 3px 5px 4px #99c5ff;
 }
 
 .menu-container {
-  background-color: #1a2123;
+  background-color: #1a2123d4;
 }
 
 /* NAV-1 */
@@ -211,7 +221,6 @@ li:hover {
 /* NAV-2 */
 .container.second {
   padding: 0.5rem 0.2rem;
-  background-color: #1a2123;
 }
 
 .nav-step-2 {
@@ -286,11 +295,17 @@ li:hover {
   color: black !important;
 }
 
+.nav-user-name {
+  font-size: 22px;
+}
+
+.nav-user-img {
+  width: 36px;
+}
+
 /* NAV-3 */
 .container.third {
   padding: 0;
-  padding-bottom: 2px;
-  background-color: black;
 }
 
 .nav-step-3 {
@@ -460,4 +475,9 @@ li:hover {
   height: 1px;
   background-color: #818080;
   margin-block: 10px;
+}
+
+.vesuvio-home {
+  width: 100%;
+  height: 50vh;
 }

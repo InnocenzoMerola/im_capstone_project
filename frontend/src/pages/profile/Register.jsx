@@ -1,12 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { LOGIN } from "../redux/actions";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
+import { LOGIN } from "../../redux/actions";
 
-const Register = function ({ onCloseRegister, modalShow, show }) {
+const Register = function () {
   const dispatch = useDispatch();
 
   const [profileImg, setProfileImg] = useState(null);
@@ -41,7 +38,9 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
         body.append("email", formData.email);
         body.append("password", formData.password);
         body.append("password_confirmation", formData.password_confirmation);
-        body.append("profile_img", profileImg);
+        if (profileImg) {
+          body.append("profile_img", profileImg);
+        }
         return axios.post("/register", body);
       })
       .then(() => axios.get("/api/user"))
@@ -55,27 +54,10 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
   };
 
   return (
-    <>
-      <Modal show={show} onHide={modalShow}>
-        <Modal.Header>
-          <Modal.Title>REGISTRAZIONE</Modal.Title>
-          <div className="register-x-button">
-            <button onClick={onCloseRegister} className="btn-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                className="bi bi-x-lg"
-                viewBox="0 0 16 16"
-              >
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-              </svg>
-            </button>
-          </div>
-        </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={(e) => submitRegister(e)} noValidate>
+    <div className="container">
+      <div className="row">
+        <div className="col-9">
+          <form onSubmit={(e) => submitRegister(e)} method="POST" noValidate>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Nome utente
@@ -87,6 +69,7 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
                 name="name"
                 onChange={(e) => updateInputValue(e)}
                 value={formData.name}
+                required
               />
             </div>
             <div className="mb-3">
@@ -100,6 +83,7 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
                 name="email"
                 onChange={(e) => updateInputValue(e)}
                 value={formData.email}
+                required
               />
             </div>
             <div className="mb-3">
@@ -113,6 +97,7 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
                 name="password"
                 onChange={(e) => updateInputValue(e)}
                 value={formData.password}
+                required
               />
             </div>
             <div className="mb-3">
@@ -126,6 +111,7 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
                 name="password_confirmation"
                 onChange={(e) => updateInputValue(e)}
                 value={formData.password_confirmation}
+                required
               />
             </div>
             <div className="mb-3">
@@ -137,8 +123,7 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
                 className="form-control"
                 id="profile_img"
                 name="profile_img"
-                onChange={(e) => updateImageField(e)}
-                // value={formData.profile_img}
+                onChange={updateImageField}
               />
               {profileImg && <img src={URL.createObjectURL(profileImg)} alt="" style={{ width: "100%" }} />}
             </div>
@@ -149,9 +134,9 @@ const Register = function ({ onCloseRegister, modalShow, show }) {
               </button>
             </div>
           </form>
-        </Modal.Body>
-      </Modal>
-    </>
+        </div>
+      </div>
+    </div>
   );
 };
 
