@@ -1,4 +1,24 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Home = function () {
+  const [guides, setGuides] = useState([]);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`/api/v1/guides`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          navigate("/404");
+        }
+      })
+      .then((data) => setGuides(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <>
       <div className="vesuvio-home">
@@ -28,6 +48,9 @@ const Home = function () {
                   scoprire. Ogni guida del nostro team è un esperto del territorio, dotato di conoscenze approfondite e
                   un amore sincero per la nostra città.{" "}
                 </span>
+                <div className="d-flex justify-content-center">
+                  <img src="/image/Home-murales-2.jpg" alt="" width={100} />
+                </div>
                 <span>
                   Siamo qui per rendere il vostro viaggio a Napoli un'esperienza autentica e memorabile. Che si tratti
                   di una passeggiata tra i vicoli del centro storico, una visita ai siti archeologici più famosi o una
@@ -50,7 +73,21 @@ const Home = function () {
           </div>
         </div>
 
-        <div>{/* <img src="/image/Napoli-verticale.webp" alt="" /> */}</div>
+        <div>
+          {guides
+            .map((guide) => (
+              <div key={guide.id}>
+                {/* <img src={guide.image} alt="" /> */}
+                <h3>{guide.name_it}</h3>
+                <p>
+                  {/* {guide.stops.map((stop) => (
+                    <p key={stop.id}>{stop.description_it}</p>
+                  ))} */}
+                </p>
+              </div>
+            ))
+            .slice(0, 6)}
+        </div>
         <div>
           <img src="" alt="" />
         </div>

@@ -11,6 +11,17 @@ class Guide extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name_it' ,
+        'name_en',
+        'name_fr',
+        'name_na',
+        'date' ,
+        'price' ,
+        'mobility',
+        'duration',
+    ];
+
     public function users(): BelongsToMany{
         return $this->belongsToMany(User::class);
     }

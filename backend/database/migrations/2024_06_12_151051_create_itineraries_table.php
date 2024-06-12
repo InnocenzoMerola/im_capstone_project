@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stops', function (Blueprint $table) {
+        Schema::create('itineraries', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->unique();
-            $table->string('location', 200);
-            $table->string('image')->nullable();
-            $table->string('phone')->nullable()->unique();
-            $table->string('url', 800)->nullable();
-            $table->text('description_it')->nullable();
+            $table->string('name_it', 200);
+            $table->string('name_en', 200)->nullable();
+            $table->string('name_fr', 200)->nullable();
+            $table->string('name_na', 200)->nullable();
+            $table->text('description_it');
             $table->text('description_en')->nullable();
             $table->text('description_fr')->nullable();
             $table->text('description_na')->nullable();
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stops');
+        Schema::dropIfExists('itineraries');
     }
 };

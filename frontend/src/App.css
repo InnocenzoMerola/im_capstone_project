@@ -28,7 +28,7 @@ a {
 /* .big-parent a {
   padding: 6px 87px;
 } */
-.bi-linkedin {
+.bi-linkedin.nav {
   color: #006dcb;
 }
 
@@ -522,4 +522,50 @@ li:hover {
 .about-us-desc span {
   display: block;
   margin-block: 2rem;
+}
+
+/* FOOTER */
+
+.footer-img {
+  background-image: url(/public/image/Napoli-2.jpg);
+  background-position: center;
+}
+
+.footer {
+  background-color: #0000007a;
+}
+
+.footer-cont {
+  padding-top: 2rem;
+}
+
+.footer-cont p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-cont ul {
+  padding-left: 0;
+}
+
+.footer a {
+  color: #9a9a9a;
+}
+
+.footer p {
+  color: #9a9a9a;
+}
+
+.footer a:hover,
+.footer p:hover {
+  color: white;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+}
+
+.separator {
+  height: 1px;
+  width: 50rem;
+  background-color: white;
 }

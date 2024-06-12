@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             StopSeeder::class,
             RateSeeder::class,
-            PageSeeder::class
+            PageSeeder::class,
+            ItinerariesSeeder::class
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Guide;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGuideRequest;
 use App\Http\Requests\UpdateGuideRequest;
+use Illuminate\Http\Request;
 
 class GuideController extends Controller
 {
@@ -16,7 +17,7 @@ class GuideController extends Controller
     {
         $guides = Guide::with('stops')->get();
         // $guides = Guide::all();
-        return $guides;
+        return response()->json($guides);
     }
 
     /**
@@ -24,15 +25,44 @@ class GuideController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGuideRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name_it' => 'nullable|string|max:100',
+            'name_en'  => 'nullable|string|max:100',
+            'name_fr' => 'nullable|string|max:100',
+            'name_na' => 'nullable|string|max:100',
+            'date'=> 'nullable',
+            'price' => 'nullable',
+            'mobility' => 'nullable|string|max:50',
+            'duration' => 'nullable|string',
+            'stops' => 'required|array',
+            'stops.*.id' => 'exists:stops,id'
+        ]);
+
+        $guide = new Guide([
+            'name_it' => $data['name_it'],
+            'name_en' => $data['name_en'],
+            'name_fr' => $data['name_fr'],
+            'name_na' => $data['name_na'],
+            'date' => $data['date'],
+            'price' => $data['price'],
+            'mobility' => $data['mobility'],
+            'duration' => $data['duration'],
+        ]);
+
+        $guide->save();
+
+        $guide->stops()->sync($data['stops']);
+
+        return response()->json($guide, 201);
+
     }
 
     /**

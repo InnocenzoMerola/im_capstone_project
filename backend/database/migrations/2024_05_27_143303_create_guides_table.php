@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('name_en', 100)->nullable();
             $table->string('name_fr', 100)->nullable();
             $table->string('name_na', 100)->nullable();
-            $table->dateTime('date');
+            $table->dateTime('date')->nullable();
             $table->mediumInteger('price')->unsigned();
-            $table->string('mobility', 50);
-            $table->string('duration');
+            $table->string('mobility', 50)->nullable();
+            $table->string('duration')->nullable();
             $table->timestamps();
         });
     }

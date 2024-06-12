@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('children')->whereNull('parent_id')->get();
+        $categories = Category::with('children.stops', 'stops')->whereNull('parent_id')->get();
         // return response()->json($categories);
         return $categories;
     }

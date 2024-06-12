@@ -19,6 +19,9 @@ import ProtectedRoutes from "./pages/ProtectedRoutes";
 import CategoryShow from "./pages/CategoryShow";
 import EditStop from "./pages/stops/EditStop";
 import Profile from "./pages/profile/Profile";
+import MyFooter from "./components/MyFooter";
+import CreateGuide from "./pages/guides/CreateGuide";
+import CreateItinerary from "./pages/itinerary/CreateItinerary";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -69,7 +72,8 @@ function App() {
               <Route path="/create-stops" element={<CreateStop />} />
               <Route path="/stops/:id" element={<StopDetail />} />
               <Route path="/stops/:id/edit" element={<EditStop />} />
-
+              {/* <Route path="/create-guides" element={<CreateGuide />} /> */}
+              <Route path="/create-itineraries" element={<CreateItinerary />} />
               {/* Profile */}
               <Route path="/profile" element={<Profile />} />
             </Route>
@@ -81,6 +85,7 @@ function App() {
             <Route path="*" element={<Navigate to="/404" />} />
           </Routes>
         </div>
+        <MyFooter />
       </BrowserRouter>
     )
   );

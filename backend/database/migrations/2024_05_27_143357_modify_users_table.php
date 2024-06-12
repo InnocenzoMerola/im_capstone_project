@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('profile_img')->nullable();
             $table->string('role', 20)->default('user');
             $table->string('surname', 50)->nullable();
-            $table->string('phone', 20)->nullable();
+            $table->string('phone', 20)->nullable()->unique();
             $table->tinyInteger('age')->unsigned()->nullable();
         });
     }
