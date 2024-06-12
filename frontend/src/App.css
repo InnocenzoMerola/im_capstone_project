@@ -181,9 +181,9 @@ li:hover {
 .title {
   font-weight: 700;
   text-align: center;
-  font-size: 4rem;
+  font-size: 4.5rem;
   color: white;
-  text-shadow: 3px 5px 4px #99c5ff;
+  text-shadow: 3px 6px 4px #000000;
 }
 
 .menu-container {
@@ -203,9 +203,9 @@ li:hover {
 }
 
 .nav-step-1 li {
-  padding-inline: 4rem;
   list-style: none;
   border-right: 2px solid black;
+  text-align: center;
 }
 
 .nav-step-1 li:last-child {
@@ -258,7 +258,7 @@ li:hover {
 .icon-div {
   border: 2px solid white;
   padding: 8px;
-  background-color: #1a2123;
+  background-color: #1a212300;
   display: flex;
 }
 
@@ -483,6 +483,25 @@ li:hover {
 }
 
 .vesuvio-home {
+  background-image: url(../public/image/Napoli-2.jpg);
   width: 100%;
-  height: 50vh;
+  height: 80vh;
+  background-repeat: round;
+}
+
+.on-vesuvio-text {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.on-vesuvio-text h1 {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.on-vesuvio-text h2 {
+  color: white;
 }

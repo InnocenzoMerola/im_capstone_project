@@ -105,17 +105,17 @@ const MyNav = function () {
           <div className="menu-container">
             <nav>
               <div className="container first">
-                <ul className="nav-step-1">
-                  <li>
+                <ul className="row g-0 nav-step-1">
+                  <li className="col-3">
                     <Link className="menu-link">La grande Napoli</Link>
                   </li>
-                  <li>
+                  <li className="col-3">
                     <Link className="menu-link">La grande Napoli</Link>
                   </li>
-                  <li>
+                  <li className="col-3">
                     <Link className="menu-link">La grande Napoli</Link>
                   </li>
-                  <li>
+                  <li className="col-3">
                     <Link className="menu-link">La grande Napoli</Link>
                   </li>
                 </ul>
@@ -281,23 +281,15 @@ const MyNav = function () {
                         xmlns="http://www.w3.org/2000/svg"
                         aria-label="Gmail"
                         role="img"
-                        viewBox="0 0 512.00 512.00"
+                        viewBox="0 0 512 512"
+                        fill="#000000"
                         width="17"
                         height="17"
-                        fill="#000000"
-                        stroke="#000000"
-                        stroke-width="0.00512"
                       >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)"></g>
-                        <g
-                          id="SVGRepo_tracerCarrier"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke="#CCCCCC"
-                          stroke-width="6.144"
-                        ></g>
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
-                          <rect width="512" height="512" rx="15%" fill="#d1f5ff"></rect>
+                          <rect width="512" height="512" rx="15%" fill="#1a212300"></rect>
                           <path d="M158 391v-142l-82-63V361q0 30 30 30" fill="#4285f4"></path>
                           <path d="M 154 248l102 77l102-77v-98l-102 77l-102-77" fill="#ea4335"></path>
                           <path d="M354 391v-142l82-63V361q0 30-30 30" fill="#34a853"></path>

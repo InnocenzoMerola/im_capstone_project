@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 
@@ -29,9 +30,17 @@ class RegisteredUserController extends Controller
         ]);
 
         // $file_path = $request['profile_img'] ? Storage::put('/profiles', $request['profile_img']) : null;
-        $file_path = $request->file('profile_img') ? $request->file('profile_img')->store('profiles', 'public') : null;
-
         
+        // if($request->hasFile('profile_img')){
+        //     Log::info('Profile image file received');
+        // }else{
+        //     Log::info('No profile image file received');
+        // }
+
+
+        $file_path = $request->file('profile_img') ? $request->file('profile_img')->store('profiles', 'public') : null;
+        
+        // Log::info('File path: ', $file_path );
 
         $user = User::create([
             'name' => $request->name,
