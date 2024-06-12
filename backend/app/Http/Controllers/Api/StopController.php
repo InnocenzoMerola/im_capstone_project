@@ -42,7 +42,7 @@ class StopController extends Controller
         $request->validate([
             'name' => 'required|string|max:100',
             'location' => 'required|string|max:200',
-            'image' => 'nullable|string',
+            'image' => 'nullable|file|image|max:2048',
             'phone' => 'nullable|string',
             'url' => 'nullable|string|max:800',
             'description_it' => 'nullable|string',
@@ -51,8 +51,17 @@ class StopController extends Controller
             'description_na' => 'nullable|string',
         ]);
 
-        $file_path = $request['image'] ? Storage::put('/stops', $request['image']) : null;
-        $stop = Stop::create($request->all());
+        $stop = new Stop([
+            'name' => $request->input('name'),
+            'location' => $request->input('location'),
+            'phone' => $request->input('phone'),
+            'url' => $request->input('url'),
+            'description_it' => $request->input('description_it'),
+            'description_en' => $request->input('description_en'),
+            'description_fr' => $request->input('description_fr'),
+            'description_na' => $request->input('description_na'),
+            'category_id' => $request->input('category.id'),
+        ]);
 
         if($request->hasFile('image')){
             $stop->image = $request->file('image')->store('stops', 'public');
@@ -103,35 +112,29 @@ class StopController extends Controller
         $request->validate([
             'name' => 'required|string|max:100',
             'location' => 'required|string|max:200',
-            'image' => 'nullable|string',
+            'image' => 'nullable|file|image|max:2048',
             'phone' => 'nullable|string',
             'url' => 'nullable|string|max:800',
             'description_it' => 'nullable|string',
             'description_en' => 'nullable|string',
             'description_fr' => 'nullable|string',
             'description_na' => 'nullable|string',
-            'category:id' => 'nullable|exists:categories,id'
+            'category_id' => 'nullable|exists:categories,id'
         ]);
 
-        // if($request->fails()){
-        //     return response()->json(['error' => $validator->messages()], 422);
-        // }
+      
         $stop = Stop::findOrFail($id);
-
-        if($request->hasFile('image')){
-            $stop->image = $request->file('image')->store('stops', 'public');
-        }
-
+        
         $stop->name = $request->input('name');
         $stop->location = $request->input('location');
-        // $stop->image = $data['image'] ?? $stop->image;
         $stop->phone = $request->input('phone');
         $stop->url = $request->input('url');
         $stop->description_it = $request->input('description_it');
         $stop->description_en = $request->input('description_en');
         $stop->description_fr = $request->input('description_fr');
         $stop->description_na = $request->input('description_na');
-        
+        $stop->category_id = $request->input('category.id');
+
         if($request->hasFile('image')){
             $stop->image = $request->file('image')->store('stops', 'public');  
         }
@@ -150,7 +153,7 @@ class StopController extends Controller
         
         $stop->delete();
 
-        return redirect()->route('stops.index');
+        return response()->json(['message' => 'Luogo eliminato con successo'], 200);
     }
 
     public function assignCategory(Request $request, $id)

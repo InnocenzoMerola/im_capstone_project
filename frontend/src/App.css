@@ -504,4 +504,22 @@ li:hover {
 
 .on-vesuvio-text h2 {
   color: white;
+  width: 68rem;
+  background-color: #0000003b;
+}
+
+/* --------- */
+
+.about-us-title {
+  margin-top: 3rem;
+  font-size: 2.5rem;
+}
+
+.about-us-desc {
+  margin-top: 1rem;
+}
+
+.about-us-desc span {
+  display: block;
+  margin-block: 2rem;
 }

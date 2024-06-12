@@ -12,7 +12,7 @@ const Register = function () {
     email: "",
     password: "",
     password_confirmation: "",
-    profile_img: "",
+    // profile_img: "",
   });
 
   const updateInputValue = (e) => {
@@ -41,6 +41,9 @@ const Register = function () {
         if (profileImg) {
           body.append("profile_img", profileImg);
         }
+
+        console.log(...body);
+
         return axios.post("/register", body);
       })
       .then(() => axios.get("/api/user"))

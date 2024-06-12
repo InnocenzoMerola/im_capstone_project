@@ -37,7 +37,6 @@ const CreateStop = function () {
   };
 
   const updateImageField = (e) => {
-    updateInputValue(e);
     setImg(e.target.files[0]);
   };
 
@@ -51,7 +50,10 @@ const CreateStop = function () {
         const body = new FormData();
         body.append("name", formData.name);
         body.append("location", formData.location);
-        body.append("image", formData.image);
+        if (img) {
+          body.append("image", img);
+        }
+        // body.append("image", formData.image);
         body.append("phone", formData.phone);
         body.append("url", formData.url);
         body.append("description_it", formData.description_it);

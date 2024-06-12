@@ -26,21 +26,13 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'profile_img' => ['nullable', 'image', 'max:2048']
+            'profile_img' => ['nullable','file', 'image', 'max:2048']
         ]);
 
-        // $file_path = $request['profile_img'] ? Storage::put('/profiles', $request['profile_img']) : null;
-        
-        // if($request->hasFile('profile_img')){
-        //     Log::info('Profile image file received');
-        // }else{
-        //     Log::info('No profile image file received');
-        // }
-
+    
 
         $file_path = $request->file('profile_img') ? $request->file('profile_img')->store('profiles', 'public') : null;
         
-        // Log::info('File path: ', $file_path );
 
         $user = User::create([
             'name' => $request->name,
