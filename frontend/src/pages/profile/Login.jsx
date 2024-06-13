@@ -38,7 +38,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     <div className="login-big-cont">
       <div className="login-container">
         <form onSubmit={(e) => submitLogin(e)} noValidate>
-          <div className="input-field">
+          <div className="input-field login">
             <label>Email</label>
             <input
               type="email"
@@ -50,7 +50,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
               required
             />
           </div>
-          <div className="input-field">
+          <div className="input-field login">
             <label>Password</label>
             <input
               type="password"

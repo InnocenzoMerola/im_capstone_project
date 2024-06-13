@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name', 100)->unique();
             $table->string('location', 200);
             $table->string('image')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
             $table->string('phone')->nullable()->unique();
             $table->string('url', 800)->nullable();
             $table->text('description_it')->nullable();

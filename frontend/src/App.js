@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav";
 import Categories from "./pages/Categories";
@@ -22,6 +22,7 @@ import Profile from "./pages/profile/Profile";
 import MyFooter from "./components/MyFooter";
 import CreateGuide from "./pages/guides/CreateGuide";
 import CreateItinerary from "./pages/itinerary/CreateItinerary";
+import EditItinerary from "./pages/itinerary/EditItinerary";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -30,6 +31,7 @@ function App() {
 
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
+  const location = useLocation();
   // const [showRegisterForm, setShowRegisterForm] = useState(false);
 
   useEffect(() => {
@@ -54,16 +56,14 @@ function App() {
 
   return (
     loaded && (
-      <BrowserRouter>
-        <MyNav />
+      <>
+        {location.pathname !== "/register" && <MyNav />}
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
 
             <Route element={<Guest />}>
-              {/* <Route path="/login" element={<Login />} /> */}
-
               <Route path="/register" element={<Register />} />
             </Route>
 
@@ -74,19 +74,21 @@ function App() {
               <Route path="/stops/:id/edit" element={<EditStop />} />
               {/* <Route path="/create-guides" element={<CreateGuide />} /> */}
               <Route path="/create-itineraries" element={<CreateItinerary />} />
+              <Route path="/itineraries/:id/edit" element={<EditItinerary />} />
               {/* Profile */}
               <Route path="/profile" element={<Profile />} />
             </Route>
 
-            <Route path="/category/:id" element={<CategoryShow />} />
+            <Route path="/categories/:id" element={<CategoryShow />} />
             <Route path="/stops" element={<ShowStops />} />
 
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />
           </Routes>
         </div>
-        <MyFooter />
-      </BrowserRouter>
+        {location.pathname !== "/register" && <MyFooter />}
+        {/* <MyFooter /> */}
+      </>
     )
   );
 }

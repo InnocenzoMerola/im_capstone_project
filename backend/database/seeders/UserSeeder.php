@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'surname' => 'Merola',
             'email' => 'enzo@enzo.com',
             'password' => bcrypt('Enzomerola'),
-            'profile_img' => null,
+            'profile_img' => 'storage/profiles/profile_image.jpg',
             'role' => 'admin',
             'phone' => '123456789',
             'age' => 21,

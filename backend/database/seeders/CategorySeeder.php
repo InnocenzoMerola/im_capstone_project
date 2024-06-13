@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             ['name' => 'Dove andare', 'parent_id' => null],
             ['name' => 'Svago', 'parent_id' => null],
-            ['name' => 'Itinerario', 'parent_id' => null],
+            // ['name' => 'Itinerario', 'parent_id' => null],
 
             #Parent id1
             ['name' => 'Centro storico e monumenti', 'parent_id' => 1],
@@ -37,10 +37,10 @@ class CategorySeeder extends Seeder
             ['name' => 'Tragitti in barca', 'parent_id' => 2],
 
             #Parent id3
-            ['name' => '1 giorno a Napoli', 'parent_id' => 3],
-            ['name' => '3 giorni a Napoli', 'parent_id' => 3],
-            ['name' => '7 giorni a Napoli', 'parent_id' => 3],
-            ['name' => 'Escursioni', 'parent_id' => 3],
+            // ['name' => '1 giorno a Napoli', 'parent_id' => 3],
+            // ['name' => '3 giorni a Napoli', 'parent_id' => 3],
+            // ['name' => '7 giorni a Napoli', 'parent_id' => 3],
+            // ['name' => 'Escursioni', 'parent_id' => 3],
         ]);
 
         

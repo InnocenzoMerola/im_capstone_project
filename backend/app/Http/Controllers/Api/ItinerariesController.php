@@ -106,10 +106,10 @@ class ItinerariesController extends Controller
             'name_en' => 'nullable|string|max:200',
             'name_fr' => 'nullable|string|max:200',
             'name_na' => 'nullable|string|max:200',
-            'description_it' => 'required|text',
-            'description_en' => 'nullable|text',
-            'description_fr' => 'nullable|text',
-            'description_na' => 'nullable|text',
+            'description_it' => 'required|string',
+            'description_en' => 'nullable|string',
+            'description_fr' => 'nullable|string',
+            'description_na' => 'nullable|string',
         ]);
 
         $itineraries = Itineraries::FindOrFail($id);

@@ -7,6 +7,7 @@ import Login from "../pages/profile/Login";
 
 const MyNav = function () {
   const [categories, setCategories] = useState([]);
+  const [itineraries, setItineraries] = useState([]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -54,13 +55,21 @@ const MyNav = function () {
   useEffect(() => {
     fetch(`/api/v1/categories`)
       .then((response) => {
-        if (!response.ok) navigate("/404");
+        // if (!response.ok) navigate("/404");
         return response.json();
       })
       .then((data) => setCategories(data))
       .catch((error) => {
         console.log("Errore nella chiamata api", error);
       });
+
+    // axios
+    //   .get("/api/v1/itineraries")
+    //   .then((response) => {
+    //     // if (!response.data) navigate("/404");
+    //     setItineraries(response.data);
+    //   })
+    //   .catch((error) => console.log("Errore nella chiamata API ", error));
   }, []);
 
   return (
@@ -152,7 +161,7 @@ const MyNav = function () {
                         <img
                           src={user.profile_img ? user.profile_img : "/image/profile-image.png"}
                           alt=""
-                          className="nav-user-img"
+                          className="nav-user-img rounded-circle"
                         />
                         <button className="btn-none">
                           <p className="nav-user-name">{user.name}</p>
@@ -376,17 +385,28 @@ const MyNav = function () {
                   </li>
                   {categories.map((category) => (
                     <li className="parent nav-item big-parent" key={category.id}>
-                      <Link to={`/category/${category.id}`}>{category.name}</Link>
+                      <Link to={`/categories/${category.id}`}>{category.name}</Link>
 
                       <ul className="child">
                         {category.children.map((childCategory) => (
                           <li key={childCategory.id}>
-                            <Link to={`/category/${childCategory.id}`}>{childCategory.name}</Link>
+                            <Link to={`/categories/${childCategory.id}`}>{childCategory.name}</Link>
                           </li>
                         ))}
                       </ul>
                     </li>
                   ))}
+                  <li className="parent nav-item big-parent">
+                    <Link to="/#">Itinerario</Link>
+
+                    <ul className="child">
+                      {itineraries.map((itinerary) => (
+                        <li key={itinerary.id}>
+                          <Link to={`/itineraries/${itinerary.id}`}>{itinerary.name_it}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </nav>

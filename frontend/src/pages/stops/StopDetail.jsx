@@ -28,6 +28,9 @@ const StopDetail = function () {
           <h3>{stop.categories[0].name}</h3>
           <p>{stop.description_it}</p>
           <img src={`/storage/${stop.image}`} alt={stop.name} />
+          <img src={`/storage/${stop.image2}`} alt={stop.name} />
+          <img src={`/storage/${stop.image3}`} alt={stop.name} />
+          <img src={`/storage/${stop.image4}`} alt={stop.name} />
         </>
       )}
     </div>

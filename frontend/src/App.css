@@ -355,6 +355,10 @@ li:hover {
 
 .input-field {
   margin-bottom: 10px;
+}
+
+.input-field.login {
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -364,13 +368,16 @@ li:hover {
   margin-bottom: 5px;
 }
 
-.input-field input {
-  /* width: 100%; */
+.input-field.login input {
   width: 190px;
   height: 30px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.textarea-descript {
+  height: 40vh !important;
 }
 
 .remember-me {
@@ -457,30 +464,76 @@ li:hover {
 } */
 
 /* REGISTER */
-
-.modal-header {
-  justify-content: space-between;
+.register-total-page {
+  height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.register-x-button {
-  padding-right: 10px;
+.shadow-div {
+  margin-inline: 6rem;
+  border: 1px solid #e1e1e1;
+  border-radius: 2rem;
+  box-shadow: 2px 2px 20px 0px #58b1e6, -2px -2px 20px 1px #c8fdff;
 }
 
-.btn-none {
-  background-color: transparent;
-  border: none;
+.reg-form {
+  padding: 0.6rem 2.5rem !important;
+  border: 0.5px solid #ededed !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 3px 5px 0px #7cbcf2, 0px -2px 14px 0px #4ce3f6;
 }
 
 .register-form-btn {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 2.5rem;
 }
 
-.spessor {
-  height: 1px;
-  background-color: #818080;
-  margin-block: 10px;
+.register-form-btn button {
+  color: white;
+  background-color: cadetblue;
+  padding: 0.5rem 2.3rem;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px 2px #9fbcc0;
 }
+
+.register-form-btn button:hover {
+  transform: scale(1.04);
+}
+
+.pos-rel-pass {
+  position: relative;
+}
+
+.btn-show-pass {
+  position: absolute;
+  top: 38px;
+  right: 7px;
+}
+
+.register-div {
+  padding-block: 5rem;
+}
+
+.btn-none {
+  border: none;
+  background-color: transparent;
+}
+
+.side-register {
+  display: flex;
+  background-color: cadetblue;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+/* HOME */
 
 .vesuvio-home {
   background-image: url(../public/image/Napoli-2.jpg);
@@ -508,7 +561,41 @@ li:hover {
   background-color: #0000003b;
 }
 
-/* --------- */
+.subcategory-home-rel {
+  position: relative;
+}
+
+.subcategory-home-rel:hover {
+  transform: scale(1.05);
+}
+
+.subcategory-home-rel a {
+  margin: 0;
+  font-size: 12px;
+  color: black;
+}
+
+.subcategory-home-img {
+  width: 100%;
+  height: 17vh;
+  border-radius: 15px;
+}
+
+.subcategory-home-name {
+  background-color: white;
+  padding-inline: 9px;
+  display: flex;
+  width: 8rem;
+  position: absolute;
+  left: 28px;
+  bottom: 14px;
+  height: 45px;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+/* ABOUT US */
 
 .about-us-title {
   margin-top: 3rem;
@@ -568,4 +655,10 @@ li:hover {
   height: 1px;
   width: 50rem;
   background-color: white;
+}
+
+/* ------------------------------ */
+
+.separator-form {
+  margin-bottom: 10rem;
 }

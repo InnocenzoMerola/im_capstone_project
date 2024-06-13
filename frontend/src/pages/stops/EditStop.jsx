@@ -19,7 +19,7 @@ const EditStop = function () {
     description_en: "",
     description_fr: "",
     description_na: "",
-    category_id: "",
+    categories: "",
   });
   const [categories, setCategories] = useState([]);
 
@@ -42,6 +42,7 @@ const EditStop = function () {
         const data = response.data.stop;
         console.log("Dati dall'API", data);
         setFormData({
+          ...formData,
           name: data.name || "",
           location: data.location || "",
           image: "",
@@ -51,7 +52,7 @@ const EditStop = function () {
           description_en: data.description_en || "",
           description_fr: data.description_fr || "",
           description_na: data.description_na || "",
-          category_id: data.category_id || "",
+          categories: data.categories[0].id || "",
         });
       })
       .catch((error) => console.log("Errore durante il recupero dei dati", error));
@@ -60,7 +61,10 @@ const EditStop = function () {
   const fetchCategories = () => {
     axios
       .get("/api/v1/categories")
-      .then((response) => setCategories(response.data))
+      .then((response) => {
+        console.log("Categorie dall'API", response);
+        setCategories(response.data);
+      })
       .catch((error) => console.log("Errore durante il recupero delle categorie", error));
   };
 
@@ -93,7 +97,7 @@ const EditStop = function () {
     body.append("description_en", formData.description_en);
     body.append("description_fr", formData.description_fr);
     body.append("description_na", formData.description_na);
-    body.append("category_id", formData.category_id);
+    body.append("category_id", formData.categories);
     body.append("_method", "put");
 
     axios
@@ -104,6 +108,7 @@ const EditStop = function () {
       })
       .then((response) => {
         console.log("Aggiornato con successo");
+        console.log("Body ", body);
       })
       .catch((error) => console.log("Errore durante la modifica: ", error));
   };
@@ -111,8 +116,9 @@ const EditStop = function () {
   const updateCategoryValue = (e) => {
     setFormData((oldFormData) => ({
       ...oldFormData,
-      category_id: e.target.value,
+      categories: e.target.value,
     }));
+    console.log("FormData", formData);
   };
 
   return (
@@ -159,7 +165,7 @@ const EditStop = function () {
           <label htmlFor="category" className="form-label">
             Categoria
           </label>
-          <select className="form-select" onChange={updateCategoryValue} value={formData.category_id}>
+          <select className="form-select" onChange={updateCategoryValue} value={formData.categories}>
             <option value="">Seleziona una categoria</option>
             {categories.map((category) =>
               category.children.map((child) => (

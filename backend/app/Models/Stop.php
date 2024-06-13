@@ -27,11 +27,15 @@ class Stop extends Model
         'name',
         'location', 
         'image',
+        'image2',
+        'image3',
+        'image4',
         'phone',
         'url',
         'description_it',
         'description_en',
         'description_fr',
         'description_na',
+        
     ];
 }

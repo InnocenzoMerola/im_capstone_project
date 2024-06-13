@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = function () {
-  const [guides, setGuides] = useState([]);
+  const [subcategories, setSubcategories] = useState([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`/api/v1/guides`)
+    fetch(`/api/v1/categories`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -15,9 +15,24 @@ const Home = function () {
           navigate("/404");
         }
       })
-      .then((data) => setGuides(data))
-      .catch((error) => console.error(error));
-  }, []);
+      .then((data) => {
+        const selectedSubcategoryIds = [7, 9, 15, 3, 5, 8];
+        const filteredSubcategories = data
+          .map((category) => category.children.filter((child) => selectedSubcategoryIds.includes(child.id)))
+          .flat();
+        setSubcategories(filteredSubcategories);
+      })
+      .catch((error) => console.log("Errore", error));
+  }, [navigate]);
+
+  const subcategoryImage = {
+    3: "/image/Home-mini.jpg",
+    5: "/image/Home-mini2.jpg",
+    7: "/image/Home-mini3.jpg",
+    8: "/image/Home-mini4.jpg",
+    9: "/image/Home-mini5.jpg",
+    15: "/image/Home-mini6.jpg",
+  };
 
   return (
     <>
@@ -73,20 +88,30 @@ const Home = function () {
           </div>
         </div>
 
-        <div>
-          {guides
-            .map((guide) => (
-              <div key={guide.id}>
-                {/* <img src={guide.image} alt="" /> */}
-                <h3>{guide.name_it}</h3>
-                <p>
-                  {/* {guide.stops.map((stop) => (
-                    <p key={stop.id}>{stop.description_it}</p>
-                  ))} */}
-                </p>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-5 d-flex justify-content-center">
+              <div className="row row-gap-4">
+                {subcategories.splice(0, 6).map((subcategory) => (
+                  <div key={subcategory.id} className="col-4 subcategory-home-rel">
+                    <Link to={`/categories/${subcategory.id}`}>
+                      <img
+                        src={subcategoryImage[subcategory.id]}
+                        alt={subcategory.name}
+                        className="subcategory-home-img"
+                      />
+                      <div className="subcategory-home-name">
+                        {subcategory.name}
+                        <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 320 512">
+                          <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                        </svg>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
               </div>
-            ))
-            .slice(0, 6)}
+            </div>
+          </div>
         </div>
         <div>
           <img src="" alt="" />

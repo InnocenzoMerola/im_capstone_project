@@ -43,6 +43,9 @@ class StopController extends Controller
             'name' => 'required|string|max:100',
             'location' => 'required|string|max:200',
             'image' => 'nullable|file|image|max:2048',
+            'image2' => 'nullable|file|image|max:2048',
+            'image3' => 'nullable|file|image|max:2048',
+            'image4' => 'nullable|file|image|max:2048',
             'phone' => 'nullable|string',
             'url' => 'nullable|string|max:800',
             'description_it' => 'nullable|string',
@@ -60,11 +63,20 @@ class StopController extends Controller
             'description_en' => $request->input('description_en'),
             'description_fr' => $request->input('description_fr'),
             'description_na' => $request->input('description_na'),
-            'category_id' => $request->input('category.id'),
+            'categories' => $request->input('categories'),
         ]);
 
         if($request->hasFile('image')){
             $stop->image = $request->file('image')->store('stops', 'public');
+        }
+        if($request->hasFile('image2')){
+            $stop->image2 = $request->file('image2')->store('stops', 'public');
+        }
+        if($request->hasFile('image3')){
+            $stop->image3 = $request->file('image3')->store('stops', 'public');
+        }
+        if($request->hasFile('image4')){
+            $stop->image4 = $request->file('image4')->store('stops', 'public');
         }
 
 
@@ -92,7 +104,7 @@ class StopController extends Controller
      */
     public function edit($id)
     {
-        $stop = Stop::FindOrFail($id);
+        $stop = Stop::with('categories')->FindOrFail($id);
         
         return response()->json([
             'status' => 200,
@@ -113,6 +125,9 @@ class StopController extends Controller
             'name' => 'required|string|max:100',
             'location' => 'required|string|max:200',
             'image' => 'nullable|file|image|max:2048',
+            'image2' => 'nullable|file|image|max:2048',
+            'image3' => 'nullable|file|image|max:2048',
+            'image4' => 'nullable|file|image|max:2048',
             'phone' => 'nullable|string',
             'url' => 'nullable|string|max:800',
             'description_it' => 'nullable|string',
@@ -120,7 +135,7 @@ class StopController extends Controller
             'description_fr' => 'nullable|string',
             'description_na' => 'nullable|string',
             'category_id' => 'nullable|exists:categories,id'
-        ]);
+        ]); 
 
       
         $stop = Stop::findOrFail($id);
@@ -133,12 +148,26 @@ class StopController extends Controller
         $stop->description_en = $request->input('description_en');
         $stop->description_fr = $request->input('description_fr');
         $stop->description_na = $request->input('description_na');
-        $stop->category_id = $request->input('category.id');
+        // $stop->categories = $request->input('categories');
 
         if($request->hasFile('image')){
             $stop->image = $request->file('image')->store('stops', 'public');  
         }
+        if($request->hasFile('image2')){
+            $stop->image2 = $request->file('image2')->store('stops', 'public');  
+        }
+        if($request->hasFile('image3')){
+            $stop->image3 = $request->file('image3')->store('stops', 'public');  
+        }
+        if($request->hasFile('image4')){
+            $stop->image4 = $request->file('image4')->store('stops', 'public');  
+        }
         
+        if($request->has('category_id')){
+           $category = Category::FindOrFail($request->input('category_id'));
+           $stop->categories()->sync([$category->id]);
+        }
+
         $stop->save();
 
         return response()->json($stop, 200);
