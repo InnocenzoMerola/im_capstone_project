@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav";
-import Categories from "./pages/Categories";
+import Categories from "./categories/Categories";
 import NotFound from "./pages/NotFound";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -16,13 +16,17 @@ import CreateStop from "./pages/stops/CreateStop";
 import ShowStops from "./pages/stops/ShowStops";
 import StopDetail from "./pages/stops/StopDetail";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
-import CategoryShow from "./pages/CategoryShow";
+import CategoryShow from "./categories/CategoryShow";
 import EditStop from "./pages/stops/EditStop";
 import Profile from "./pages/profile/Profile";
 import MyFooter from "./components/MyFooter";
 import CreateGuide from "./pages/guides/CreateGuide";
 import CreateItinerary from "./pages/itinerary/CreateItinerary";
 import EditItinerary from "./pages/itinerary/EditItinerary";
+import NapoliStory from "./pages/NapoliStory";
+import Partenope from "./pages/Partenope";
+import Vesuvio from "./pages/Vesuvio";
+import VoiceOfNaples from "./pages/stops/VoiceOfNaples";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -66,6 +70,11 @@ function App() {
             <Route element={<Guest />}>
               <Route path="/register" element={<Register />} />
             </Route>
+
+            <Route path="/story" element={<NapoliStory />} />
+            <Route path="/partenope" element={<Partenope />} />
+            <Route path="/vesuvio" element={<Vesuvio />} />
+            <Route path="/voci-di-napoli" element={<VoiceOfNaples />} />
 
             <Route element={<ProtectedRoutes />}>
               {/* Stops */}

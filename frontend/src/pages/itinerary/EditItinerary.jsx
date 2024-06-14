@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditItinerary = function () {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+
   const [formData, setFormData] = useState({
     name_it: "",
     name_en: "",
@@ -43,6 +46,10 @@ const EditItinerary = function () {
     }));
   };
 
+  const handleChangeLanguage = (language) => {
+    setSelectedLanguage(language);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -65,110 +72,148 @@ const EditItinerary = function () {
       })
       .then((response) => {
         console.log("Itinerario aggiornato con successo");
+        navigate("/itineraries");
       })
       .catch((error) => console.log("Errore durante la modifica ", error));
   };
 
   return (
-    <div className="">
-      <div className="">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="input-field">
-            <label>Nome</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name_it"
-              name="name_it"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.name_it}
-              required
-            />
-          </div>
-          <div className="input-field">
-            <label>Nome</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name_en"
-              name="name_en"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.name_en}
-            />
-          </div>
-          <div className="input-field">
-            <label>Nome</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name_fr"
-              name="name_fr"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.name_fr}
-            />
-          </div>
-          <div className="input-field">
-            <label>Nome</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name_na"
-              name="name_na"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.name_na}
-            />
-          </div>
-          <div className="form-floating">
-            <textarea
-              className="form-control"
-              placeholder="Descrizione ITA"
-              id="description_it"
-              name="description_it"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.description_it}
-            ></textarea>
-            <label for="floatingTextarea">Comments</label>
-          </div>
-          <div className="form-floating">
-            <textarea
-              className="form-control"
-              placeholder="Descrizione ENG"
-              id="description_en"
-              name="description_en"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.description_en}
-            ></textarea>
-            <label for="floatingTextarea">Comments</label>
-          </div>
-          <div className="form-floating">
-            <textarea
-              className="form-control"
-              placeholder="Descrizione FRA"
-              id="description_fr"
-              name="description_fr"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.description_fr}
-            ></textarea>
-            <label for="floatingTextarea">Comments</label>
-          </div>
-          <div className="form-floating">
-            <textarea
-              className="form-control"
-              placeholder="Descrizione NAP"
-              id="description_na"
-              name="description_na"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.description_na}
-            ></textarea>
-            <label for="floatingTextarea">Comments</label>
-          </div>
+    <div className="container my-5">
+      <div className="row">
+        <div className="col-md-8 offset-md-2">
+          <div className="card stops-form">
+            <div className="card-body">
+              <h3 className="card-title text-center mb-4">Modifica itinerario</h3>
 
-          <div className="d-flex justify-content-center">
-            <button type="submit" className="login-btn">
-              CREA
-            </button>
+              <form onSubmit={(e) => handleSubmit(e)}>
+                <div className="input-field">
+                  <label>Nome ITA</label>
+                  <input
+                    type="text"
+                    className="form-control stops-input"
+                    id="name_it"
+                    name="name_it"
+                    onChange={(e) => updateInputValue(e)}
+                    value={formData.name_it}
+                    required
+                  />
+                </div>
+                <div className="input-field">
+                  <label>Nome ENG</label>
+                  <input
+                    type="text"
+                    className="form-control stops-input"
+                    id="name_en"
+                    name="name_en"
+                    onChange={(e) => updateInputValue(e)}
+                    value={formData.name_en}
+                  />
+                </div>
+                <div className="input-field">
+                  <label>Nome FRA</label>
+                  <input
+                    type="text"
+                    className="form-control stops-input"
+                    id="name_fr"
+                    name="name_fr"
+                    onChange={(e) => updateInputValue(e)}
+                    value={formData.name_fr}
+                  />
+                </div>
+                <div className="input-field">
+                  <label>Nome NAP</label>
+                  <input
+                    type="text"
+                    className="form-control stops-input"
+                    id="name_na"
+                    name="name_na"
+                    onChange={(e) => updateInputValue(e)}
+                    value={formData.name_na}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Lingue</label>
+                  <select
+                    className="form-select  stops-input mb-3"
+                    value={selectedLanguage}
+                    onChange={(e) => handleChangeLanguage(e.target.value)}
+                  >
+                    <option value="">Seleziona una lingua</option>
+                    <option value="ITA">Italiano</option>
+                    <option value="ENG">Inglese</option>
+                    <option value="FRA">Francese </option>
+                    <option value="NAP">Napoletano </option>
+                  </select>
+
+                  {selectedLanguage === "" && <div className="separator-form"></div>}
+
+                  {selectedLanguage === "ITA" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione ITA"
+                        id="description_it"
+                        name="description_it"
+                        onChange={(e) => updateInputValue(e)}
+                        value={formData.description_it}
+                      ></textarea>
+                      <label for="floatingTextarea">Descrizione ITA</label>
+                    </div>
+                  )}
+
+                  {selectedLanguage === "ENG" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione ENG"
+                        id="description_en"
+                        name="description_en"
+                        onChange={(e) => updateInputValue(e)}
+                        value={formData.description_en}
+                      ></textarea>
+                      <label for="floatingTextarea">Descrizione ENG</label>
+                    </div>
+                  )}
+
+                  {selectedLanguage === "FRA" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione FRA"
+                        id="description_fr"
+                        name="description_fr"
+                        onChange={(e) => updateInputValue(e)}
+                        value={formData.description_fr}
+                      ></textarea>
+                      <label for="floatingTextarea">Descrizione FRA</label>
+                    </div>
+                  )}
+
+                  {selectedLanguage === "NAP" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione NAP"
+                        id="description_na"
+                        name="description_na"
+                        onChange={(e) => updateInputValue(e)}
+                        value={formData.description_na}
+                      ></textarea>
+                      <label for="floatingTextarea">Descrizione NAP</label>
+                    </div>
+                  )}
+                </div>
+
+                <div className="d-flex justify-content-center">
+                  <button type="submit" className="create-edit-btn">
+                    MODIFICA
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

@@ -63,9 +63,9 @@ const Home = function () {
                   scoprire. Ogni guida del nostro team è un esperto del territorio, dotato di conoscenze approfondite e
                   un amore sincero per la nostra città.{" "}
                 </span>
-                <div className="d-flex justify-content-center">
-                  <img src="/image/Home-murales-2.jpg" alt="" width={100} />
-                </div>
+                <span className="d-flex justify-content-center">
+                  <img src="/image/Home-murales-2.jpg" alt="" className="about-us-img" />
+                </span>
                 <span>
                   Siamo qui per rendere il vostro viaggio a Napoli un'esperienza autentica e memorabile. Che si tratti
                   di una passeggiata tra i vicoli del centro storico, una visita ai siti archeologici più famosi o una
@@ -88,11 +88,21 @@ const Home = function () {
           </div>
         </div>
 
-        <div className="container">
-          <div className="row justify-content-center">
+        <div className="container what-see">
+          <div className="row justify-content-between align-items-center">
+            <div className="col-5">
+              <h2>Cosa vedere a Napoli?</h2>
+              <p>Stai pendando di organizzare le tue vacanze a Napoli?</p>
+              <p>
+                Sei nel posto giusto. In questo sito abbiamo racchiuso tutti i nostri anni d'esperienza per fornirti
+                tutte le informazioni di cui hai bisogno per un soggiorno indimenticabile. Troverai preziosi consigli su
+                cosa visitare, dove mangiare a Napoli, i piatti tipici e le attrazioni da non perdere.
+              </p>
+              <p>Scopri con noi tutto ciò che questa meravigliosa città ha da offrire!</p>
+            </div>
             <div className="col-5 d-flex justify-content-center">
               <div className="row row-gap-4">
-                {subcategories.splice(0, 6).map((subcategory) => (
+                {subcategories.slice(0, 6).map((subcategory) => (
                   <div key={subcategory.id} className="col-4 subcategory-home-rel">
                     <Link to={`/categories/${subcategory.id}`}>
                       <img

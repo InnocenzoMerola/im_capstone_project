@@ -22,10 +22,10 @@ const ShowStops = function () {
   return (
     <div>
       {stops.map((stop) => (
-        <>
+        <div key={stop.id}>
           <h1>{stop.name}</h1>
           <h2>{stop.location}</h2>
-        </>
+        </div>
       ))}
     </div>
   );

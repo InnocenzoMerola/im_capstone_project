@@ -17,7 +17,6 @@ const CategoryShow = function () {
       })
       .then((data) => setCategory(data.data))
       .catch((error) => console.error(error));
-    console.log("Ewhjhe");
   }, [id]);
 
   return category ? (

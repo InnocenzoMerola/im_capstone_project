@@ -1,15 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const CreateStop = function () {
   const [img, setImg] = useState(null);
   const [img2, setImg2] = useState(null);
   const [img3, setImg3] = useState(null);
   const [img4, setImg4] = useState(null);
-  // const { stopId } = useParams();
-  // const { categoryId } = useParams();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -103,6 +102,8 @@ const CreateStop = function () {
 
         assignCategoryToStop(response.data.id, formData.category_id);
         axios.get("/api/v1/stops");
+
+        navigate("/stops");
       })
       .catch((error) => console.log("Errore durante la creazione: ", error));
   };
@@ -131,7 +132,7 @@ const CreateStop = function () {
     <div className="container my-5">
       <div className="row">
         <div className="col-md-8 offset-md-2">
-          <div className="card shadow-sm">
+          <div className="card stops-form">
             <div className="card-body">
               <h3 className="card-title text-center mb-4">Crea Fermata</h3>
 
@@ -140,7 +141,7 @@ const CreateStop = function () {
                   <label className="form-label">Nome</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="name"
                     name="name"
                     onChange={(e) => updateInputValue(e)}
@@ -152,7 +153,7 @@ const CreateStop = function () {
                   <label className="form-label">Luogo</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="location"
                     name="location"
                     onChange={(e) => updateInputValue(e)}
@@ -164,7 +165,7 @@ const CreateStop = function () {
                   <label className="form-label">Telefono / Cellulare</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="phone"
                     name="phone"
                     onChange={(e) => updateInputValue(e)}
@@ -175,7 +176,7 @@ const CreateStop = function () {
                   <label className="form-label">Indirizzo URL</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="url"
                     name="url"
                     onChange={(e) => updateInputValue(e)}
@@ -183,48 +184,48 @@ const CreateStop = function () {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlhtmlFor="image" className="form-label">
+                  <label htmlFor="image" className="form-label">
                     Immagine
                   </label>
                   <input
                     type="file"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="image"
                     name="image"
                     onChange={(e) => updateImageField(e, 1)}
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlhtmlFor="image2" className="form-label">
+                  <label htmlFor="image2" className="form-label">
                     Immagine
                   </label>
                   <input
                     type="file"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="image2"
                     name="image2"
                     onChange={(e) => updateImageField(e, 2)}
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlhtmlFor="image3" className="form-label">
+                  <label htmlFor="image3" className="form-label">
                     Immagine
                   </label>
                   <input
                     type="file"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="image3"
                     name="image3"
                     onChange={(e) => updateImageField(e, 3)}
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlhtmlFor="image4" className="form-label">
+                  <label htmlFor="image4" className="form-label">
                     Immagine
                   </label>
                   <input
                     type="file"
-                    className="form-control"
+                    className="form-control stops-input"
                     id="image4"
                     name="image4"
                     onChange={(e) => updateImageField(e, 4)}
@@ -232,33 +233,31 @@ const CreateStop = function () {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlhtmlFor="category" className="form-label">
+                  <label htmlFor="category" className="form-label">
                     Categoria
                   </label>
                   <select
-                    className="form-select"
+                    className="form-select stops-input"
                     id="category"
                     name="category_id"
                     onChange={(e) => updateCategoryValue(e)}
                     value={formData.category_id}
                   >
                     <option value="">Seleziona una categoria</option>
-                    {categories.map((category) => (
-                      <>
-                        {category.children.map((child) => (
-                          <option key={child.id} value={child.id}>
-                            {child.name}
-                          </option>
-                        ))}
-                      </>
-                    ))}
+                    {categories.map((category) =>
+                      category.children.map((child) => (
+                        <option key={child.id} value={child.id}>
+                          {child.name}
+                        </option>
+                      ))
+                    )}
                   </select>
                 </div>
 
                 <div className="mb-3">
                   <label className="form-label">Lingue</label>
                   <select
-                    className="form-select mb-3"
+                    className="form-select  stops-input mb-3"
                     value={selectedLanguage}
                     onChange={(e) => handleChangeLanguage(e.target.value)}
                   >
@@ -330,7 +329,7 @@ const CreateStop = function () {
                 </div>
 
                 <div className="d-flex justify-content-center">
-                  <button type="submit" className="login-btn">
+                  <button type="submit" className="create-edit-btn">
                     CREA
                   </button>
                 </div>
