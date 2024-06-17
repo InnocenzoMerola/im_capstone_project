@@ -179,6 +179,13 @@ ul {
 
 .title-div {
   padding-block: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.title-div a {
+  display: block;
+  width: max-content;
 }
 
 .title {
@@ -752,6 +759,7 @@ ul {
   display: flex;
   gap: 1rem;
   align-items: center;
+  height: 37px;
 }
 
 .admin-expand {
@@ -825,4 +833,103 @@ ul {
   align-items: center;
   border-radius: 10px;
   justify-content: space-between;
+}
+
+/* PAGINA PROFILO */
+
+.profile-container {
+  margin-block: 5rem;
+}
+
+.profile-page-img-flex {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.profile-page-img {
+  border-radius: 100%;
+  height: 12rem;
+  width: 12rem;
+  object-fit: cover;
+}
+
+.profile-page-img-rel {
+  position: relative;
+  width: max-content;
+}
+
+.profile-page-img-abs {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 20px 22px;
+  background-color: #3393df;
+  border-radius: 50%;
+  color: white;
+}
+
+.update-profile-img {
+  border: 0;
+  border-radius: 9px;
+  background-color: #00d700;
+  padding: 5px 8px;
+}
+.cancel-update-profile-img {
+  border: 0;
+  border-radius: 9px;
+  background-color: #ff0404;
+  padding: 4px 6px;
+}
+
+.upload-pass {
+  margin-top: 10rem;
+}
+
+.profile-input {
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  border: 1px solid #00bbff !important;
+  box-shadow: -2px -1px 11px -1px #0392a4;
+}
+
+.input-field.profile {
+  margin-bottom: 25px;
+}
+
+.input-field.profile label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  padding-inline: 1rem;
+}
+
+.acp-cancl-btn-abs {
+  position: absolute;
+}
+
+.profile-btn {
+  margin-top: 2rem;
+  width: 14rem;
+  padding: 10px;
+  background-color: #b2f0ff;
+  border: none;
+  font-weight: bold;
+  border-radius: 16px;
+}
+
+.profile-btn:hover {
+  transform: scale(1.15);
+  background-color: #0073d6;
+  color: white;
+  box-shadow: 0 0 20px 2px #00c8ff;
+}
+
+.logout-abs {
+  padding: 12px 13px 13px 16px;
+  background-color: #ff0000;
+  top: 0px;
+  position: absolute;
+  right: 0px;
+  border-radius: 21px;
 }

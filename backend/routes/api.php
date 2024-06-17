@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\GuideController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\StopController;
 use App\Http\Controllers\Api\ItinerariesController;
+use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\Api\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +33,14 @@ Route::name('api.v1.')
         
         Route::get('/itineraries', [ItinerariesController::class, 'index'])->name('itineraries.index');
         Route::get('/itineraries/{id}', [ItinerariesController::class, 'show'])->name('itineraries.show');
+    
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::post('/profile/update', [ProfileController::class, 'update'])->name('pofile.update');
+        Route::post('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('pofile.updatePassword');
+        Route::post('/profile/upload-image', [ProfileController::class, 'uploadImage'])->name('pofile.uploadImage');
+    
+
+        Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
     
     });
     

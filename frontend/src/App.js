@@ -27,6 +27,7 @@ import NapoliStory from "./pages/NapoliStory";
 import Partenope from "./pages/Partenope";
 import Vesuvio from "./pages/Vesuvio";
 import VoiceOfNaples from "./pages/stops/VoiceOfNaples";
+import ContactForm from "./contact/ContactForm";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -86,6 +87,7 @@ function App() {
               <Route path="/itineraries/:id/edit" element={<EditItinerary />} />
               {/* Profile */}
               <Route path="/profile" element={<Profile />} />
+              <Route path="/contact" element={<ContactForm />} />
             </Route>
 
             <Route path="/categories/:id" element={<CategoryShow />} />
