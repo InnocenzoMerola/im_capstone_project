@@ -28,6 +28,7 @@ import Partenope from "./pages/Partenope";
 import Vesuvio from "./pages/Vesuvio";
 import VoiceOfNaples from "./pages/stops/VoiceOfNaples";
 import ContactForm from "./contact/ContactForm";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -65,6 +66,7 @@ function App() {
         {location.pathname !== "/register" && <MyNav />}
         <div>
           <Routes>
+            {/* <ScrollToTop/> */}
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
 

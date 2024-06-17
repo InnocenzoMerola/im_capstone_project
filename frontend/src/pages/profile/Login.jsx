@@ -5,6 +5,7 @@ import { LOGIN } from "../../redux/actions";
 
 const Login = function ({ onCloseLogin, onShowRegister }) {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -34,6 +35,10 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
       .catch((error) => console.log("Errore", error));
   };
 
+  const clickToShowPass = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="login-big-cont">
       <div className="login-container">
@@ -50,10 +55,10 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
               required
             />
           </div>
-          <div className="input-field login">
+          <div className="input-field login pos-rel-pass">
             <label>Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="form-control"
               id="password"
               name="password"
@@ -61,6 +66,11 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
               value={formData.password}
               required
             />
+            <div className="btn-show-pass-login">
+              <button className="btn-none" onClick={clickToShowPass}>
+                <img src={showPassword ? "/icons/eye.svg" : "/icons/eye-slash.svg"} alt="" />
+              </button>
+            </div>
           </div>
           <div className="remember-me">
             <input type="checkbox" id="remember-me" />

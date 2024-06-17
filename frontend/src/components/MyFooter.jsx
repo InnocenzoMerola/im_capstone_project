@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const MyFooter = function () {
+  const location = useLocation();
+
   return (
     <div className="footer-img">
       <footer className="footer">
@@ -17,17 +20,34 @@ const MyFooter = function () {
             <div className="col-md-2 ">
               <h5 className=" text-white">Link Utili</h5>
               <ul>
+                {location.pathname === "/" ? (
+                  <>
+                    <li>
+                      <ScrollLink to="home" smooth={true} duration={200} offset={-500} className="scroll-color">
+                        Home
+                      </ScrollLink>
+                    </li>
+                    <li>
+                      <ScrollLink to="about" smooth={true} duration={200} offset={-50} className="scroll-color">
+                        Chi siamo
+                      </ScrollLink>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Chi siamo</Link>
+                    </li>
+                  </>
+                )}
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/contact">Contatti</Link>
                 </li>
                 <li>
-                  <Link to="#">Chi siamo</Link>
-                </li>
-                <li>
-                  <Link to="#">Tour</Link>
-                </li>
-                <li>
-                  <Link to="#">Contatti</Link>
+                  <Link to="/profile">Profilo</Link>
                 </li>
               </ul>
             </div>

@@ -30,21 +30,56 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nome</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+    <div className="container my-5">
+      <div className="row">
+        <div className="col-md-8 offset-md-2">
+          <div className="card stops-form">
+            <div className="card-body">
+              <h3 className="card-title text-center mb-4">Contattaci</h3>
+              <form onSubmit={handleSubmit}>
+                <div className="input-field">
+                  <label>Nome</label>
+                  <input
+                    type="text"
+                    className="form-control contact-input"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="input-field">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    className="form-control contact-input "
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="input-field">
+                  <label>Messaggio</label>
+                  <textarea
+                    name="message"
+                    className="form-control contact-input textarea"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="d-flex justify-content-end">
+                  <button type="submit" className="contact-btn">
+                    Invia
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>Email</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Messaggio</label>
-        <textarea name="message" value={formData.message} onChange={handleChange} required />
-      </div>
-      <button type="submit">Invia</button>
-    </form>
+    </div>
   );
 };
 

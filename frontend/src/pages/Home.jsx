@@ -36,7 +36,7 @@ const Home = function () {
 
   return (
     <>
-      <div className="vesuvio-home">
+      <div className="vesuvio-home" id="home">
         <div className="d-flex h-100 on-vesuvio-text">
           <div>
             <h1>La tua guida a Napoli</h1>
@@ -49,7 +49,7 @@ const Home = function () {
       </div>
 
       <div>
-        <div className="container">
+        <div className="container" id="about">
           <div className="row">
             <div className="col">
               <h2 className="about-us-title">Chi siamo</h2>

@@ -472,6 +472,11 @@ ul {
   color: black;
 }
 
+.btn-show-pass-login {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+}
 /* .footer {
   padding-top: 20px;
   border-top: 1px solid #ddd;
@@ -676,12 +681,11 @@ ul {
   padding-left: 0;
 }
 
-.footer a {
+.footer a,
+.footer p,
+.scroll-color {
   color: #9a9a9a;
-}
-
-.footer p {
-  color: #9a9a9a;
+  cursor: pointer;
 }
 
 .footer a:hover,
@@ -932,4 +936,34 @@ ul {
   position: absolute;
   right: 0px;
   border-radius: 21px;
+}
+
+/* CONTATTACI */
+
+.contact-input {
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  border: 1px solid #00bbff !important;
+  box-shadow: -2px -1px 11px -1px #0392a4;
+}
+
+.contact-btn {
+  margin-top: 2rem;
+  width: 14rem;
+  padding: 10px;
+  background-color: #b2f0ff;
+  border: none;
+  font-weight: bold;
+  border-radius: 16px;
+}
+
+.textarea {
+  height: 400px;
+}
+
+.contact-btn:hover {
+  transform: scale(1.15);
+  background-color: #0073d6;
+  color: white;
+  box-shadow: 0 0 20px 2px #00c8ff;
 }
