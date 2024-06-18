@@ -990,3 +990,15 @@ ul {
   height: 63vh;
   object-fit: cover; */
 }
+
+.stop-title {
+  margin-bottom: 2rem;
+}
+
+.stop-title h1 {
+  font-size: 3rem;
+}
+
+.stop-location {
+  margin-block: 2rem 1.5rem;
+}

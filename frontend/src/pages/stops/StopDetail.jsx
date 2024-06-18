@@ -29,19 +29,19 @@ const StopDetail = function () {
           <div className="container stop-detail-cont">
             <div className="row">
               <div className="col-6">
-                <div>
+                <div className="stop-title">
                   <h1>{stopData.name}</h1>
                 </div>
                 <div>
                   <img src={`/storage/${stopData.image}`} alt={stopData.name} />
                 </div>
-                <div>
-                  <h2>{stopData.location}</h2>
+                <div className="stop-location">
+                  <h6>Località: {stopData.location}</h6>
                 </div>
-                <div>
+                <div className="stop-category">
                   <Badge>{stopData.categories[0].name}</Badge>
                 </div>
-                <div>
+                <div className="stop-description">
                   <p>{stopData.description_it}</p>
                 </div>
 
