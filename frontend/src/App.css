@@ -977,3 +977,16 @@ ul {
 .category-title {
   margin-bottom: 3rem;
 }
+
+/* STOP DETAIL */
+
+.stop-detail-cont {
+  margin-top: 6rem;
+}
+
+.stop-detail-cont img {
+  width: 100%;
+  /* vertical-align: middle;
+  height: 63vh;
+  object-fit: cover; */
+}
