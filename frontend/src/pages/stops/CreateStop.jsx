@@ -138,7 +138,9 @@ const CreateStop = function () {
 
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-field">
-                  <label className="form-label">Nome</label>
+                  <label htmlFor="name" className="form-label">
+                    Nome
+                  </label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -150,7 +152,9 @@ const CreateStop = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label className="form-label">Luogo</label>
+                  <label htmlFor="location" className="form-label">
+                    Luogo
+                  </label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -162,7 +166,9 @@ const CreateStop = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label className="form-label">Telefono / Cellulare</label>
+                  <label htmlFor="phone" className="form-label">
+                    Telefono / Cellulare
+                  </label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -173,7 +179,9 @@ const CreateStop = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label className="form-label">Indirizzo URL</label>
+                  <label htmlFor="url" className="form-label">
+                    Indirizzo URL
+                  </label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -255,11 +263,14 @@ const CreateStop = function () {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Lingue</label>
+                  <label htmlFor="language" className="form-label">
+                    Lingue
+                  </label>
                   <select
                     className="form-select  stops-input mb-3"
                     value={selectedLanguage}
                     onChange={(e) => handleChangeLanguage(e.target.value)}
+                    id="language"
                   >
                     <option value="">Seleziona una lingua</option>
                     <option value="ITA">Italiano</option>

@@ -87,7 +87,7 @@ const EditItinerary = function () {
 
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-field">
-                  <label>Nome ITA</label>
+                  <label htmlFor="name_it">Nome ITA</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -99,7 +99,7 @@ const EditItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label>Nome ENG</label>
+                  <label htmlFor="name_en">Nome ENG</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -110,7 +110,7 @@ const EditItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label>Nome FRA</label>
+                  <label htmlFor="name_fr">Nome FRA</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -121,7 +121,7 @@ const EditItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label>Nome NAP</label>
+                  <label htmlFor="name_na">Nome NAP</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -133,11 +133,14 @@ const EditItinerary = function () {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Lingue</label>
+                  <label htmlFor="language" className="form-label">
+                    Lingue
+                  </label>
                   <select
                     className="form-select  stops-input mb-3"
                     value={selectedLanguage}
                     onChange={(e) => handleChangeLanguage(e.target.value)}
+                    id="language"
                   >
                     <option value="">Seleziona una lingua</option>
                     <option value="ITA">Italiano</option>

@@ -16,17 +16,17 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'name' => 'Enzo',
+            'name' => 'Innocenzo',
             'surname' => 'Merola',
-            'email' => 'enzo@enzo.com',
+            'email' => 'enzomerola02@gmail.com',
             'password' => bcrypt('Enzomerola'),
             'profile_img' => 'storage/profiles/profile_image.jpg',
             'role' => 'admin',
-            'phone' => '123456789',
+            'phone' => '3899262208',
             'age' => 21,
         ]);
 
-        User::factory(5)->create();
+        // User::factory(5)->create();
 
         // $users = User::all()->all();
         // $guides_ids = Guide::all()->pluck('id')->all();

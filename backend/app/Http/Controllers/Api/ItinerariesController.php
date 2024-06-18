@@ -42,6 +42,7 @@ class ItinerariesController extends Controller
             'name_it' => 'required|string|max:200',
             'name_en' => 'nullable|string|max:200',
             'name_fr' => 'nullable|string|max:200',
+            'name_sp' => 'nullable|string|max:200',
             'name_na' => 'nullable|string|max:200',
             'description_it' => 'required|string',
             'description_en' => 'nullable|string',
@@ -53,10 +54,12 @@ class ItinerariesController extends Controller
             'name_it' => $request->input('name_it'),
             'name_en' => $request->input('name_en'),
             'name_fr' => $request->input('name_fr'),
+            'name_sp' => $request->input('name_sp'),
             'name_na' => $request->input('name_na'),
             'description_it' => $request->input('description_it'),
             'description_en' => $request->input('description_en'),
             'description_fr' => $request->input('description_fr'),
+            'description_sp' => $request->input('description_sp'),
             'description_na' => $request->input('description_na'),
         ]);
         
@@ -105,10 +108,12 @@ class ItinerariesController extends Controller
             'name_it' => 'required|string|max:200',
             'name_en' => 'nullable|string|max:200',
             'name_fr' => 'nullable|string|max:200',
+            'name_sp' => 'nullable|string|max:200',
             'name_na' => 'nullable|string|max:200',
             'description_it' => 'required|string',
             'description_en' => 'nullable|string',
             'description_fr' => 'nullable|string',
+            'description_sp' => 'nullable|string',
             'description_na' => 'nullable|string',
         ]);
 
@@ -117,10 +122,12 @@ class ItinerariesController extends Controller
         $itineraries->name_it = $request->input('name_it');
         $itineraries->name_en = $request->input('name_en');
         $itineraries->name_fr = $request->input('name_fr');
+        $itineraries->name_sp = $request->input('name_sp');
         $itineraries->name_na = $request->input('name_na');
         $itineraries->description_it = $request->input('description_it');
         $itineraries->description_en = $request->input('description_en');
         $itineraries->description_fr = $request->input('description_fr');
+        $itineraries->description_sp = $request->input('description_sp');
         $itineraries->description_na = $request->input('description_na');
 
         $itineraries->save();

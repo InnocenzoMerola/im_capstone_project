@@ -65,10 +65,10 @@ function App() {
       <>
         {location.pathname !== "/register" && <MyNav />}
         <div>
+          <ScrollToTop />
           <Routes>
-            {/* <ScrollToTop/> */}
             <Route path="/" element={<Home />} />
-            <Route path="/categories" element={<Categories />} />
+            {/* <Route path="/categories" element={<Categories />} /> */}
 
             <Route element={<Guest />}>
               <Route path="/register" element={<Register />} />

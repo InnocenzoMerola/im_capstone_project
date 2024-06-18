@@ -20,13 +20,28 @@ const CategoryShow = function () {
   }, [id]);
 
   return category ? (
-    <div>
-      <h1>{category.name}</h1>
-      <ul>
-        {category.stops.map((stop) => (
-          <li key={stop.id}>{stop.name}</li>
-        ))}
-      </ul>
+    <div className="div-category-stop">
+      <div className="container">
+        <div className="row row-gap-4">
+          <div className="category-title">
+            <h1>{category.name}</h1>
+          </div>
+          {category.stops.map((stop) => (
+            <div className="col-3" key={stop.id}>
+              <div className="card">
+                <img src={stop.image} className="card-img-top" alt={stop.name} />
+                <div className="card-body">
+                  <h5 className="card-title">{stop.name}</h5>
+                  <p className="card-text">{stop.description_it}</p>
+                  {/* <a href="#" className="btn btn-primary">
+            Go somewhere
+            </a> */}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   ) : (
     // <p>loading....</p>

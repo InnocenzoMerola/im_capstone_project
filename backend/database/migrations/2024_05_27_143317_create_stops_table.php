@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('description_it')->nullable();
             $table->text('description_en')->nullable();
             $table->text('description_fr')->nullable();
+            $table->text('description_sp')->nullable();
             $table->text('description_na')->nullable();
             $table->timestamps();
         });

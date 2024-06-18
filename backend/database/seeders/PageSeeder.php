@@ -13,8 +13,8 @@ class PageSeeder extends Seeder
      */
     public function run(): void
     {
-        Page::factory()->create([
-            'content_it' => 'Buonasera a tutti'
-        ]);
+        // Page::factory()->create([
+        //     'content_it' => 'Buonasera a tutti'
+        // ]);
     }
 }

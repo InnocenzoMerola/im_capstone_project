@@ -241,6 +241,7 @@ const Profile = function ({ token }) {
               <div className="input-field profile">
                 <label htmlFor="name">Nome</label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -254,6 +255,7 @@ const Profile = function ({ token }) {
                 <input
                   type="email"
                   name="email"
+                  id="emial"
                   value={formData.email}
                   onChange={handleChange}
                   className="form-control profile-input"
@@ -265,6 +267,7 @@ const Profile = function ({ token }) {
                 <input
                   type="text"
                   name="surname"
+                  id="surname"
                   value={formData.surname}
                   onChange={handleChange}
                   className="form-control profile-input "
@@ -275,6 +278,7 @@ const Profile = function ({ token }) {
                 <input
                   type="text"
                   name="phone"
+                  id="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   className="form-control profile-input"
@@ -285,6 +289,7 @@ const Profile = function ({ token }) {
                 <input
                   type="number"
                   name="age"
+                  id="age"
                   value={formData.age}
                   onChange={handleChange}
                   className="form-control profile-input"
@@ -303,6 +308,7 @@ const Profile = function ({ token }) {
                 <label htmlFor="currentPassword">Password attuale</label>
                 <input
                   type="password"
+                  id="currentPassword"
                   name="currentPassword"
                   value={formData.currentPassword}
                   onChange={handleChange}
@@ -313,6 +319,7 @@ const Profile = function ({ token }) {
                 <label htmlFor="newPassword">Nuova password</label>
                 <input
                   type="password"
+                  id="newPassword"
                   name="newPassword"
                   value={formData.newPassword}
                   onChange={handleChange}
@@ -323,6 +330,7 @@ const Profile = function ({ token }) {
                 <label htmlFor="confirmPassword">Conferma nuova password</label>
                 <input
                   type="password"
+                  id="confirmPassword"
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}

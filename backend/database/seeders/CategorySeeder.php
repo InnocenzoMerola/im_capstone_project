@@ -29,8 +29,6 @@ class CategorySeeder extends Seeder
 
             #Parent id2
             ['name' => 'Tradizioni ed eventi', 'parent_id' => 2],
-            ['name' => 'Mercati tradizionali', 'parent_id' => 2],
-            ['name' => 'Shopping', 'parent_id' => 2],
             ['name' => 'Centri commerciali', 'parent_id' => 2],
             ['name' => 'Sport, stadi e palazzetti', 'parent_id' => 2],
             ['name' => 'Spiagge', 'parent_id' => 2],

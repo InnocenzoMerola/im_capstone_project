@@ -177,7 +177,7 @@ const EditStop = function () {
               <form onSubmit={handleSubmit} method="put">
                 <input type="hidden" name="id" value={id} />
                 <div className="input-field">
-                  <label>Nome</label>
+                  <label htmlFor="name">Nome</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -188,7 +188,7 @@ const EditStop = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label>Luogo</label>
+                  <label htmlFor="location">Luogo</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -199,7 +199,7 @@ const EditStop = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label>Telefono / Cellulare</label>
+                  <label htmlFor="phone">Telefono / Cellulare</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -209,7 +209,7 @@ const EditStop = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label>Indirizzo URL</label>
+                  <label htmlFor="url">Indirizzo URL</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -283,11 +283,14 @@ const EditStop = function () {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Lingue</label>
+                  <label htmlFor="language" className="form-label">
+                    Lingue
+                  </label>
                   <select
                     className="form-select  stops-input mb-3"
                     value={selectedLanguage}
                     onChange={(e) => handleChangeLanguage(e.target.value)}
+                    id="language"
                   >
                     <option value="">Seleziona una lingua</option>
                     <option value="ITA">Italiano</option>

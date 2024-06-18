@@ -51,6 +51,7 @@ class StopController extends Controller
             'description_it' => 'nullable|string',
             'description_en' => 'nullable|string',
             'description_fr' => 'nullable|string',
+            'description_sp' => 'nullable|string',
             'description_na' => 'nullable|string',
         ]);
 
@@ -62,6 +63,7 @@ class StopController extends Controller
             'description_it' => $request->input('description_it'),
             'description_en' => $request->input('description_en'),
             'description_fr' => $request->input('description_fr'),
+            'description_sp' => $request->input('description_sp'),
             'description_na' => $request->input('description_na'),
             'categories' => $request->input('categories'),
         ]);
@@ -133,6 +135,7 @@ class StopController extends Controller
             'description_it' => 'nullable|string',
             'description_en' => 'nullable|string',
             'description_fr' => 'nullable|string',
+            'description_sp' => 'nullable|string',
             'description_na' => 'nullable|string',
             'category_id' => 'nullable|exists:categories,id'
         ]); 
@@ -147,8 +150,9 @@ class StopController extends Controller
         $stop->description_it = $request->input('description_it');
         $stop->description_en = $request->input('description_en');
         $stop->description_fr = $request->input('description_fr');
+        $stop->description_sp = $request->input('description_sp');
         $stop->description_na = $request->input('description_na');
-        // $stop->categories = $request->input('categories');
+     
 
         if($request->hasFile('image')){
             $stop->image = $request->file('image')->store('stops', 'public');  

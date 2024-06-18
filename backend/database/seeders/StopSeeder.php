@@ -16,25 +16,25 @@ class StopSeeder extends Seeder
     public function run(): void
     {
 
-        Stop::create([
-            'name' => 'Maschio Angioino',
-            'description_it' => "Una grande opera d'arte",
-            'location' => 'Napoli',
-        ]);
+        // Stop::create([
+        //     'name' => 'Maschio Angioino',
+        //     'description_it' => "Una grande opera d'arte",
+        //     'location' => 'Napoli',
+        // ]);
 
-        Stop::create([
-            'name' => 'Quartieri Spagnoli',
-            'description_it' => "Simbolo di Napoli",
-            'location' => 'Napoli',
-        ]);
+        // Stop::create([
+        //     'name' => 'Quartieri Spagnoli',
+        //     'description_it' => "Simbolo di Napoli",
+        //     'location' => 'Napoli',
+        // ]);
 
-        Stop::create([
-            'name' => 'Ischia',
-            'description_it' => "La grande isola",
-            'location' => 'Ischia',
-        ]);
+        // Stop::create([
+        //     'name' => 'Ischia',
+        //     'description_it' => "La grande isola",
+        //     'location' => 'Ischia',
+        // ]);
 
-        Stop::factory(5)->create();
+        // Stop::factory(5)->create();
 
         $guides = Guide::all()->all();
         $stops_ids = Stop::all()->pluck('id')->all();

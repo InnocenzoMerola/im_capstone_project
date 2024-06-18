@@ -967,3 +967,13 @@ ul {
   color: white;
   box-shadow: 0 0 20px 2px #00c8ff;
 }
+
+/* CATEGORY -> STOP -> VIEW */
+
+.div-category-stop {
+  margin-block: 8rem;
+}
+
+.category-title {
+  margin-bottom: 3rem;
+}

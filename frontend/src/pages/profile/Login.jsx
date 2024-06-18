@@ -44,7 +44,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
       <div className="login-container">
         <form onSubmit={(e) => submitLogin(e)} noValidate>
           <div className="input-field login">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               className="form-control"
@@ -56,7 +56,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
             />
           </div>
           <div className="input-field login pos-rel-pass">
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type={showPassword ? "text" : "password"}
               className="form-control"

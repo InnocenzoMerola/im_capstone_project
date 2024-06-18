@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import ShowComment from "../../comments/ShowComment";
+import AddComment from "../../comments/AddComment";
 
 const StopDetail = function () {
-  const [stop, setStop] = useState(null);
+  const [stopData, setStopData] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -15,22 +17,25 @@ const StopDetail = function () {
           navigate("/404");
         }
       })
-      .then((data) => setStop(data.data))
+      .then((data) => setStopData(data.data))
       .catch((error) => console.error(error));
-  }, [id]);
+  }, [id, navigate]);
 
   return (
     <div>
-      {stop && (
+      {stopData && (
         <>
-          <h1>{stop.name}</h1>
-          <h2>{stop.location}</h2>
-          <h3>{stop.categories[0].name}</h3>
-          <p>{stop.description_it}</p>
-          <img src={`/storage/${stop.image}`} alt={stop.name} />
-          <img src={`/storage/${stop.image2}`} alt={stop.name} />
-          <img src={`/storage/${stop.image3}`} alt={stop.name} />
-          <img src={`/storage/${stop.image4}`} alt={stop.name} />
+          <h1>{stopData.name}</h1>
+          <h2>{stopData.location}</h2>
+          <h3>{stopData.categories[0].name}</h3>
+          <p>{stopData.description_it}</p>
+          <img src={`/storage/${stopData.image}`} alt={stopData.name} />
+          <img src={`/storage/${stopData.image2}`} alt={stopData.name} />
+          <img src={`/storage/${stopData.image3}`} alt={stopData.name} />
+          <img src={`/storage/${stopData.image4}`} alt={stopData.name} />
+
+          <ShowComment stopId={stopData.id} />
+          <AddComment stopId={stopData.id} />
         </>
       )}
     </div>

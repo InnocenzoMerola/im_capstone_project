@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name_it', 100)->nullable();
             $table->string('name_en', 100)->nullable();
             $table->string('name_fr', 100)->nullable();
+            $table->string('name_sp', 100)->nullable();
             $table->string('name_na', 100)->nullable();
             $table->dateTime('date')->nullable();
             $table->mediumInteger('price')->unsigned();

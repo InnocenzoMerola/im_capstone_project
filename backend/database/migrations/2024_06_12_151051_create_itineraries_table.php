@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('name_it', 200);
             $table->string('name_en', 200)->nullable();
             $table->string('name_fr', 200)->nullable();
+            $table->string('name_sp', 200)->nullable();
             $table->string('name_na', 200)->nullable();
             $table->text('description_it');
             $table->text('description_en')->nullable();
             $table->text('description_fr')->nullable();
+            $table->text('description_sp')->nullable();
             $table->text('description_na')->nullable();
             $table->timestamps();
         });

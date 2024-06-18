@@ -15,15 +15,15 @@ class SlotSeeder extends Seeder
     public function run(): void
     {
 
-        Slot::create([
-            'date' => '2024-06-12'
-        ]);
+        // Slot::create([
+        //     'date' => '2024-06-12'
+        // ]);
 
-        Slot::create([
-            'date' => '2024-06-21'
-        ]);
+        // Slot::create([
+        //     'date' => '2024-06-21'
+        // ]);
 
-        Slot::factory(15)->create();
+        // Slot::factory(15)->create();
 
 
 

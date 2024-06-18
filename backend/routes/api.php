@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\StopController;
 use App\Http\Controllers\Api\ItinerariesController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\RateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,10 @@ Route::name('api.v1.')
 
         Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
     
+
+        Route::get('/stops/{stopId}/comments', [RateController::class, 'index'])->name('stops.comments.index');
+        Route::post('/stops/{stop}/comments', [RateController::class, 'store'])->name('stops.comments.store');
+        Route::delete('/stops/{stop}/comments/{comment}', [RateController::class, 'destroy'])->name('stops.comments.destroy');
     });
     
     Route::middleware('auth:sanctum', 'verified', 'admin')->group(function(){
