@@ -4,12 +4,14 @@ import ShowComment from "../../comments/ShowComment";
 import AddComment from "../../comments/AddComment";
 import { Badge } from "react-bootstrap";
 import axios from "axios";
+import { useLanguage } from "../../traductions/LanguageContext";
 
 const StopDetail = function () {
   const [stopData, setStopData] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
   const [comments, setComments] = useState([]);
+  const { language } = useLanguage();
 
   useEffect(() => {
     console.log("ID", id);
@@ -18,15 +20,11 @@ const StopDetail = function () {
         .get(`/api/v1/stops/${id}`)
         .then((response) => {
           setStopData(response.data);
-          fetchComments(response.data.id);
+          fetchComments(id);
         })
         .catch((error) => console.log("Errore ", error));
     }
   }, [id]);
-
-  if (!id) {
-    return <div>Id non valido</div>;
-  }
 
   const fetchComments = (stopId) => {
     axios
@@ -36,6 +34,10 @@ const StopDetail = function () {
       })
       .catch((error) => console.log("Errore nella chiamata API", error));
   };
+
+  if (!id) {
+    return <div>Id non valido</div>;
+  }
 
   const handleAddComment = (newComment) => {
     setComments((prevComments) => [...prevComments, newComment]);
@@ -61,27 +63,30 @@ const StopDetail = function () {
                   <Badge>{stopData.data.categories[0].name}</Badge>
                 </div>
                 <div className="stop-description">
-                  <p>{stopData.data.description_it}</p>
-                  <p>{stopData.data.description_en}</p>
-                  <p>{stopData.data.description_fr}</p>
-                  <p>{stopData.data.description_sp}</p>
+                  {language === "it" && <p>{stopData.data.description_it}</p>}
+                  {language === "en" && <p>{stopData.data.description_en}</p>}
+                  {language === "fr" && <p>{stopData.data.description_fr}</p>}
+                  {language === "sp" && <p>{stopData.data.description_sp}</p>}
                 </div>
 
                 <div>
                   <img src={`/storage/${stopData.data.image2}`} alt={stopData.data.name} />
                 </div>
+                <div>
+                  <img src={`/storage/${stopData.data.image3}`} alt={stopData.data.name} />
+                </div>
               </div>
               <div className="col-6">
-                <div>
+                <ShowComment comments={comments} />
+                {/* <div>
                   <img src={`/storage/${stopData.data.image3}`} alt={stopData.data.name} />
                 </div>
                 <div>
                   <img src={`/storage/${stopData.data.image4}`} alt={stopData.data.name} />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
-          <ShowComment comments={comments} />
           <AddComment stopId={stopData.data.id} onAddComment={handleAddComment} />
         </>
       )}

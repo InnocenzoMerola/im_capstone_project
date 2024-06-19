@@ -16,14 +16,22 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::with('children.stops', 'stops')->whereNull('parent_id')->get();
-        // return response()->json($categories);
-
-        // $categories->each(function ($category){
-        //     $category->stops->each(function ($stop){
-        //         $stop->image_url = $stop->image_url;
-        //     });
+       
+        // $translatedCategories = $categories->map(function ($category){
+        //     return [
+        //         'id' => $category->id,
+        //         'name' => $category->{'name_' . app()->getLocale()},
+        //         'children' => $category->children->map(function ($child){
+        //             return[
+        //                 'id' => $child->id,
+        //                 'name' => $child->{'name_' . app()->getLocale()},
+        //             ];
+        //         }),
+        //     ];
         // });
-        return $categories;
+
+        // return response()->json($translatedCategories);
+    return $categories;
     }
 
     /**

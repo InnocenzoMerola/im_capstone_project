@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const CategoryShow = function () {
   const [category, setCategory] = useState(null);
@@ -28,16 +28,18 @@ const CategoryShow = function () {
           </div>
           {category.stops.map((stop) => (
             <div className="col-3" key={stop.id}>
-              <div className="card">
-                <img src={`/storage/${stop.image}`} className="card-img-top" alt={stop.name} />
-                <div className="card-body">
-                  <h5 className="card-title">{stop.name}</h5>
-                  <p className="card-text">{stop.description_it}</p>
-                  {/* <a href="#" className="btn btn-primary">
+              <Link to={`/stops/${stop.id}`}>
+                <div className="card">
+                  <img src={`/storage/${stop.image}`} className="card-img-top" alt={stop.name} />
+                  <div className="card-body">
+                    <h5 className="card-title">{stop.name}</h5>
+                    <p className="card-text">{stop.description_it}</p>
+                    {/* <a href="#" className="btn btn-primary">
             Go somewhere
             </a> */}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

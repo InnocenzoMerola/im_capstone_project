@@ -14,7 +14,10 @@ return new class extends Migration
         #TODO Migration e sistemare
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name_it');
+            $table->string('name_en')->nullable();
+            $table->string('name_fr')->nullable();
+            $table->string('name_sp')->nullable();
             $table->foreignId('parent_id')->nullable()->constrained('categories')->cascadeOnDelete();
             // $table->foreignId('stop_id')->constrained();
             // $table->foreignId('category_id')->constrained();

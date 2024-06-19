@@ -15,7 +15,7 @@ const MyFooter = function () {
               <p>
                 Email: <Link to="mailto:enzomerola02@gmail.com">enzomerola02@gmail.com</Link>
               </p>
-              <p>Telefono: +39 012 345 6789</p>
+              <p>Telefono: +39 389 926 2208</p>
             </div>
             <div className="col-md-2 ">
               <h5 className=" text-white">Link Utili</h5>

@@ -1,10 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLanguage } from "../traductions/LanguageContext";
+import translationsIt from "../traductions/translate-page/translation-it";
+import translationsEn from "../traductions/translate-page/translation-en";
+import translationsFr from "../traductions/translate-page/translation-fr";
+import translationsSp from "../traductions/translate-page/translation-sp";
 
 const Home = function () {
   const [subcategories, setSubcategories] = useState([]);
-
+  const { language } = useLanguage();
   const navigate = useNavigate();
+
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
 
   useEffect(() => {
     fetch(`/api/v1/categories`)
@@ -39,11 +51,8 @@ const Home = function () {
       <div className="vesuvio-home" id="home">
         <div className="d-flex h-100 on-vesuvio-text">
           <div>
-            <h1>La tua guida a Napoli</h1>
-            <h2>
-              Esplora Napoli con Passione e Autenticità: Le Nostre Guide Ti Portano alla Scoperta dei Tesori Nascosti
-              della Città
-            </h2>
+            <h1>{translations.headerTitle}</h1>
+            <h2>{translations.headerSubtitle}</h2>
           </div>
         </div>
       </div>
@@ -52,34 +61,17 @@ const Home = function () {
         <div className="container" id="about">
           <div className="row">
             <div className="col">
-              <h2 className="about-us-title">Chi siamo</h2>
+              <h2 className="about-us-title">{translations.aboutTitle}</h2>
               <p className="about-us-desc">
-                Benvenuti in I&M, il punto di riferimento per un'esperienza turistica indimenticabile a Napoli! Siamo un
-                team appassionato e competente di guide turistiche locali, dedicato a mostrare ai visitatori il meglio
-                che questa meravigliosa città ha da offrire.
-                <span>
-                  Guidiamo i nostri ospiti attraverso le strade ricche di storia, arte e cultura di Napoli, svelando
-                  segreti nascosti e raccontando storie affascinanti che rendono ogni angolo della città un tesoro da
-                  scoprire. Ogni guida del nostro team è un esperto del territorio, dotato di conoscenze approfondite e
-                  un amore sincero per la nostra città.{" "}
-                </span>
+                {translations.aboutText1}
+
+                <span>{translations.aboutText2}</span>
                 <span className="d-flex justify-content-center">
                   <img src="/image/Home-murales-2.jpg" alt="" className="about-us-img" />
                 </span>
-                <span>
-                  Siamo qui per rendere il vostro viaggio a Napoli un'esperienza autentica e memorabile. Che si tratti
-                  di una passeggiata tra i vicoli del centro storico, una visita ai siti archeologici più famosi o una
-                  degustazione dei piatti tipici della cucina napoletana, saremo al vostro fianco per garantirvi
-                  un'avventura indimenticabile.
-                </span>
-                <span>
-                  {" "}
-                  Unisciti a noi e lasciati ispirare dalla bellezza e dalla vivacità di Napoli, mentre esplori le sue
-                  meraviglie con una guida che conosce ogni segreto e ogni curiosità di questa straordinaria città.
-                  Siamo qui per rendere il tuo viaggio a Napoli un'esperienza autentica, ricca di scoperte e di
-                  emozioni.
-                </span>{" "}
-                Siamo I&M - la tua guida personale per Napoli.
+                <span>{translations.aboutText3}</span>
+                <span>{translations.aboutText4}</span>
+                {translations.aboutText5}
               </p>
             </div>
             <div className="col">
@@ -91,27 +83,22 @@ const Home = function () {
         <div className="container what-see">
           <div className="row justify-content-between align-items-center">
             <div className="col-5">
-              <h2>Cosa vedere a Napoli?</h2>
-              <p>Stai pendando di organizzare le tue vacanze a Napoli?</p>
-              <p>
-                Sei nel posto giusto. In questo sito abbiamo racchiuso tutti i nostri anni d'esperienza per fornirti
-                tutte le informazioni di cui hai bisogno per un soggiorno indimenticabile. Troverai preziosi consigli su
-                cosa visitare, dove mangiare a Napoli, i piatti tipici e le attrazioni da non perdere.
-              </p>
-              <p>Scopri con noi tutto ciò che questa meravigliosa città ha da offrire!</p>
+              <h2>{translations.whatToSeeTitle}</h2>
+              <p>{translations.whatToSee1}</p>
+              <p>{translations.whatToSee2}</p>
+              <p>{translations.whatToSee2}</p>
             </div>
             <div className="col-5 d-flex justify-content-center">
               <div className="row row-gap-4">
                 {subcategories.slice(0, 6).map((subcategory) => (
                   <div key={subcategory.id} className="col-4 subcategory-home-rel">
                     <Link to={`/categories/${subcategory.id}`}>
-                      <img
-                        src={subcategoryImage[subcategory.id]}
-                        alt={subcategory.name}
-                        className="subcategory-home-img"
-                      />
+                      <img src={subcategoryImage[subcategory.id]} alt="" className="subcategory-home-img" />
                       <div className="subcategory-home-name">
-                        {subcategory.name}
+                        {language === "it" && subcategory.name_it}
+                        {language === "en" && subcategory.name_en}
+                        {language === "fr" && subcategory.name_fr}
+                        {language === "sp" && subcategory.name_sp}
                         <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 320 512">
                           <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
                         </svg>

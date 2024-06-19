@@ -29,6 +29,7 @@ import Vesuvio from "./pages/Vesuvio";
 import VoiceOfNaples from "./pages/stops/VoiceOfNaples";
 import ContactForm from "./contact/ContactForm";
 import ScrollToTop from "./components/ScrollToTop";
+import { LanguageProvider } from "./traductions/LanguageContext";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -63,44 +64,46 @@ function App() {
   return (
     loaded && (
       <>
-        {location.pathname !== "/register" && <MyNav />}
-        <div>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/categories" element={<Categories />} /> */}
+        <LanguageProvider>
+          {location.pathname !== "/register" && <MyNav />}
+          <div>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* <Route path="/categories" element={<Categories />} /> */}
 
-            <Route element={<Guest />}>
-              <Route path="/register" element={<Register />} />
-            </Route>
+              <Route element={<Guest />}>
+                <Route path="/register" element={<Register />} />
+              </Route>
 
-            <Route path="/story" element={<NapoliStory />} />
-            <Route path="/partenope" element={<Partenope />} />
-            <Route path="/vesuvio" element={<Vesuvio />} />
-            <Route path="/voci-di-napoli" element={<VoiceOfNaples />} />
+              <Route path="/story" element={<NapoliStory />} />
+              <Route path="/partenope" element={<Partenope />} />
+              <Route path="/vesuvio" element={<Vesuvio />} />
+              <Route path="/voci-di-napoli" element={<VoiceOfNaples />} />
 
-            <Route element={<ProtectedRoutes />}>
-              {/* Stops */}
-              <Route path="/create-stops" element={<CreateStop />} />
-              <Route path="/stops/:id" element={<StopDetail />} />
-              <Route path="/stops/:id/edit" element={<EditStop />} />
-              {/* <Route path="/create-guides" element={<CreateGuide />} /> */}
-              <Route path="/create-itineraries" element={<CreateItinerary />} />
-              <Route path="/itineraries/:id/edit" element={<EditItinerary />} />
-              {/* Profile */}
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/contact" element={<ContactForm />} />
-            </Route>
+              <Route element={<ProtectedRoutes />}>
+                {/* Stops */}
+                <Route path="/create-stops" element={<CreateStop />} />
+                <Route path="/stops/:id" element={<StopDetail />} />
+                <Route path="/stops/:id/edit" element={<EditStop />} />
+                {/* <Route path="/create-guides" element={<CreateGuide />} /> */}
+                <Route path="/create-itineraries" element={<CreateItinerary />} />
+                <Route path="/itineraries/:id/edit" element={<EditItinerary />} />
+                {/* Profile */}
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/contact" element={<ContactForm />} />
+              </Route>
 
-            <Route path="/categories/:id" element={<CategoryShow />} />
-            {/* <Route path="/stops" element={<ShowStops />} /> */}
+              <Route path="/categories/:id" element={<CategoryShow />} />
+              {/* <Route path="/stops" element={<ShowStops />} /> */}
 
-            <Route path="/404" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/404" />} />
-          </Routes>
-        </div>
-        {location.pathname !== "/register" && <MyFooter />}
-        {/* <MyFooter /> */}
+              <Route path="/404" element={<NotFound />} />
+              <Route path="*" element={<Navigate to="/404" />} />
+            </Routes>
+          </div>
+          {location.pathname !== "/register" && <MyFooter />}
+          {/* <MyFooter /> */}
+        </LanguageProvider>
       </>
     )
   );

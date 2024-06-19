@@ -5,10 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Login from "../pages/profile/Login";
 import AdminControl from "../admin/AdminControl";
+import { useLanguage } from "../traductions/LanguageContext";
+import translationsIt from "../traductions/translate-page/translation-it";
+import translationsEn from "../traductions/translate-page/translation-en";
+import translationsFr from "../traductions/translate-page/translation-fr";
+import translationsSp from "../traductions/translate-page/translation-sp";
 
 const MyNav = function () {
   const [categories, setCategories] = useState([]);
   const [itineraries, setItineraries] = useState([]);
+  const { language, changeLanguage } = useLanguage();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -49,34 +55,46 @@ const MyNav = function () {
     };
   }, [showLoginForm]);
 
-  // const logout = () => {
-  //   axios
-  //     .post("/logout")
-  //     .then(() => dispatch({ type: LOGOUT }))
-  //     .then(() => navigate("/"));
-  // };
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
 
   // CATEGORIE
 
+  const languageFlags = {
+    it: "/image/bandiera-Italia.png",
+    en: "/image/bandiera-Regno-Unito.png",
+    fr: "/image/bandiera-Francia.png",
+    sp: "/image/bandiera-Spagna.png",
+  };
+
   useEffect(() => {
-    fetch(`/api/v1/categories`)
+    axios
+      .get(`/api/v1/categories?lang=${language}`)
       .then((response) => {
         // if (!response.ok) navigate("/404");
-        return response.json();
+        setCategories(response.data);
       })
-      .then((data) => setCategories(data))
       .catch((error) => {
         console.log("Errore nella chiamata api", error);
       });
 
     axios
-      .get("/api/v1/itineraries")
+      .get(`/api/v1/itineraries?lang=${language}`)
       .then((response) => {
         // if (!response.data) navigate("/404");
         setItineraries(response.data);
       })
       .catch((error) => console.log("Errore nella chiamata API ", error));
-  }, []);
+  }, [language]);
+
+  const handleChangeLanguage = (lang) => {
+    changeLanguage(lang);
+    // setLanguage(language === "it" ? "en" : "it");
+  };
 
   return (
     <>
@@ -100,7 +118,7 @@ const MyNav = function () {
           <div className="title-container">
             <div className="title-div">
               <Link to="/">
-                <h1 className="title">Benvenuti a Napoli</h1>
+                <h1 className="title">{translations.title}</h1>
               </Link>
               {user && user.role === "admin" ? (
                 <div className="admin-absolute">
@@ -331,8 +349,10 @@ const MyNav = function () {
                         type="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
+                        // onClick={() => changeLanguage("it")}
+                        // disabled={language === "it"}
                       >
-                        <img src="/image/bandiera-Italia.png" alt="" />
+                        <img src={languageFlags[language]} alt={`${language} flag`} />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -346,23 +366,51 @@ const MyNav = function () {
                       </button>
                       <ul className="dropdown-menu language-btn">
                         <li>
-                          <Link className="dropdown-item" href="#">
-                            <img src="/image/bandiera-Regno-Unito.png" alt="" />
+                          <button
+                            className="dropdown-item"
+                            onClick={() => handleChangeLanguage("it")}
+                            disabled={language === "it"}
+                          >
+                            <img src={languageFlags["it"]} alt="Italian flag" />
+                            Italiano
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="dropdown-item"
+                            onClick={() => handleChangeLanguage("en")}
+                            disabled={language === "en"}
+                          >
+                            <img src={languageFlags["en"]} alt="English flag" />
                             English
-                          </Link>
+                          </button>
                         </li>
                         <li>
-                          <Link className="dropdown-item" href="#">
-                            <img src="/image/bandiera-Francia.png" alt="" />
+                          <button
+                            className="dropdown-item"
+                            onClick={() => handleChangeLanguage("fr")}
+                            disabled={language === "fr"}
+                          >
+                            <img src={languageFlags["fr"]} alt="Franch flag" />
                             French
-                          </Link>
+                          </button>
                         </li>
                         <li>
+                          <button
+                            className="dropdown-item"
+                            onClick={() => handleChangeLanguage("sp")}
+                            disabled={language === "sp"}
+                          >
+                            <img src={languageFlags["sp"]} alt="Spanish flag" />
+                            Spanish
+                          </button>
+                        </li>
+                        {/* <li>
                           <Link className="dropdown-item" href="#">
                             <img src="/image/bandiera-Napoli.png" alt="" />
                             Napolitan
                           </Link>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </div>
@@ -389,12 +437,22 @@ const MyNav = function () {
                   </li>
                   {categories.map((category) => (
                     <li className="parent nav-item big-parent" key={category.id}>
-                      <Link to="">{category.name}</Link>
+                      <Link to="">
+                        {language === "it" && category.name_it}
+                        {language === "en" && category.name_en}
+                        {language === "fr" && category.name_fr}
+                        {language === "sp" && category.name_sp}
+                      </Link>
 
                       <ul className="child">
                         {category.children.map((childCategory) => (
                           <li key={childCategory.id}>
-                            <Link to={`/categories/${childCategory.id}`}>{childCategory.name}</Link>
+                            <Link to={`/categories/${childCategory.id}`}>
+                              {language === "it" && childCategory.name_it}
+                              {language === "en" && childCategory.name_en}
+                              {language === "fr" && childCategory.name_fr}
+                              {language === "sp" && childCategory.name_sp}
+                            </Link>
                           </li>
                         ))}
                       </ul>

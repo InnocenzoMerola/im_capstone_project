@@ -6,7 +6,8 @@ const ShowComment = ({ comments }) => {
       <ul>
         {comments.map((comment) => (
           <li key={comment.id}>
-            <strong>User:</strong>
+            {/* <strong>User:</strong> */}
+            <img src={comment.profile_img} alt="" style={{ width: "50px" }} />
             {comment.username}
             <br />
             <strong>Comment:</strong>

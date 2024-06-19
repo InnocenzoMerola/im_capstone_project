@@ -25,6 +25,7 @@ class RateController extends Controller
                 'rate' => $rate->rate,
                 'comment' => $rate->comment,
                 'username' => $rate->user->name,
+                'profile_img' => $rate->user->profile_img
             ];
         }));
     }
@@ -55,6 +56,7 @@ class RateController extends Controller
             'rate' => $rate->rate,
             'comment' => $rate->comment,
             'username' => $rate->user->name,
+            'profile_img' => $rate->user->profile_img,
             'message'=> 'Commento aggiunto con successo', 
             'status' => 201
         ]);

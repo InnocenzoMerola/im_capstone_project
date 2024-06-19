@@ -21,34 +21,49 @@ const AddComment = ({ stopId, onAddComment }) => {
   };
 
   return (
-    <div>
-      <h2>Aggiungi un commento</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="comment">Commento:</label>
-          <textarea name="comment" id="comment" value={comment} onChange={(e) => setComment(e.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="rate">Rate:</label>
+    <div className="container">
+      <div className="row">
+        <div className="col-5">
+          <h2>Aggiungi un commento</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="input-field">
+              <label htmlFor="comment" className="form-floating">
+                Commento:
+              </label>
+              <textarea
+                name="comment"
+                id="comment"
+                className="form-control comment-textarea-descript"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="rate" className="form-label">
+                Rate:
+              </label>
 
-          <select
-            className="form-select  stops-input mb-3"
-            value={rate}
-            onChange={(e) => setRate(e.target.value)}
-            id="rate"
-            name="rate"
-            required
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4 </option>
-            <option value="5">5 </option>
-          </select>
-        </div>
+              <select
+                className="form-control stops-input"
+                value={rate}
+                onChange={(e) => setRate(e.target.value)}
+                id="rate"
+                name="rate"
+                required
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4 </option>
+                <option value="5">5 </option>
+              </select>
+            </div>
 
-        <button type="submit">Commenta</button>
-      </form>
+            <button type="submit">Commenta</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
