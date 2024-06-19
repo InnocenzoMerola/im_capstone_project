@@ -1,34 +1,34 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
-const ShowStops = function () {
-  const [stops, setStops] = useState([]);
+// const ShowStops = function () {
+//   const [stops, setStops] = useState([]);
 
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(`/api/v1/stops`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          navigate("/404");
-        }
-      })
-      .then((data) => setStops(data))
-      .catch((error) => console.error(error));
-  }, []);
+//   useEffect(() => {
+//     fetch(`/api/v1/stops`)
+//       .then((response) => {
+//         if (response.ok) {
+//           return response.json();
+//         } else {
+//           navigate("/404");
+//         }
+//       })
+//       .then((data) => setStops(data))
+//       .catch((error) => console.error(error));
+//   }, []);
 
-  return (
-    <div>
-      {stops.map((stop) => (
-        <div key={stop.id}>
-          <h1>{stop.name}</h1>
-          <h2>{stop.location}</h2>
-        </div>
-      ))}
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       {stops.map((stop) => (
+//         <div key={stop.id}>
+//           <h1>{stop.name}</h1>
+//           <h2>{stop.location}</h2>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
-export default ShowStops;
+// export default ShowStops;

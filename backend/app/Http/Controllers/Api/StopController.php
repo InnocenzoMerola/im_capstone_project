@@ -120,8 +120,8 @@ class StopController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        error_log('Request Data: ' . print_r($data, true));
-        error_log('Id Data: ', $id);
+        // error_log('Request Data: ' . print_r($data, true));
+        // error_log('Id Data: ', $id);
         
         $request->validate([
             'name' => 'required|string|max:100',

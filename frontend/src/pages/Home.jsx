@@ -16,7 +16,7 @@ const Home = function () {
         }
       })
       .then((data) => {
-        const selectedSubcategoryIds = [7, 9, 15, 3, 5, 8];
+        const selectedSubcategoryIds = [7, 9, 8, 3, 5, 4];
         const filteredSubcategories = data
           .map((category) => category.children.filter((child) => selectedSubcategoryIds.includes(child.id)))
           .flat();
@@ -29,9 +29,9 @@ const Home = function () {
     3: "/image/Home-mini.jpg",
     5: "/image/Home-mini2.jpg",
     7: "/image/Home-mini3.jpg",
-    8: "/image/Home-mini4.jpg",
-    9: "/image/Home-mini5.jpg",
-    15: "/image/Home-mini6.jpg",
+    9: "/image/Home-mini4.jpg",
+    8: "/image/Home-mini5.jpg",
+    4: "/image/Home-mini6.jpg",
   };
 
   return (

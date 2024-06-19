@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 
 class ProfileController extends Controller
@@ -154,5 +155,26 @@ class ProfileController extends Controller
     public function destroy(Profile $profile)
     {
         //
+    }
+
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'new_password' => 'required|string|min:8|confirmed'
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if(!$user){
+            return response()->json(['message'=> 'Utente non trovato'], 404);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json(['message' => 'Reset password avvenuto con successo']);
+
     }
 }

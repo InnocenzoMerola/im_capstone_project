@@ -143,7 +143,6 @@ const Register = function () {
                     name="profile_img"
                     onChange={updateImageField}
                   />
-                  {profileImg && <img src={URL.createObjectURL(profileImg)} alt="" style={{ width: "100%" }} />}
                 </div>
                 <div className="register-form-btn">
                   <button type="submit">REGISTRATI</button>

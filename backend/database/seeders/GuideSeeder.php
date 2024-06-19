@@ -42,25 +42,25 @@ class GuideSeeder extends Seeder
         // ]);
 
         // Guide::factory(5)->create();
-        $users = User::all()->all();
-        $guides_ids = Guide::all()->pluck('id')->all();
+        // $users = User::all()->all();
+        // $guides_ids = Guide::all()->pluck('id')->all();
 
-        foreach ($users as $user) {
-            $guides_for_user = fake()->randomElements($guides_ids, rand(1, count($guides_ids)));
-            foreach ($guides_for_user as $guide_id) {
-                $user->guides()->attach($guide_id, ['status' => 'pending']);
-            }
-        }
+        // foreach ($users as $user) {
+        //     $guides_for_user = fake()->randomElements($guides_ids, rand(1, count($guides_ids)));
+        //     foreach ($guides_for_user as $guide_id) {
+        //         $user->guides()->attach($guide_id, ['status' => 'pending']);
+        //     }
+        // }
 
         
-        $guides = Guide::all()->all();
-        $slots_ids = Slot::all()->pluck('id')->all();
+        // $guides = Guide::all()->all();
+        // $slots_ids = Slot::all()->pluck('id')->all();
 
-        foreach ($guides as $guide) {
-            $slots_for_guide = fake()->randomElements($slots_ids, rand(1, count($slots_ids)));
-            foreach ($slots_for_guide as $slot_id) {
-                $guide->slots()->attach($slot_id);
-            }
-        }
+        // foreach ($guides as $guide) {
+        //     $slots_for_guide = fake()->randomElements($slots_ids, rand(1, count($slots_ids)));
+        //     foreach ($slots_for_guide as $slot_id) {
+        //         $guide->slots()->attach($slot_id);
+        //     }
+        // }
     }
 }

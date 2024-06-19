@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { updateProfile, updatePassword, uploadImage } from "../../redux/actions";
+import { updateProfile, updatePassword, uploadImage, update_user } from "../../redux/actions";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { LOGOUT } from "../../redux/actions";
+import { LOGOUT, updateProfileImage } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 
 const Profile = function ({ token }) {
@@ -62,7 +62,10 @@ const Profile = function ({ token }) {
     e.preventDefault();
     const { name, email, surname, phone, age } = formData;
     try {
-      await updateProfile({ name, email, surname, phone, age }, token);
+      await updateProfile(formData, token);
+
+      dispatch(update_user({ name, email, surname, phone, age }));
+
       alert("Profilo aggiornato con successo");
     } catch (error) {
       console.log(error);
@@ -82,6 +85,12 @@ const Profile = function ({ token }) {
         },
         token
       );
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      }));
       alert("Password aggiornata con successo");
     } catch (error) {
       console.log(error);
@@ -105,12 +114,16 @@ const Profile = function ({ token }) {
 
     try {
       const response = await uploadImage(formData, token);
-      alert(`Immagine aggiunta con successo. Path: ${response.data.file_path}`);
+      const newImagePath = response.data.file_path;
 
       setFormData((prevState) => ({
         ...prevState,
-        profile_img: response.data.file_path,
+        profile_img: newImagePath,
       }));
+
+      dispatch(updateProfileImage(newImagePath));
+
+      alert(`Immagine aggiunta con successo. Path: ${response.data.file_path}`);
 
       setProfileImage("");
       setShowImageBtn(false);
@@ -143,7 +156,8 @@ const Profile = function ({ token }) {
     axios
       .post("/logout")
       .then(() => dispatch({ type: LOGOUT }))
-      .then(() => navigate("/"));
+      .then(() => navigate("/"))
+      .catch((error) => console.log("Errore", error));
   };
 
   return (
@@ -201,7 +215,7 @@ const Profile = function ({ token }) {
                             width="28"
                             height="28"
                             fill="currentColor"
-                            class="bi bi-x"
+                            className="bi bi-x"
                             viewBox="0 0 16 16"
                           >
                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />

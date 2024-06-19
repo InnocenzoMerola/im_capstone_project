@@ -29,7 +29,7 @@ const CategoryShow = function () {
           {category.stops.map((stop) => (
             <div className="col-3" key={stop.id}>
               <div className="card">
-                <img src={stop.image} className="card-img-top" alt={stop.name} />
+                <img src={`/storage/${stop.image}`} className="card-img-top" alt={stop.name} />
                 <div className="card-body">
                   <h5 className="card-title">{stop.name}</h5>
                   <p className="card-text">{stop.description_it}</p>

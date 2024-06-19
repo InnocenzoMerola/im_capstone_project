@@ -17,6 +17,12 @@ class CategoryController extends Controller
     {
         $categories = Category::with('children.stops', 'stops')->whereNull('parent_id')->get();
         // return response()->json($categories);
+
+        // $categories->each(function ($category){
+        //     $category->stops->each(function ($stop){
+        //         $stop->image_url = $stop->image_url;
+        //     });
+        // });
         return $categories;
     }
 

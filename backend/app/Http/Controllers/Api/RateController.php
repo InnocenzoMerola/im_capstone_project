@@ -49,7 +49,15 @@ class RateController extends Controller
         $rate->rate = $request->input('rate');
         $rate->save();
 
-        return response()->json(['message'=> 'Commento aggiunto con successo', 201]);
+        // return response()->json(['message'=> 'Commento aggiunto con successo', 201]);
+        return response()->json([
+            'id' => $rate->id,
+            'rate' => $rate->rate,
+            'comment' => $rate->comment,
+            'username' => $rate->user->name,
+            'message'=> 'Commento aggiunto con successo', 
+            'status' => 201
+        ]);
 
     }
 

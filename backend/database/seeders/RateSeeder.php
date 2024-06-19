@@ -15,8 +15,8 @@ class RateSeeder extends Seeder
      */
     public function run(): void
     {
-        $user_ids = User::all()->pluck('id')->all();
-        $stop_ids = Stop::all()->pluck('id')->all();
+        // $user_ids = User::all()->pluck('id')->all();
+        // $stop_ids = Stop::all()->pluck('id')->all();
 
     //     Rate::create([
     //         'comment' => 'Posto meraviglioso',

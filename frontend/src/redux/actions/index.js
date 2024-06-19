@@ -2,6 +2,8 @@ import axios from "axios";
 
 export const LOGIN = "login";
 export const LOGOUT = "logout";
+export const UPDATE_USER = "update_user";
+export const UPDATE_PROFILE_IMAGE = "update_profile_img";
 
 export const updateProfile = (data, token) => {
   return axios.post("/api/v1/profile/update", data, {
@@ -27,3 +29,13 @@ export const uploadImage = (data, token) => {
     },
   });
 };
+
+export const update_user = (user) => ({
+  type: UPDATE_USER,
+  payload: user,
+});
+
+export const updateProfileImage = (imagePath) => ({
+  type: UPDATE_PROFILE_IMAGE,
+  payload: imagePath,
+});

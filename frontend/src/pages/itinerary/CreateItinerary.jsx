@@ -10,10 +10,12 @@ const CreateItinerary = function () {
     name_it: "",
     name_en: "",
     name_fr: "",
+    name_sp: "",
     name_na: "",
     description_it: "",
     description_en: "",
     description_fr: "",
+    description_sp: "",
     description_na: "",
   });
 
@@ -37,10 +39,12 @@ const CreateItinerary = function () {
         body.append("name_it", formData.name_it);
         body.append("name_en", formData.name_en);
         body.append("name_fr", formData.name_fr);
+        body.append("name_sp", formData.name_sp);
         body.append("name_na", formData.name_na);
         body.append("description_it", formData.description_it);
         body.append("description_en", formData.description_en);
         body.append("description_fr", formData.description_fr);
+        body.append("description_sp", formData.description_sp);
         body.append("description_na", formData.description_na);
         return axios.post("/api/v1/itineraries", body);
       })
@@ -95,6 +99,17 @@ const CreateItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
+                  <label htmlFor="name_sp">Nome SPA</label>
+                  <input
+                    type="text"
+                    className="form-control stops-input"
+                    id="name_sp"
+                    name="name_sp"
+                    onChange={(e) => updateInputValue(e)}
+                    value={formData.name_sp}
+                  />
+                </div>
+                {/* <div className="input-field">
                   <label htmlFor="name_na">Nome NAP</label>
                   <input
                     type="text"
@@ -104,7 +119,7 @@ const CreateItinerary = function () {
                     onChange={(e) => updateInputValue(e)}
                     value={formData.name_na}
                   />
-                </div>
+                </div> */}
 
                 <div className="mb-3">
                   <label htmlFor="language" className="form-label">
@@ -120,7 +135,7 @@ const CreateItinerary = function () {
                     <option value="ITA">Italiano</option>
                     <option value="ENG">Inglese</option>
                     <option value="FRA">Francese </option>
-                    <option value="NAP">Napoletano </option>
+                    {/* <option value="NAP">Napoletano </option> */}
                   </select>
 
                   {selectedLanguage === "" && <div className="separator-form"></div>}
@@ -167,7 +182,21 @@ const CreateItinerary = function () {
                     </div>
                   )}
 
-                  {selectedLanguage === "NAP" && (
+                  {selectedLanguage === "SPA" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione SPA"
+                        id="description_sp"
+                        name="description_sp"
+                        onChange={(e) => updateInputValue(e)}
+                        value={formData.description_sp}
+                      ></textarea>
+                      <label htmlFor="floatingTextarea">Descrizione SPA</label>
+                    </div>
+                  )}
+
+                  {/* {selectedLanguage === "NAP" && (
                     <div className="form-floating">
                       <textarea
                         className="form-control textarea-descript"
@@ -179,7 +208,7 @@ const CreateItinerary = function () {
                       ></textarea>
                       <label htmlFor="floatingTextarea">Descrizione NAP</label>
                     </div>
-                  )}
+                  )} */}
                 </div>
 
                 <div className="d-flex justify-content-center">

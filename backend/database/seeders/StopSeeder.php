@@ -36,24 +36,24 @@ class StopSeeder extends Seeder
 
         // Stop::factory(5)->create();
 
-        $guides = Guide::all()->all();
-        $stops_ids = Stop::all()->pluck('id')->all();
+        // $guides = Guide::all()->all();
+        // $stops_ids = Stop::all()->pluck('id')->all();
 
-        foreach ($guides as $guide) {
-            $stops_for_guide = fake()->randomElements($stops_ids, rand(1, count($stops_ids)));
-            foreach ($stops_for_guide as $stop_id) {
-                $guide->stops()->attach($stop_id);
-            }
-        }
+        // foreach ($guides as $guide) {
+        //     $stops_for_guide = fake()->randomElements($stops_ids, rand(1, count($stops_ids)));
+        //     foreach ($stops_for_guide as $stop_id) {
+        //         $guide->stops()->attach($stop_id);
+        //     }
+        // }
 
-        $categories = Category::all()->all();
-        // $categories_ids = Category::all()->pluck('id')->all();
+        // $categories = Category::all()->all();
+        // // $categories_ids = Category::all()->pluck('id')->all();
 
-        foreach ($categories as $category) {
-            $stops_for_categories = fake()->randomElements($stops_ids, rand(1, count($stops_ids)));
-            foreach ($stops_for_categories as $stop_id) {
-                $category->stops()->attach($stop_id);
-            }
-        }
+        // foreach ($categories as $category) {
+        //     $stops_for_categories = fake()->randomElements($stops_ids, rand(1, count($stops_ids)));
+        //     foreach ($stops_for_categories as $stop_id) {
+        //         $category->stops()->attach($stop_id);
+        //     }
+        // }
     }
 }

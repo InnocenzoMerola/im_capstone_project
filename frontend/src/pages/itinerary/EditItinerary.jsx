@@ -11,10 +11,12 @@ const EditItinerary = function () {
     name_it: "",
     name_en: "",
     name_fr: "",
+    name_sp: "",
     name_na: "",
     description_it: "",
     description_en: "",
     description_fr: "",
+    description_sp: "",
     description_na: "",
   });
 
@@ -28,10 +30,12 @@ const EditItinerary = function () {
             name_it: data.name_it || "",
             name_en: data.name_en || "",
             name_fr: data.name_fr || "",
+            name_sp: data.name_sp || "",
             name_na: data.name_na || "",
             description_it: data.description_it || "",
             description_en: data.description_en || "",
             description_fr: data.description_fr || "",
+            description_sp: data.description_sp || "",
             description_na: data.description_na || "",
           });
         })
@@ -57,10 +61,12 @@ const EditItinerary = function () {
     body.append("name_it", formData.name_it);
     body.append("name_en", formData.name_en);
     body.append("name_fr", formData.name_fr);
+    body.append("name_sp", formData.name_sp);
     body.append("name_na", formData.name_na);
     body.append("description_it", formData.description_it);
     body.append("description_en", formData.description_en);
     body.append("description_fr", formData.description_fr);
+    body.append("description_sp", formData.description_sp);
     body.append("description_na", formData.description_na);
     body.append("_method", "put");
 
@@ -121,6 +127,17 @@ const EditItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
+                  <label htmlFor="name_sp">Nome SPA</label>
+                  <input
+                    type="text"
+                    className="form-control stops-input"
+                    id="name_sp"
+                    name="name_sp"
+                    onChange={(e) => updateInputValue(e)}
+                    value={formData.name_sp}
+                  />
+                </div>
+                {/* <div className="input-field">
                   <label htmlFor="name_na">Nome NAP</label>
                   <input
                     type="text"
@@ -130,7 +147,7 @@ const EditItinerary = function () {
                     onChange={(e) => updateInputValue(e)}
                     value={formData.name_na}
                   />
-                </div>
+                </div> */}
 
                 <div className="mb-3">
                   <label htmlFor="language" className="form-label">
@@ -146,7 +163,8 @@ const EditItinerary = function () {
                     <option value="ITA">Italiano</option>
                     <option value="ENG">Inglese</option>
                     <option value="FRA">Francese </option>
-                    <option value="NAP">Napoletano </option>
+                    <option value="SPA">Spagnolo</option>
+                    {/* <option value="NAP">Napoletano </option> */}
                   </select>
 
                   {selectedLanguage === "" && <div className="separator-form"></div>}
@@ -161,7 +179,7 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_it}
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione ITA</label>
+                      <label htmlFor="floatingTextarea">Descrizione ITA</label>
                     </div>
                   )}
 
@@ -175,7 +193,7 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_en}
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione ENG</label>
+                      <label htmlFor="floatingTextarea">Descrizione ENG</label>
                     </div>
                   )}
 
@@ -189,11 +207,25 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_fr}
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione FRA</label>
+                      <label htmlFor="floatingTextarea">Descrizione FRA</label>
                     </div>
                   )}
 
-                  {selectedLanguage === "NAP" && (
+                  {selectedLanguage === "SPA" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione SPA"
+                        id="description_sp"
+                        name="description_sp"
+                        onChange={(e) => updateInputValue(e)}
+                        value={formData.description_sp}
+                      ></textarea>
+                      <label htmlFor="floatingTextarea">Descrizione SPA</label>
+                    </div>
+                  )}
+
+                  {/* {selectedLanguage === "NAP" && (
                     <div className="form-floating">
                       <textarea
                         className="form-control textarea-descript"
@@ -203,9 +235,9 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_na}
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione NAP</label>
+                      <label htmlFor="floatingTextarea">Descrizione NAP</label>
                     </div>
-                  )}
+                  )} */}
                 </div>
 
                 <div className="d-flex justify-content-center">

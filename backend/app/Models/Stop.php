@@ -35,7 +35,8 @@ class Stop extends Model
         'description_it',
         'description_en',
         'description_fr',
+        'description_sp',
         'description_na',
-        
     ];
+    
 }

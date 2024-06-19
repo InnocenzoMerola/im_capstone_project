@@ -23,6 +23,7 @@ const EditStop = function () {
     description_it: "",
     description_en: "",
     description_fr: "",
+    description_sp: "",
     description_na: "",
     categories: "",
   });
@@ -60,6 +61,7 @@ const EditStop = function () {
           description_it: data.description_it || "",
           description_en: data.description_en || "",
           description_fr: data.description_fr || "",
+          description_sp: data.description_sp || "",
           description_na: data.description_na || "",
           categories: data.categories[0].id || "",
         });
@@ -136,6 +138,7 @@ const EditStop = function () {
     body.append("description_it", formData.description_it);
     body.append("description_en", formData.description_en);
     body.append("description_fr", formData.description_fr);
+    body.append("description_sp", formData.description_sp);
     body.append("description_na", formData.description_na);
     body.append("category_id", formData.categories);
     body.append("_method", "put");
@@ -143,14 +146,14 @@ const EditStop = function () {
     axios
       .post(`/api/v1/stops/${id}`, body, {
         headers: {
-          "Content-Type": "x-www-form-control",
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {
         console.log("Aggiornato con successo");
         // console.log("Body ", body);
 
-        navigate("/stops");
+        navigate(`/stops/${id}`);
       })
       .catch((error) => console.log("Errore durante la modifica: ", error));
   };
@@ -173,7 +176,7 @@ const EditStop = function () {
         <div className="col-md-8 offset-md-2">
           <div className="card stops-form">
             <div className="card-body">
-              <h3 className="card-title text-center mb-4">Crea Fermata</h3>
+              <h3 className="card-title text-center mb-4">Modifica Fermata</h3>
               <form onSubmit={handleSubmit} method="put">
                 <input type="hidden" name="id" value={id} />
                 <div className="input-field">
@@ -296,7 +299,8 @@ const EditStop = function () {
                     <option value="ITA">Italiano</option>
                     <option value="ENG">Inglese</option>
                     <option value="FRA">Francese </option>
-                    <option value="NAP">Napoletano </option>
+                    <option value="SPA">Spagnolo</option>
+                    {/* <option value="NAP">Napoletano </option> */}
                   </select>
 
                   {selectedLanguage === "" && <div className="separator-form"></div>}
@@ -310,7 +314,7 @@ const EditStop = function () {
                         value={formData.description_it}
                         name="description_it"
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione ITA</label>
+                      <label htmlFor="floatingTextarea">Descrizione ITA</label>
                     </div>
                   )}
 
@@ -323,7 +327,7 @@ const EditStop = function () {
                         value={formData.description_en}
                         name="description_en"
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione ENG</label>
+                      <label htmlFor="floatingTextarea">Descrizione ENG</label>
                     </div>
                   )}
 
@@ -336,11 +340,24 @@ const EditStop = function () {
                         value={formData.description_fr}
                         name="description_fr"
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione FRA</label>
+                      <label htmlFor="floatingTextarea">Descrizione FRA</label>
                     </div>
                   )}
 
-                  {selectedLanguage === "NAP" && (
+                  {selectedLanguage === "SPA" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione SPA"
+                        onChange={updateInputValue}
+                        value={formData.description_sp}
+                        name="description_sp"
+                      ></textarea>
+                      <label htmlFor="floatingTextarea">Descrizione SPA</label>
+                    </div>
+                  )}
+
+                  {/* {selectedLanguage === "NAP" && (
                     <div className="form-floating">
                       <textarea
                         className="form-control  textarea-descript"
@@ -349,9 +366,9 @@ const EditStop = function () {
                         value={formData.description_na}
                         name="description_na"
                       ></textarea>
-                      <label for="floatingTextarea">Descrizione NAP</label>
+                      <label htmlFor="floatingTextarea">Descrizione NAP</label>
                     </div>
-                  )}
+                  )} */}
                 </div>
 
                 <div className="d-flex justify-content-center">

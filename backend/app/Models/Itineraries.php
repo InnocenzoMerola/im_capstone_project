@@ -13,10 +13,12 @@ class Itineraries extends Model
         'name_it',
         'name_en',
         'name_fr',
+        'name_sp',
         'name_na',
         'description_it',
         'description_en',
         'description_fr',
+        'description_sp',
         'description_na',
     ];
 }

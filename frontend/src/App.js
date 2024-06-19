@@ -93,7 +93,7 @@ function App() {
             </Route>
 
             <Route path="/categories/:id" element={<CategoryShow />} />
-            <Route path="/stops" element={<ShowStops />} />
+            {/* <Route path="/stops" element={<ShowStops />} /> */}
 
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />

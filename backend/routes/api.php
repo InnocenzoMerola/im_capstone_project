@@ -40,7 +40,7 @@ Route::name('api.v1.')
         Route::post('/profile/update', [ProfileController::class, 'update'])->name('pofile.update');
         Route::post('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('pofile.updatePassword');
         Route::post('/profile/upload-image', [ProfileController::class, 'uploadImage'])->name('pofile.uploadImage');
-    
+        Route::post('/profile/reset-password', [ProfileController::class, 'resetPassword'])->name('profile.resetPassword');
 
         Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
     

@@ -9,6 +9,7 @@ const CreateStop = function () {
   const [img3, setImg3] = useState(null);
   const [img4, setImg4] = useState(null);
   const navigate = useNavigate();
+  // const { id } = useParams();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -22,6 +23,7 @@ const CreateStop = function () {
     description_it: "",
     description_en: "",
     description_fr: "",
+    description_sp: "",
     description_na: "",
     category_id: "",
   });
@@ -92,6 +94,7 @@ const CreateStop = function () {
         body.append("description_it", formData.description_it);
         body.append("description_en", formData.description_en);
         body.append("description_fr", formData.description_fr);
+        body.append("description_sp", formData.description_sp);
         body.append("description_na", formData.description_na);
         body.append("category_id", formData.category_id);
 
@@ -101,10 +104,10 @@ const CreateStop = function () {
         console.log("Creato con successo");
 
         assignCategoryToStop(response.data.id, formData.category_id);
-        axios.get("/api/v1/stops");
-
-        navigate("/stops");
+        return response.data.id;
+        // axios.get("/api/v1/stops");
       })
+      .then((newId) => navigate(`/stops/${newId}`))
       .catch((error) => console.log("Errore durante la creazione: ", error));
   };
 
@@ -276,7 +279,8 @@ const CreateStop = function () {
                     <option value="ITA">Italiano</option>
                     <option value="ENG">Inglese</option>
                     <option value="FRA">Francese </option>
-                    <option value="NAP">Napoletano </option>
+                    <option value="SPA">Spagnolo</option>
+                    {/* <option value="NAP">Napoletano </option> */}
                   </select>
 
                   {selectedLanguage === "" && <div className="separator-form"></div>}
@@ -324,7 +328,21 @@ const CreateStop = function () {
                     </div>
                   )}
 
-                  {selectedLanguage === "NAP" && (
+                  {selectedLanguage === "SPA" && (
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control textarea-descript"
+                        placeholder="Descrizione SPA"
+                        id="description_sp"
+                        name="description_sp"
+                        onChange={(e) => updateInputValue(e)}
+                        value={formData.description_sp}
+                      ></textarea>
+                      <label htmlFor="floatingTextarea">Descrizione SPA</label>
+                    </div>
+                  )}
+
+                  {/* {selectedLanguage === "NAP" && (
                     <div className="form-floating">
                       <textarea
                         className="form-control textarea-descript"
@@ -336,7 +354,7 @@ const CreateStop = function () {
                       ></textarea>
                       <label htmlFor="floatingTextarea">Descrizione NAP</label>
                     </div>
-                  )}
+                  )} */}
                 </div>
 
                 <div className="d-flex justify-content-center">

@@ -47,6 +47,7 @@ class ItinerariesController extends Controller
             'description_it' => 'required|string',
             'description_en' => 'nullable|string',
             'description_fr' => 'nullable|string',
+            'description_sp' => 'nullable|string',
             'description_na' => 'nullable|string',
         ]);
 
