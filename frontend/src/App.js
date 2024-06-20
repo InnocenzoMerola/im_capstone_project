@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav";
 import Categories from "./categories/Categories";
@@ -26,7 +26,7 @@ import EditItinerary from "./pages/itinerary/EditItinerary";
 import NapoliStory from "./pages/NapoliStory";
 import Partenope from "./pages/Partenope";
 import Vesuvio from "./pages/Vesuvio";
-import VoiceOfNaples from "./pages/stops/VoiceOfNaples";
+import VoiceOfNaples from "./pages/VoiceOfNaples";
 import ContactForm from "./contact/ContactForm";
 import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "./traductions/LanguageContext";
@@ -39,7 +39,6 @@ function App() {
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();
-  // const [showRegisterForm, setShowRegisterForm] = useState(false);
 
   useEffect(() => {
     axios("/api/user")
@@ -52,14 +51,6 @@ function App() {
       .catch((error) => console.log("Errore: ", error))
       .finally(() => setLoaded(true));
   }, [dispatch]);
-
-  // const handleShowRegisterForm = () => {
-  //   setShowRegisterForm(true);
-  // };
-
-  // const handleCloseRegisterForm = () => {
-  //   setShowRegisterForm(false);
-  // };
 
   return (
     loaded && (

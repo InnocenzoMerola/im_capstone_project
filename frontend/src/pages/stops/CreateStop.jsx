@@ -2,6 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { useLanguage } from "../../traductions/LanguageContext";
+import translationsIt from "../../traductions/translate-page/translation-it";
+import translationsEn from "../../traductions/translate-page/translation-en";
+import translationsFr from "../../traductions/translate-page/translation-fr";
+import translationsSp from "../../traductions/translate-page/translation-sp";
 
 const CreateStop = function () {
   const [img, setImg] = useState(null);
@@ -9,7 +14,14 @@ const CreateStop = function () {
   const [img3, setImg3] = useState(null);
   const [img4, setImg4] = useState(null);
   const navigate = useNavigate();
-  // const { id } = useParams();
+  const { language } = useLanguage();
+
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
 
   const [formData, setFormData] = useState({
     name: "",
@@ -137,12 +149,12 @@ const CreateStop = function () {
         <div className="col-md-8 offset-md-2">
           <div className="card stops-form">
             <div className="card-body">
-              <h3 className="card-title text-center mb-4">Crea Fermata</h3>
+              <h3 className="card-title text-center mb-4">{translations.createStop}</h3>
 
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-field">
                   <label htmlFor="name" className="form-label">
-                    Nome
+                    {translations.name}
                   </label>
                   <input
                     type="text"
@@ -156,7 +168,7 @@ const CreateStop = function () {
                 </div>
                 <div className="input-field">
                   <label htmlFor="location" className="form-label">
-                    Luogo
+                    {translations.location}
                   </label>
                   <input
                     type="text"
@@ -170,7 +182,7 @@ const CreateStop = function () {
                 </div>
                 <div className="input-field">
                   <label htmlFor="phone" className="form-label">
-                    Telefono / Cellulare
+                    {translations.phone}
                   </label>
                   <input
                     type="text"
@@ -183,7 +195,7 @@ const CreateStop = function () {
                 </div>
                 <div className="input-field">
                   <label htmlFor="url" className="form-label">
-                    Indirizzo URL
+                    {translations.url}
                   </label>
                   <input
                     type="text"
@@ -196,7 +208,7 @@ const CreateStop = function () {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="image" className="form-label">
-                    Immagine
+                    {translations.image}
                   </label>
                   <input
                     type="file"
@@ -208,7 +220,7 @@ const CreateStop = function () {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="image2" className="form-label">
-                    Immagine
+                    {translations.image}
                   </label>
                   <input
                     type="file"
@@ -220,7 +232,7 @@ const CreateStop = function () {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="image3" className="form-label">
-                    Immagine
+                    {translations.image}
                   </label>
                   <input
                     type="file"
@@ -232,7 +244,7 @@ const CreateStop = function () {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="image4" className="form-label">
-                    Immagine
+                    {translations.image}
                   </label>
                   <input
                     type="file"
@@ -245,7 +257,7 @@ const CreateStop = function () {
 
                 <div className="mb-3">
                   <label htmlFor="category" className="form-label">
-                    Categoria
+                    {translations.category}
                   </label>
                   <select
                     className="form-select stops-input"
@@ -254,11 +266,14 @@ const CreateStop = function () {
                     onChange={(e) => updateCategoryValue(e)}
                     value={formData.category_id}
                   >
-                    <option value="">Seleziona una categoria</option>
+                    <option value="">{translations.selectCategory}</option>
                     {categories.map((category) =>
                       category.children.map((child) => (
                         <option key={child.id} value={child.id}>
-                          {child.name}
+                          {language === "it" && <p>{child.name_it}</p>}
+                          {language === "en" && <p>{child.name_en}</p>}
+                          {language === "fr" && <p>{child.name_fr}</p>}
+                          {language === "sp" && <p>{child.name_sp}</p>}
                         </option>
                       ))
                     )}
@@ -267,7 +282,7 @@ const CreateStop = function () {
 
                 <div className="mb-3">
                   <label htmlFor="language" className="form-label">
-                    Lingue
+                    {translations.language}
                   </label>
                   <select
                     className="form-select  stops-input mb-3"
@@ -275,11 +290,11 @@ const CreateStop = function () {
                     onChange={(e) => handleChangeLanguage(e.target.value)}
                     id="language"
                   >
-                    <option value="">Seleziona una lingua</option>
-                    <option value="ITA">Italiano</option>
-                    <option value="ENG">Inglese</option>
-                    <option value="FRA">Francese </option>
-                    <option value="SPA">Spagnolo</option>
+                    <option value="">{translations.selectLanguage}</option>
+                    <option value="ITA">{translations.languageIt}</option>
+                    <option value="ENG">{translations.languageEn}</option>
+                    <option value="FRA">{translations.languageFr} </option>
+                    <option value="SPA">{translations.languageSp}</option>
                     {/* <option value="NAP">Napoletano </option> */}
                   </select>
 
@@ -295,7 +310,7 @@ const CreateStop = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_it}
                       ></textarea>
-                      <label htmlFor="floatingTextarea">Descrizione ITA</label>
+                      <label htmlFor="floatingTextarea">{translations.description} ITA</label>
                     </div>
                   )}
 
@@ -310,7 +325,7 @@ const CreateStop = function () {
                         value={formData.description_en}
                       ></textarea>
 
-                      <label htmlFor="floatingTextarea">Descrizione ENG</label>
+                      <label htmlFor="floatingTextarea">{translations.description} ENG</label>
                     </div>
                   )}
 
@@ -324,7 +339,7 @@ const CreateStop = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_fr}
                       ></textarea>
-                      <label htmlFor="floatingTextarea">Descrizione FRA</label>
+                      <label htmlFor="floatingTextarea">{translations.description} FRA</label>
                     </div>
                   )}
 
@@ -338,7 +353,7 @@ const CreateStop = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_sp}
                       ></textarea>
-                      <label htmlFor="floatingTextarea">Descrizione SPA</label>
+                      <label htmlFor="floatingTextarea">{translations.description} SPA</label>
                     </div>
                   )}
 
@@ -359,7 +374,7 @@ const CreateStop = function () {
 
                 <div className="d-flex justify-content-center">
                   <button type="submit" className="create-edit-btn">
-                    CREA
+                    {translations.create}
                   </button>
                 </div>
               </form>

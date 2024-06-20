@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useLanguage } from "../traductions/LanguageContext";
+import axios from "axios";
 
 const CategoryShow = function () {
   const [category, setCategory] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   useEffect(() => {
     fetch(`/api/v1/categories/${id}`)
@@ -19,27 +22,52 @@ const CategoryShow = function () {
       .catch((error) => console.error(error));
   }, [id]);
 
+  const handleDelete = (stopId) => {
+    console.log("ID da eliminare", stopId);
+    axios
+      .delete(`/api/v1/stops/${stopId}`)
+      .then((response) => {
+        console.log("Fermata eliminata con successo");
+        // navigate(`/categories/${id}`);
+        setCategory((prevCategory) => ({
+          ...prevCategory,
+          stops: prevCategory.stops.filter((stop) => stop.id !== stopId),
+        }));
+      })
+      .catch((error) => console.log("Errore durante l'eliminazione della fermata", error));
+  };
+
   return category ? (
     <div className="div-category-stop">
       <div className="container">
         <div className="row row-gap-4">
           <div className="category-title">
-            <h1>{category.name}</h1>
+            {language === "it" && <h1>{category.name_it}</h1>}
+            {language === "en" && <h1>{category.name_en}</h1>}
+            {language === "fr" && <h1>{category.name_fr}</h1>}
+            {language === "sp" && <h1>{category.name_sp}</h1>}
           </div>
           {category.stops.map((stop) => (
             <div className="col-3" key={stop.id}>
-              <Link to={`/stops/${stop.id}`}>
-                <div className="card">
-                  <img src={`/storage/${stop.image}`} className="card-img-top" alt={stop.name} />
+              <div className="card">
+                <Link to={`/stops/${stop.id}`}>
+                  <img src={`/storage/${stop.image}`} className="card-img-top" alt="" />
                   <div className="card-body">
-                    <h5 className="card-title">{stop.name}</h5>
-                    <p className="card-text">{stop.description_it}</p>
-                    {/* <a href="#" className="btn btn-primary">
-            Go somewhere
-            </a> */}
+                    <h5>{stop.name}</h5>
+
+                    {language === "it" && <p className="card-text">{stop.description_it}</p>}
+                    {language === "en" && <p className="card-text">{stop.description_en}</p>}
+                    {language === "fr" && <p className="card-text">{stop.description_fr}</p>}
+                    {language === "sp" && <p className="card-text">{stop.description_sp}</p>}
                   </div>
+                </Link>
+                <div>
+                  <button>
+                    <Link to={`/stops/${stop.id}/edit`}>Edit</Link>
+                  </button>
+                  <button onClick={() => handleDelete(stop.id)}>Elimina</button>
                 </div>
-              </Link>
+              </div>
             </div>
           ))}
         </div>

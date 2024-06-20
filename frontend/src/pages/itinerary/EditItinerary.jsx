@@ -1,11 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useLanguage } from "../../traductions/LanguageContext";
+import translationsIt from "../../traductions/translate-page/translation-it";
+import translationsEn from "../../traductions/translate-page/translation-en";
+import translationsFr from "../../traductions/translate-page/translation-fr";
+import translationsSp from "../../traductions/translate-page/translation-sp";
 
 const EditItinerary = function () {
   const { id } = useParams();
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = useState("");
+  const { language } = useLanguage();
+
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
 
   const [formData, setFormData] = useState({
     name_it: "",
@@ -89,11 +102,11 @@ const EditItinerary = function () {
         <div className="col-md-8 offset-md-2">
           <div className="card stops-form">
             <div className="card-body">
-              <h3 className="card-title text-center mb-4">Modifica itinerario</h3>
+              <h3 className="card-title text-center mb-4">{translations.editItinerary}</h3>
 
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-field">
-                  <label htmlFor="name_it">Nome ITA</label>
+                  <label htmlFor="name_it">{translations.name} ITA</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -105,7 +118,7 @@ const EditItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label htmlFor="name_en">Nome ENG</label>
+                  <label htmlFor="name_en">{translations.name} ENG</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -116,7 +129,7 @@ const EditItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label htmlFor="name_fr">Nome FRA</label>
+                  <label htmlFor="name_fr">{translations.name} FRA</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -127,7 +140,7 @@ const EditItinerary = function () {
                   />
                 </div>
                 <div className="input-field">
-                  <label htmlFor="name_sp">Nome SPA</label>
+                  <label htmlFor="name_sp">{translations.name} SPA</label>
                   <input
                     type="text"
                     className="form-control stops-input"
@@ -151,7 +164,7 @@ const EditItinerary = function () {
 
                 <div className="mb-3">
                   <label htmlFor="language" className="form-label">
-                    Lingue
+                    {translations.language}
                   </label>
                   <select
                     className="form-select  stops-input mb-3"
@@ -159,11 +172,11 @@ const EditItinerary = function () {
                     onChange={(e) => handleChangeLanguage(e.target.value)}
                     id="language"
                   >
-                    <option value="">Seleziona una lingua</option>
-                    <option value="ITA">Italiano</option>
-                    <option value="ENG">Inglese</option>
-                    <option value="FRA">Francese </option>
-                    <option value="SPA">Spagnolo</option>
+                    <option value="">{translations.selectLanguage}</option>
+                    <option value="ITA">{translations.languageIt}</option>
+                    <option value="ENG">{translations.languageEn}</option>
+                    <option value="FRA">{translations.languageFr}</option>
+                    <option value="SPA">{translations.languageSp}</option>
                     {/* <option value="NAP">Napoletano </option> */}
                   </select>
 
@@ -179,7 +192,7 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_it}
                       ></textarea>
-                      <label htmlFor="floatingTextarea">Descrizione ITA</label>
+                      <label htmlFor="floatingTextarea">{translations.description} ITA</label>
                     </div>
                   )}
 
@@ -193,7 +206,7 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_en}
                       ></textarea>
-                      <label htmlFor="floatingTextarea">Descrizione ENG</label>
+                      <label htmlFor="floatingTextarea">{translations.description} ENG</label>
                     </div>
                   )}
 
@@ -207,7 +220,7 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_fr}
                       ></textarea>
-                      <label htmlFor="floatingTextarea">Descrizione FRA</label>
+                      <label htmlFor="floatingTextarea">{translations.description} FRA</label>
                     </div>
                   )}
 
@@ -221,7 +234,7 @@ const EditItinerary = function () {
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_sp}
                       ></textarea>
-                      <label htmlFor="floatingTextarea">Descrizione SPA</label>
+                      <label htmlFor="floatingTextarea">{translations.description} SPA</label>
                     </div>
                   )}
 
@@ -242,7 +255,7 @@ const EditItinerary = function () {
 
                 <div className="d-flex justify-content-center">
                   <button type="submit" className="create-edit-btn">
-                    MODIFICA
+                    {translations.edit}
                   </button>
                 </div>
               </form>

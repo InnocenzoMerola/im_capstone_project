@@ -11,5 +11,157 @@
   "whatToSeeTitle": "¿Qué ver en Nápoles?",
   "whatToSee1": "¿Estás pensando en organizar tus vacaciones en Nápoles?",
   "whatToSee2": "Estás en el lugar correcto. En este sitio hemos reunido todos nuestros años de experiencia para proporcionarte toda la información que necesitas para una estancia inolvidable. Encontrarás valiosos consejos sobre qué visitar, dónde comer en Nápoles, platos típicos y atracciones que no te puedes perder.",
-  "whatToSee3": "¡Descubre con nosotros todo lo que esta maravillosa ciudad tiene para ofrecer!"
+  "whatToSee3": "¡Descubre con nosotros todo lo que esta maravillosa ciudad tiene para ofrecer!",
+  "login": "Acceso de usuario",
+  "loginPass": "Contraseña",
+  "languageIt": "Italiano",
+  "languageEn": "Inglés",
+  "languageFr": "Français",
+  "languageSp": "Español",
+  "showNaples": "Descubre Nápoles",
+  "history": "La Historia",
+  "partenope": "Parténope",
+  "vesuvio": "Vesubio",
+  "voicesOfNaples": "Las Voces de Nápoles",
+  "itinerary": "Itinerario",
+  "loginAccess": "Recuérdame",
+  "loginAccess2": "¿Olvidaste tu contraseña?",
+  "loginAccess3": "Iniciar sesión",
+  "loginAccess4": "¿Aún no estás registrado?",
+  "loginAccess5": "Regístrate",
+  "createStop": "Crear Parada",
+  "editStop": "Modificar Parada",
+  "name": "Nombre",
+  "location": "Ubicación",
+  "phone": "Teléfono / Móvil",
+  "url": "Dirección URL",
+  "image": "Imagen",
+  "category": "Categoría",
+  "selectCategory": "Selecciona una categoría",
+  "language": "Idiomas",
+  "selectLanguage": "Selecciona un idioma",
+  "description": "Descripción",
+  "create": "Crear",
+  "edit": "Modificar",
+  "createItinerary": "Crear Itinerario",
+  "editItinerary": "Modificar Itinerario",
+  "storyText": "En el corazón del Mediterráneo, donde las aguas azules del golfo de Nápoles acunan antiguas leyendas, se eleva el majestuoso Vesubio, guardián imponente de una tierra rica en historia y cultura. Esta es la tierra de las Dos Sicilias, un reino que ha visto surgir y caer imperios, donde sus ciudades han sido testigos de épocas doradas y tiempos oscuros. Según la leyenda, Nápoles nació del amor de la sirena Parténope. Se cuenta que Parténope, rechazada por el héroe Ulises, se arrojó al mar y su cuerpo fue llevado por las olas hasta las costas de Campania, donde sus restos dieron vida a la ciudad. Este mito simboliza la profunda conexión de Nápoles con el mar. Es una ciudad que respira lo antiguo y lo moderno en cada rincón.",
+  "storyText2": "Sus calles estrechas y pintorescas cuentan historias de amor y tragedias, de reyes y plebeyos, de victorias y derrotas. Es una ciudad que se aferra al pasado mientras mira con confianza al futuro. Su centro histórico, que se extiende sobre unos 17 kilómetros cuadrados, fue declarado Patrimonio de la Humanidad por la UNESCO en 1995. Es un laberinto de callejones, plazas, iglesias y teatros históricos como el San Carlo, símbolo de una tradición artística que tiene pocos iguales en el mundo.",
+  "storyText3": "Dominando el paisaje y la vida de los napolitanos está el Vesubio. Sus erupciones han moldeado la historia de la región, particularmente la de Pompeya. El golfo, con sus islas de Capri, Ischia y Procida, añade un toque de magia a este panorama.",
+  "storyText4": "Capri, con sus Faraglioni y la Gruta Azul, es una joya de belleza natural que ha fascinado a emperadores y artistas.",
+  "storyText5": "Ischia, con sus termas y jardines exuberantes, es un paraíso de relajación y bienestar.",
+  "storyText6": "Procida, con sus colores vivos y sus tradiciones marineras, conserva un encanto auténtico e intacto.",
+  "storyText7": "Pero Nápoles y sus alrededores no son solo historia y arte; también son un triunfo de sonidos y sabores. La música napolitana, con sus melodías conmovedoras y apasionadas, resuena por las calles, mientras el olor de la pizza recién horneada se mezcla con el del café. Y así, entre el Vesubio y el mar, entre Pompeya y Nápoles, entre la cocina y el arte, se desarrolla la historia de una tierra única en el mundo. Una historia que celebra la belleza, la historia y el alma vibrante del golfo de Nápoles, un Patrimonio de la Humanidad de la UNESCO que es un tesoro precioso para preservar y transmitir a las generaciones futuras.",
+  "storyText8": "Su historia y su vibrante presente se entrelazan para crear un lugar único en el mundo, una ciudad que sigue encantando a todo aquel que la visita.",
+  "viewOther": "Ver también",
+  "partenopeText": "Parténope era una de las sirenas de la mitología griega. Las sirenas eran criaturas mitológicas, mitad mujer y mitad pez, conocidas por su canto embriagador que atraía a los marineros hacia su destrucción. Según el mito más famoso, Ulises logró escapar del canto de las sirenas durante su viaje de regreso a Ítaca.",
+  "partenopeText2": "Ulises ordenó a sus hombres taparse los oídos con cera y se hizo atar al mástil del barco para escuchar el canto sin ser engañado por él. Las sirenas, furiosas por su fracaso, se suicidaron arrojándose al mar. Parténope fue llevada por las olas hasta las costas del Golfo de Nápoles, donde su cuerpo yació y se disolvió, dando origen a la ciudad que tomó su nombre.",
+  "partenopeText3": "La figura de Parténope ha inspirado numerosas obras de arte, poemas y canciones. Su leyenda ha sido transmitida a lo largo de los siglos, convirtiéndose en el símbolo de Nápoles. A menudo se la ve como un símbolo de belleza y peligro, reflejando el carácter de la ciudad, con su belleza natural pero también con sus complejidades sociales e históricas.",
+  "vesuvioText": "El Vesubio es uno de los volcanes más famosos y estudiados del mundo, situado en la costa occidental de Italia cerca de Nápoles. Su historia está llena de eventos geológicos y culturales que han tenido un impacto significativo en la región circundante. El Vesubio es un volcán de tipo estrato, caracterizado por una estructura cónica compuesta de capas alternas de lava, ceniza y rocas volcánicas. Es uno de los volcanes más peligrosos del mundo debido a su proximidad a zonas densamente pobladas. El Vesubio tiene un cráter en la cima en forma de caldera, formado como resultado de varias erupciones explosivas. El cono actual, llamado Gran Cono, se encuentra dentro de una caldera más amplia llamada Monte Somma, que es el resultado de una erupción anterior.",
+  "vesuvioText2": "La erupción más famosa del Vesubio ocurrió el 24 de agosto del 79 d.C., cuando una violenta explosión enterró las ciudades romanas de Pompeya, Herculano, Stabia y Oplontis bajo una capa de ceniza y piedra pómez. Esta erupción está bien documentada gracias a las cartas de Plinio el Joven, quien describió el evento en detalle. Sus escritos llevaron a definir este tipo de erupción como “erupción pliniana”. Después de la erupción del 79 d.C., el Vesubio ha continuado erupcionando periódicamente. Otras erupciones significativas incluyen las de 1631, que causaron numerosas víctimas y devastación, y las de 1906 y 1944, que fueron las últimas erupciones importantes del siglo XX.",
+  "vesuvioText3": "Es uno de los volcanes más monitoreados del mundo. En 1995, se estableció el Parque Nacional del Vesubio para proteger y realzar el área alrededor del volcán. El parque ofrece numerosos senderos para caminar que permiten explorar sus diversos aspectos geológicos y naturales. Una de las actividades más populares es la excursión hasta el cráter del Gran Cono. Los visitantes pueden caminar hasta el borde del cráter y observar la vista extraordinaria del golfo de Nápoles y las áreas circundantes.",
+  "vesuvioText4": "Dada su peligrosidad y la densidad de población de la zona circundante, en 1996 se desarrolló un plan de emergencia para la evacuación rápida en caso de erupción. Este plan prevé la cooperación entre varias agencias gubernamentales y la educación de la población sobre los riesgos y los procedimientos de evacuación.",
+
+  "voicesText": "Sin su historia y su cultura, Nápoles no sería esa ciudad tan única que puede ser reconocida en un solo vistazo, en un objeto, una palabra, un ritual supersticioso, una imagen. Esta ciudad tiene una relación especial con sus hijos, donde ambos se moldean mutuamente y construyen un vínculo visceral de amor.",
+  "pinoDanieleText1": "Pino Daniele fue un influyente cantante, guitarrista y compositor italiano, conocido por su estilo único que combinaba blues, rock, jazz y música tradicional napolitana. Nacido en Nápoles, Pino Daniele comenzó a tocar la guitarra desde joven y rápidamente se hizo famoso con su álbum",
+  "pinoDanieleText2": "en 1977. A través de su primer álbum, presentó al mundo su estilo único y el uso del dialecto napolitano. La canción",
+  "pinoDanieleText3": "se convirtió en un himno para Nápoles, a menudo representada como una ciudad llena de belleza y contradicciones. Sus obras reflejan el orgullo y el afecto por su tierra natal, capturando la esencia y los matices de la vida napolitana.",
+  "pinoDanieleText4": "En sus canciones e entrevistas, Pino Daniele dejó muchas frases célebres, expresando su amor por Nápoles.",
+  "pinoDanieleText5": "Destaca la complejidad y diversidad de la ciudad.",
+  "pinoDanieleText6": "Describe Nápoles con imágenes poéticas y contrastes fuertes.",
+  "pinoDanieleText7": "De 'Yes I Know My Way', expresa una esperanza de renacimiento para Nápoles. El amor entre Pino Daniele y Nápoles está encapsulado en una frase dicha por el cantautor mismo.",
+  "boldTextPinoDaniele": [
+    {
+      "text1": "“Terra Mia”",
+      "text2": "“Napule è”",
+      "text3": "Napule è mille culure, Napule è mille paure",
+      "text4": "Napule è nu sole amaro, Napule è addore 'e mare",
+      "text5": "Io sto con te, ma tu non devi morire",
+      "text6": "“LA MUSICA È NAPOLI, NAPOLI È LA MIA MUSICA”"
+    }
+  ],
+
+  "massimoTroisiText1": "Massimo Troisi fue un actor, director y guionista italiano, conocido por su estilo cómico único y su profundo vínculo con Nápoles. Nacido en San Giorgio a Cremano, Troisi comenzó su carrera en el teatro, primero con el grupo",
+  "massimoTroisiText2": "y luego con",
+  "massimoTroisiText3": "un trío cómico que también incluía a Enzo Decaro y Lello Arena. Más tarde hizo su debut cinematográfico con",
+  "massimoTroisiText4": "teniendo gran éxito tanto crítico como comercial. Dirigió e interpretó muchas películas exitosas, incluyendo",
+  "massimoTroisiText5": "Una de sus películas más célebres y conmovedoras fue el último trabajo de Troisi.",
+  "massimoTroisiText6": ", completado poco antes de su muerte. La película recibió numerosos reconocimientos internacionales y una nominación póstuma al Oscar para Troisi. Su visión de la ciudad, a menudo irónica pero afectuosa, se refleja en sus películas y comedias, donde explora las dinámicas humanas y sociales con una mirada sincera y compasiva. Es recordado por muchas citas memorables que reflejan su ingenio y sabiduría cómica.",
+  "massimoTroisiText7": ", un comentario irónico que muestra su habilidad para bromear sobre los estereotipos comunes relacionados con Nápoles y sus habitantes.",
+  "massimoTroisiText8": "donde subraya el orgullo y la identidad de los napolitanos.",
+  "massimoTroisiText9": "donde expresa su filosofía de vida, centrada en la serenidad y la satisfacción personal independientemente del éxito. Su habilidad para combinar humor y sensibilidad, junto con su amor por Nápoles, sigue inspirando y cautivando al público.",
+  "boldTextMassimoTroisi": [
+    {
+      "text1": "“I Saraceni” ",
+      "text2": "“La Smorfia” ",
+      "text3": "“Ricomincio da tre” ",
+      "text4": "Scusate il ritardo”",
+      "text5": " “Non ci resta che piangere”",
+      "text6": " “Le vie del Signore sono finite”",
+      "text7": " “Pensavo fosse amore…invece era un calesse”",
+      "text8": "“Il Postino”",
+      "text9": "“No es verdad que los napolitanos no quieran trabajar, es que nunca encuentran el trabajo que les gusta”",
+      "text10": "“¿Sois italianos? No, somos napolitanos”",
+      "text11": "“Cuando lo logre, estaré feliz; si no lo logro, seguiré estando feliz”"
+    }
+  ],
+
+  "deFilippoText1": "Eduardo De Filippo fue uno de los más grandes dramaturgos, actores y directores italianos del siglo XX. Nacido en Nápoles, se convirtió en una figura central en la cultura teatral italiana, famoso por sus comedias que exploran la vida y los problemas sociales del pueblo napolitano. Eduardo comenzó su carrera a muy temprana edad, siguiendo los pasos de su padre, Eduardo Scarpetta, y trabajando con sus hermanos Titina y Peppino. Escribió e interpretó numerosas comedias exitosas como",
+  "deFilippoText2": ". Sus obras combinan a menudo humor, drama y crítica social. Trabajó en el cine, tanto como actor como director, llevando sus comedias a la gran pantalla. En 1981, fue nombrado senador vitalicio por sus méritos culturales.",
+  "deFilippoText3": "Eduardo siempre mantuvo un fuerte vínculo con Nápoles. A través de sus personajes e historias, capturó la esencia de la vida napolitana, resaltando los desafíos pero también la resiliencia y la inventiva del pueblo napolitano. Es recordado por muchas citas que reflejan su sabiduría y su espíritu napolitano.",
+  "deFilippoText4": "expresa la esperanza de que los momentos difíciles pasarán.",
+  "deFilippoText5": "donde reflexiona sobre la naturaleza humana y las decisiones.",
+  "deFilippoText6": " representa su versión del teatro como una forma de verdad. Sus comedias siguen siendo representadas y queridas, ofreciendo una mirada profunda y auténtica sobre la vida y la cultura napolitana.",
+  "boldTextDeFilippo": [
+    {
+      "text1": "“Napoli Milionaria”",
+      "text2": "“Filumena Marturano”",
+      "text3": "“Natale in casa Cupiello”",
+      "text4": "“Adda passà a nuttata”",
+      "text5": "“El miedo es el peor consejero que se puede tener.”",
+      "text6": "“”"
+    }
+  ],
+
+  "deCurtisText1": "",
+  "deCurtisText2": "",
+  "deCurtisText3": "",
+  "deCurtisText4": "",
+  "deCurtisText5": "",
+  "deCurtisText6": "",
+  "deCurtisText7": "",
+  "deCurtisText8": "",
+
+  "boldTextDeCurtis": [
+    {
+      "text1": "Totò",
+      "text2": "“Totò, Peppino e la Malafemmena”",
+      "text3": "“Guardie e ladri”",
+      "text4": "“Miseria e Nobiltà”",
+      "text5": "“La Livella”",
+      "text6": "“”",
+      "text7": "“”",
+      "text8": "“”"
+    }
+  ],
+
+  "sophiaLorenText1": "",
+  "sophiaLorenText2": "",
+  "sophiaLorenText3": "",
+  "sophiaLorenText4": "",
+  "sophiaLorenText5": "",
+  "sophiaLorenText6": "",
+  "sophiaLorenText7": "",
+
+  "boldTextSophiaLoren": [
+    {
+      "text1": "“Aida”",
+      "text2": "“La Ciociara”",
+      "text3": "“Ieri, oggi e domani”",
+      "text4": "“Matrimonio all'italiana”",
+      "text5": "“”",
+      "text6": "“”",
+      "text7": "“”"
+    }
+  ]
 }

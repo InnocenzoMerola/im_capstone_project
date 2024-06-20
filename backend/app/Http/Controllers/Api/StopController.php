@@ -181,9 +181,25 @@ class StopController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Stop $stop)
+    public function destroy($id)
     {
-        
+        $stop = Stop::findOrFail($id);
+
+        $stop->categories()->detach();
+
+        if($stop->image){
+            Storage::disk('public')->delete($stop->image);
+        }
+        if($stop->image2){
+            Storage::disk('public')->delete($stop->image2);
+        }
+        if($stop->image3){
+            Storage::disk('public')->delete($stop->image3);
+        }
+        if($stop->image4){
+            Storage::disk('public')->delete($stop->image4);
+        }
+
         $stop->delete();
 
         return response()->json(['message' => 'Luogo eliminato con successo'], 200);

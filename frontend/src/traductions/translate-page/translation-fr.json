@@ -11,5 +11,157 @@
   "whatToSeeTitle": "Que voir à Naples ?",
   "whatToSee1": "Envisagez-vous d'organiser vos vacances à Naples?",
   "whatToSee2": "Vous êtes au bon endroit. Dans ce site, nous avons rassemblé toutes nos années d'expérience pour vous fournir toutes les informations dont vous avez besoin pour un séjour inoubliable. Vous y trouverez de précieux conseils sur ce qu'il faut visiter, où manger à Naples, les plats typiques et les attractions à ne pas manquer.",
-  "whatToSee3": "Découvrez avec nous tout ce que cette merveilleuse ville a à offrir !"
+  "whatToSee3": "Découvrez avec nous tout ce que cette merveilleuse ville a à offrir !",
+  "login": "Accès utilisateur",
+  "loginPass": "Mot de passe",
+  "languageIt": "Italien",
+  "languageEn": "Anglais",
+  "languageFr": "Français",
+  "languageSp": "Espagnol",
+  "showNaples": "Découvrez Naples",
+  "history": "L'Histoire",
+  "partenope": "Partenope",
+  "vesuvio": "Vésuve",
+  "voicesOfNaples": "Les Voix de Naples",
+  "itinerary": "Itinéraire",
+  "loginAccess": "Se souvenir de moi",
+  "loginAccess2": "Mot de passe oublié",
+  "loginAccess3": "Connexion",
+  "loginAccess4": "Pas encore inscrit ?",
+  "loginAccess5": "Inscrivez-vous",
+  "createStop": "Créer un Arrêt",
+  "editStop": "Modifier l'arrêt",
+  "name": "Nom",
+  "location": "Lieu",
+  "phone": "Téléphone / Portable",
+  "url": "Adresse URL",
+  "image": "Image",
+  "category": "Catégorie",
+  "selectCategory": "Sélectionnez une catégorie",
+  "language": "Langues",
+  "selectLanguage": "Sélectionnez une langue",
+  "description": "Description",
+  "create": "Créer",
+  "edit": "Modifier",
+  "createItinerary": "Créer Itinéraire",
+  "editItinerary": "Modifier Itinéraire",
+  "storyText": "Au cœur de la Méditerranée, où les eaux bleues du golfe de Naples bercent les légendes anciennes, s'élève le majestueux Vésuve, gardien imposant d'une terre riche en histoire et en culture. C'est la terre des Deux-Siciles, un royaume qui a vu naître et tomber des empires, où ses villes ont été témoins d'époques dorées et de temps sombres. Selon la légende, Naples est née de l'amour de la sirène Parthénope. On raconte que Parthénope, rejetée par le héros Ulysse, se jeta dans la mer et que son corps fut porté par les vagues jusqu'aux côtes de la Campanie, où ses restes donnèrent vie à la ville. Ce mythe symbolise le lien profond de Naples avec la mer. C'est une ville qui respire l'ancien et le moderne à chaque coin de rue.",
+  "storyText2": "Ses rues étroites et pittoresques racontent des histoires d'amour et de tragédies, de rois et de plébéiens, de victoires et de défaites. C'est une ville qui s'accroche au passé tout en regardant l'avenir avec confiance. Son centre historique, qui s'étend sur environ 17 kilomètres carrés, a été déclaré site du patrimoine mondial de l'UNESCO en 1995. C'est un labyrinthe de ruelles, de places, d'églises et de théâtres historiques comme le San Carlo, symbole d'une tradition artistique qui a peu d'égales dans le monde.",
+  "storyText3": "Dominant le paysage et la vie des Napolitains, le Vésuve. Ses éruptions ont façonné l'histoire de la région, en particulier celle de Pompéi. Le golfe, avec ses îles de Capri, Ischia et Procida, ajoute une touche de magie à ce panorama.",
+  "storyText4": "Capri, avec ses Faraglioni et la Grotte Bleue, est un joyau de beauté naturelle qui a fasciné empereurs et artistes.",
+  "storyText5": "Ischia, avec ses thermes et ses jardins luxuriants, est un paradis de détente et de bien-être.",
+  "storyText6": "Procida, avec ses couleurs vives et ses traditions maritimes, conserve un charme authentique et intact.",
+  "storyText7": "Mais Naples et ses environs ne sont pas seulement histoire et art; ils sont aussi un triomphe de sons et de saveurs. La musique napolitaine, avec ses mélodies poignantes et passionnées, résonne dans les rues, tandis que l'odeur de la pizza fraîchement sortie du four se mêle à celle du café. Et c'est ainsi, entre le Vésuve et la mer, entre Pompéi et Naples, entre la cuisine et l'art, que se déroule l'histoire d'une terre unique au monde. Une histoire qui célèbre la beauté, l'histoire et l'âme vibrante du golfe de Naples, un site du patrimoine mondial de l'UNESCO qui est un trésor précieux à préserver et à transmettre aux générations futures.",
+  "storyText8": "Son histoire et son présent vibrant s'entrelacent pour créer un lieu unique au monde, une ville qui continue d'enchanter quiconque la visite.",
+  "viewOther": "Voir aussi",
+  "partenopeText": "Parthénope était l'une des sirènes de la mythologie grecque. Les sirènes étaient des créatures mythologiques, moitié femme et moitié poisson, connues pour leur chant envoûtant qui attirait les marins vers leur perte. Selon le mythe le plus célèbre, Ulysse réussit à échapper au chant des sirènes lors de son voyage de retour à Ithaque.",
+  "partenopeText2": "Ulysse ordonna à ses hommes de se boucher les oreilles avec de la cire et se fit attacher au mât du navire pour écouter le chant sans en être trompé. Les sirènes, furieuses de leur échec, se suicidèrent en se jetant à la mer. Parthénope fut portée par les vagues jusqu'aux côtes du golfe de Naples, où son corps se coucha et se dissout, donnant naissance à la ville qui prit son nom.",
+  "partenopeText3": "La figure de Parthénope a inspiré de nombreuses œuvres d'art, poèmes et chansons. Sa légende a été transmise à travers les siècles, devenant le symbole de Naples elle-même. Elle est souvent vue comme un symbole de beauté et de danger, reflétant le caractère de la ville, avec sa beauté naturelle mais aussi ses complexités sociales et historiques.",
+  "vesuvioText": "Le Vésuve est l'un des volcans les plus célèbres et les plus étudiés au monde, situé sur la côte ouest de l'Italie près de Naples. Son histoire est riche en événements géologiques et culturels qui ont eu un impact significatif sur la région environnante. Le Vésuve est un volcan de type stratovolcan, caractérisé par une structure en forme de cône composée de couches alternées de lave, de cendres et de roches volcaniques. C'est l'un des volcans les plus dangereux au monde en raison de sa proximité avec des zones densément peuplées. Le Vésuve a un cratère sommital en forme de caldeira, formé à la suite de diverses éruptions explosives. Le cône actuel, appelé Gran Cono, se trouve à l'intérieur d'une caldeira plus large appelée Monte Somma, qui est le résultat d'une éruption antérieure.",
+  "vesuvioText2": "L'éruption la plus célèbre du Vésuve a eu lieu le 24 août 79 après J.-C., lorsqu'une violente explosion a enseveli les villes romaines de Pompéi, Herculanum, Stabies et Oplontis sous une couche de cendres et de ponce. Cette éruption est bien documentée grâce aux lettres de Pline le Jeune, qui a décrit l'événement en détail. Ses écrits ont conduit à qualifier ce type d'éruption d' “éruption plinienne”. Après l'éruption de 79 après J.-C., le Vésuve a continué à entrer périodiquement en éruption. D'autres éruptions significatives incluent celles de 1631, qui ont causé de nombreuses victimes et dévastations, et celles de 1906 et 1944, qui furent les dernières grandes éruptions du XXe siècle.",
+  "vesuvioText3": "C'est l'un des volcans les plus surveillés au monde. En 1995, le parc national du Vésuve a été créé pour protéger et valoriser la zone autour du volcan. Le parc offre de nombreux sentiers de randonnée qui permettent d'explorer ses divers aspects géologiques et naturels. L'une des activités les plus populaires est la randonnée jusqu'au cratère du Gran Cono. Les visiteurs peuvent marcher jusqu'au bord du cratère et observer la vue extraordinaire sur le golfe de Naples et les zones environnantes.",
+  "vesuvioText4": "Compte tenu de sa dangerosité et de la densité de population de la zone environnante, un plan d'urgence pour une évacuation rapide en cas d'éruption a été élaboré en 1996. Ce plan implique la coopération entre diverses agences gouvernementales et l'éducation de la population sur les risques et les procédures d'évacuation.",
+
+  "voicesText": "Sans son histoire et sa culture, Naples ne serait pas cette ville si unique qu'on peut reconnaître en un seul coup d'œil, dans un objet, un mot, un rituel superstitieux, une image. Cette ville entretient une relation spéciale avec ses enfants, où tous deux se façonnent mutuellement pour construire un lien viscéral d'amour.",
+ "pinoDanieleText1": "Pino Daniele fut un chanteur, guitariste et auteur-compositeur italien influent, connu pour son style unique mêlant blues, rock, jazz et musique traditionnelle napolitaine. Né à Naples, Pino Daniele a commencé à jouer de la guitare dès son jeune âge et a rapidement acquis la célébrité avec son album",
+  "pinoDanieleText2": "en 1977. À travers son premier album, il a introduit son style unique et l'utilisation du dialecte napolitain au monde. La chanson",
+  "pinoDanieleText3": "est devenue un hymne pour Naples, souvent représentée comme une ville pleine de beauté et de contradictions. Ses œuvres reflètent la fierté et l'affection pour sa terre natale, capturant l'essence et les nuances de la vie napolitaine.",
+  "pinoDanieleText4": "Il a laissé derrière lui de nombreuses phrases célèbres dans ses chansons et interviews, exprimant son amour pour Naples.",
+  "pinoDanieleText5": "Met en évidence la complexité et la diversité de la ville.",
+  "pinoDanieleText6": "Dépeint Naples avec des images poétiques et de forts contrastes.",
+  "pinoDanieleText7": "De 'Yes I Know My Way', exprime un espoir de renaissance pour Naples. L'amour entre Pino Daniele et Naples est encapsulé dans une phrase prononcée par le chanteur lui-même.",
+  "boldTextPinoDaniele": [
+    {
+      "text1": "“Terra Mia”",
+      "text2": "“Napule è”",
+      "text3": "Napule è mille culure, Napule è mille paure",
+      "text4": "Napule è nu sole amaro, Napule è addore 'e mare",
+      "text5": "Io sto con te, ma tu non devi morire",
+      "text6": "“LA MUSICA È NAPOLI, NAPOLI È LA MIA MUSICA”"
+    }
+  ],
+
+  "massimoTroisiText1": "Massimo Troisi était un acteur, réalisateur et scénariste italien, connu pour son style comique unique et son lien profond avec Naples. Né à San Giorgio a Cremano, Troisi a débuté sa carrière au théâtre, d'abord avec le groupe",
+  "massimoTroisiText2": "et ensuite avec",
+  "massimoTroisiText3": "un trio comique qui comprenait également Enzo Decaro et Lello Arena. Il a ensuite fait ses débuts au cinéma avec",
+  "massimoTroisiText4": "ayant un grand succès à la fois critique et commercial. Il a réalisé et joué dans de nombreux films à succès, dont",
+  "massimoTroisiText5": "Un de ses films les plus célèbres et émouvants a été le dernier travail de Troisi.",
+  "massimoTroisiText6": ", terminé peu de temps avant sa mort. Le film a reçu de nombreux honneurs internationaux et une nomination à l'Oscar posthume pour Troisi. Sa vision de la ville, souvent ironique mais affectueuse, se reflète dans ses films et ses comédies, où il explore les dynamiques humaines et sociales avec un regard sincère et compatissant. Il est rappelé pour de nombreuses citations mémorables qui reflètent son esprit et sa sagesse comique.",
+  "massimoTroisiText7": ", une remarque ironique qui reflète sa capacité à plaisanter sur les stéréotypes courants concernant Naples et ses habitants.",
+  "massimoTroisiText8": "où il souligne la fierté et l'identité des napolitains.",
+  "massimoTroisiText9": "où il exprime sa philosophie de vie, axée sur la sérénité et l'épanouissement personnel indépendamment du succès. Sa capacité à combiner humour et sensibilité, ainsi que son amour pour Naples, continue d'inspirer et de fasciner le public.",
+  "boldTextMassimoTroisi": [
+    {
+      "text1": "“I Saraceni” ",
+      "text2": "“La Smorfia” ",
+      "text3": "“Ricomincio da tre” ",
+      "text4": "Scusate il ritardo”",
+      "text5": " “Non ci resta che piangere”",
+      "text6": " “Le vie del Signore sono finite”",
+      "text7": " “Pensavo fosse amore…invece era un calesse”",
+      "text8": "“Il Postino”",
+      "text9": "“Ce n'est pas vrai que les Napolitains ne veulent pas travailler, c'est juste qu'ils ne trouvent jamais le travail qu'ils aiment”",
+      "text10": "“Vous êtes italiens ? Non, nous sommes napolitains”",
+      "text11": "“Quand j'aurai réussi, je serai content; si je n'ai pas réussi, je serai quand même content”"
+    }
+  ],
+
+  "deFilippoText1": "Eduardo De Filippo a été l'un des plus grands dramaturges, acteurs et réalisateurs italiens du XXe siècle. Né à Naples, il est devenu une figure centrale de la culture théâtrale italienne, célèbre pour ses comédies qui explorent la vie et les problèmes sociaux du peuple napolitain. Eduardo a commencé sa carrière très jeune, suivant les traces de son père, Eduardo Scarpetta, et travaillant avec ses frères et sœurs Titina et Peppino. Il a écrit et interprété de nombreuses comédies à succès telles que",
+  "deFilippoText2": ". Ses œuvres combinent souvent humour, drame et critique sociale. Il a travaillé dans le cinéma, à la fois comme acteur et réalisateur, adaptant ses comédies pour le grand écran. En 1981, il a été nommé sénateur à vie pour ses mérites culturels.",
+  "deFilippoText3": "Eduardo a toujours entretenu un lien fort avec Naples. À travers ses personnages et ses histoires, il a su capturer l'essence de la vie napolitaine, mettant en lumière les difficultés mais aussi la résilience et l'ingéniosité du peuple napolitain. Il est rappelé pour de nombreuses citations qui reflètent sa sagesse et son esprit napolitain.",
+  "deFilippoText4": "exprime l'espoir que les moments difficiles passeront.",
+  "deFilippoText5": "où il fait une réflexion sur la nature humaine et les décisions.",
+  "deFilippoText6": " représente sa vision du théâtre comme une forme de vérité. Ses comédies continuent d'être représentées et aimées, offrant un regard profond et authentique sur la vie et la culture napolitaine.",
+  "boldTextDeFilippo": [
+    {
+      "text1": "“Napoli Milionaria”",
+      "text2": "“Filumena Marturano”",
+      "text3": "“Natale in casa Cupiello”",
+      "text4": "“Adda passà a nuttata”",
+      "text5": "“La peur est la pire conseillère que l'on puisse avoir.”",
+      "text6": "“ ”"
+    }
+  ],
+
+  "deCurtisText1": "",
+  "deCurtisText2": "",
+  "deCurtisText3": "",
+  "deCurtisText4": "",
+  "deCurtisText5": "",
+  "deCurtisText6": "",
+  "deCurtisText7": "",
+  "deCurtisText8": "",
+
+  "boldTextDeCurtis": [
+    {
+      "text1": "Totò",
+      "text2": "“Totò, Peppino e la Malafemmena”",
+      "text3": "“Guardie e ladri”",
+      "text4": "“Miseria e Nobiltà”",
+      "text5": "“La Livella”",
+      "text6": " “ ”",
+      "text7": "“ ”",
+      "text8": "“ ”"
+    }
+  ],
+
+  "sophiaLorenText1": "",
+  "sophiaLorenText2": "",
+  "sophiaLorenText3": "",
+  "sophiaLorenText4": "",
+  "sophiaLorenText5": "",
+  "sophiaLorenText6": "",
+  "sophiaLorenText7": "",
+
+  "boldTextSophiaLoren": [
+    {
+      "text1": "“Aida”",
+      "text2": "“La Ciociara”",
+      "text3": "“Ieri, oggi e domani”",
+      "text4": "“Matrimonio all'italiana”",
+      "text5": "“ ”",
+      "text6": "“ ”",
+      "text7": "“ ”"
+    }
+  ]
 }

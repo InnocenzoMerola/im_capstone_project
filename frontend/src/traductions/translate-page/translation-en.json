@@ -11,5 +11,157 @@
   "whatToSeeTitle": "What to see in Naples?",
   "whatToSee1": "Are you thinking of organizing your holidays in Naples?",
   "whatToSee2": "You are in the right place. In this site we have gathered all our years of experience to provide you with all the information you need for an unforgettable stay. You will find valuable advice on what to visit, where to eat in Naples, typical dishes and attractions not to be missed.",
-  "whatToSee3": "Discover with us everything this wonderful city has to offer!"
+  "whatToSee3": "Discover with us everything this wonderful city has to offer!",
+  "login": "User login",
+  "loginPass": "Password",
+  "languageIt": "Italian",
+  "languageEn": "English",
+  "languageFr": "French",
+  "languageSp": "Spanish",
+  "showNaples": "Discover Naples",
+  "history": "The History",
+  "partenope": "Partenope",
+  "vesuvio": "Vesuvius",
+  "voicesOfNaples": "The Voices of Naples",
+  "itinerary": "Itinerary",
+  "loginAccess": "Remember me",
+  "loginAccess2": "Forgot password",
+  "loginAccess3": "Log in",
+  "loginAccess4": "Not registered yet?",
+  "loginAccess5": "Sign up",
+  "createStop": "Create Stop",
+  "editStop": "Edit Stop",
+  "name": "Name",
+  "location": "Location",
+  "phone": "Phone / Mobile",
+  "url": "URL Address",
+  "image": "Image",
+  "category": "Category",
+  "selectCategory": "Select a category",
+  "language": "Languages",
+  "selectLanguage": "Select a language",
+  "description": "Description",
+  "create": "Create",
+  "edit": "Edit",
+  "createItinerary": "Create Itinerary",
+  "editItinerary": "Edit Itinerary",
+  "storyText": "In the heart of the Mediterranean, where the blue waters of the Gulf of Naples cradle ancient legends, rises the majestic Vesuvius, an imposing guardian of a land rich in history and culture. This is the land of the Two Sicilies, a kingdom that has seen empires rise and fall, where its cities have witnessed golden ages and dark times. According to legend, Naples was born from the love of the siren Partenope. It is said that Partenope, rejected by the hero Ulysses, threw herself into the sea and her body was carried by the waves to the shores of Campania, where her remains gave birth to the city. This myth symbolizes Naples' deep connection with the sea. It is a city that breathes the ancient and the modern in every corner.",
+  "storyText2": "Its narrow and picturesque streets tell stories of love and tragedies, of kings and commoners, of victories and defeats. It is a city that clings to the past while confidently looking to the future. Its historic center, which covers about 17 square kilometers, was declared a UNESCO World Heritage Site in 1995. It is a maze of alleys, squares, churches, and historic theaters like the San Carlo, a symbol of an artistic tradition that has few equals in the world.",
+  "storyText3": "Dominating the landscape and the lives of Neapolitans is Vesuvius. Its eruptions have shaped the history of the region, particularly that of Pompeii. The gulf, with its islands of Capri, Ischia, and Procida, adds a touch of magic to this landscape.",
+  "storyText4": "Capri, with its Faraglioni and the Blue Grotto, is a jewel of natural beauty that has fascinated emperors and artists.",
+  "storyText5": "Ischia, with its thermal baths and lush gardens, is a paradise of relaxation and wellness.",
+  "storyText6": "Procida, with its vibrant colors and maritime traditions, retains an authentic and unspoiled charm.",
+  "storyText7": "But Naples and its surroundings are not just history and art; they are also a triumph of sounds and flavors. Neapolitan music, with its poignant and passionate melodies, resonates through the streets, while the smell of freshly baked pizza mingles with that of coffee. And so, between Vesuvius and the sea, between Pompeii and Naples, between cuisine and art, unfolds the story of a land unique in the world. A story that celebrates the beauty, history, and vibrant soul of the Gulf of Naples, a UNESCO World Heritage Site that is a precious treasure to be preserved and passed on to future generations.",
+  "storyText8": "Its history and vibrant present intertwine to create a unique place in the world, a city that continues to enchant anyone who visits it.",
+  "viewOther": "See also",
+  "partenopeText": "Partenope was one of the sirens in Greek mythology. The sirens were mythical creatures, half-woman and half-fish, known for their enchanting song that lured sailors to their doom. According to the most famous myth, Ulysses managed to escape the sirens' song during his journey back to Ithaca.",
+  "partenopeText2": "Ulysses ordered his men to plug their ears with wax and had himself tied to the ship's mast to listen to the song without being deceived by it. The sirens, furious at their failure, committed suicide by throwing themselves into the sea. Partenope was carried by the waves to the shores of the Gulf of Naples, where her body lay and dissolved, giving rise to the city that took her name.",
+  "partenopeText3": "The figure of Partenope has inspired numerous works of art, poems, and songs. Her legend has been passed down through the centuries, becoming a symbol of Naples itself. She is often seen as a symbol of beauty and danger, reflecting the character of the city, with its natural beauty but also its social and historical complexities.",
+  "vesuvioText": "Mount Vesuvius is one of the most famous and studied volcanoes in the world, located on the western coast of Italy near Naples. Its history is rich with geological and cultural events that have had a significant impact on the surrounding region. Vesuvius is a stratovolcano, characterized by a cone-shaped structure composed of alternating layers of lava, ash, and volcanic rocks. It is one of the most dangerous volcanoes in the world due to its proximity to densely populated areas. Vesuvius has a summit crater shaped like a caldera, formed as a result of various explosive eruptions. The current cone, called Gran Cono, lies within a larger caldera called Monte Somma, which is the result of a previous eruption.",
+  "vesuvioText2": "The most famous eruption of Vesuvius occurred on August 24, 79 AD, when a violent explosion buried the Roman cities of Pompeii, Herculaneum, Stabiae, and Oplontis under a blanket of ash and pumice. This eruption is well-documented thanks to the letters of Pliny the Younger, who described the event in detail. His writings led to this type of eruption being called a “Plinian eruption”. After the 79 AD eruption, Vesuvius has continued to erupt periodically. Other significant eruptions include those of 1631, which caused numerous casualties and devastation, and those of 1906 and 1944, which were the last major eruptions of the 20th century.",
+  "vesuvioText3": "It is one of the most monitored volcanoes in the world. In 1995, the Vesuvius National Park was established to protect and enhance the area around the volcano. The park offers numerous hiking trails that allow for the exploration of its various geological and natural aspects. One of the most popular activities is the hike up to the crater of Gran Cono. Visitors can walk to the edge of the crater and observe the extraordinary view of the Gulf of Naples and the surrounding areas.",
+  "vesuvioText4": "Given its danger and the population density of the surrounding area, an emergency plan for rapid evacuation in case of eruption was developed in 1996. This plan involves cooperation between various government agencies and educating the population about the risks and evacuation procedures.",
+
+  "voicesText": "Without its history and culture, Naples wouldn't be the unique city that can be recognized in a single glimpse, an object, a word, a superstitious ritual, an image. This city has a special relationship with its inhabitants, where both shape each other and build a visceral bond of love.",
+  "pinoDanieleText1": "Pino Daniele was an influential Italian singer, guitarist, and songwriter, known for his unique style blending blues, rock, jazz, and traditional Neapolitan music. Born in Naples, Pino Daniele started playing guitar at a young age and quickly gained fame with his album",
+  "pinoDanieleText2": "in 1977. Through his first album, he introduced his unique style and the use of Neapolitan dialect to the world. The song",
+  "pinoDanieleText3": "became an anthem for Naples, often depicted as a city full of beauty and contradictions. His works reflect pride and affection for his homeland, capturing the essence and nuances of Neapolitan life.",
+  "pinoDanieleText4": "In his songs and interviews, Pino Daniele left behind many famous phrases, expressing his love for Naples.",
+  "pinoDanieleText5": "Highlights the complexity and diversity of the city.",
+  "pinoDanieleText6": "Describes Naples with poetic imagery and strong contrasts.",
+  "pinoDanieleText7": "From 'Yes I Know My Way' expresses a hope of rebirth for Naples. The love between Pino Daniele and Naples is encapsulated in a phrase spoken by the singer-songwriter himself.",
+  "boldTextPinoDaniele": [
+    {
+      "text1": "“Terra Mia”",
+      "text2": "“Napule è”",
+      "text3": "Napule è mille culure, Napule è mille paure",
+      "text4": "Napule è nu sole amaro, Napule è addore 'e mare",
+      "text5": "Io sto con te, ma tu non devi morire",
+      "text6": "“LA MUSICA È NAPOLI, NAPOLI È LA MIA MUSICA”"
+    }
+  ],
+
+  "massimoTroisiText1": "Massimo Troisi was an Italian actor, director, and screenwriter, known for his unique comedic style and deep connection with Naples. Born in San Giorgio a Cremano, Troisi began his career in theater, first with the group",
+  "massimoTroisiText2": "and later with",
+  "massimoTroisiText3": "a comedy trio that also included Enzo Decaro and Lello Arena. He later made his cinematic debut with",
+  "massimoTroisiText4": "achieving great success both critically and commercially. He directed and starred in many successful films including",
+  "massimoTroisiText5": "One of his most celebrated and touching films was Troisi's final work.",
+  "massimoTroisiText6": ", completed shortly before his death. The film received numerous international accolades and a posthumous Oscar nomination for Troisi. His view of the city, often ironic yet affectionate, is reflected in his films and comedies, where he explores human and social dynamics with a sincere and compassionate gaze. He is remembered for many memorable quotes that reflect his wit and comic wisdom.",
+  "massimoTroisiText7": ", an ironic remark that reflects his ability to joke about common stereotypes regarding Naples and its inhabitants.",
+  "massimoTroisiText8": "where he emphasizes the pride and identity of Neapolitans.",
+  "massimoTroisiText9": "where he expresses his life philosophy, centered around serenity and personal fulfillment regardless of success. His ability to blend humor and sensitivity, along with his love for Naples, continues to inspire and captivate audiences.",
+  "boldTextMassimoTroisi": [
+    {
+      "text1": "“I Saraceni” ",
+      "text2": "“La Smorfia” ",
+      "text3": "“Ricomincio da tre” ",
+      "text4": "Scusate il ritardo”",
+      "text5": " “Non ci resta che piangere”",
+      "text6": " “Le vie del Signore sono finite”",
+      "text7": " “Pensavo fosse amore…invece era un calesse”",
+      "text8": "“Il Postino”",
+      "text9": "“It's not true that Neapolitans don't want to work, it's just that they never find the job they like”",
+      "text10": "“Are you Italians? No, we're Neapolitans”",
+      "text11": "When I succeed, I will be happy; if I don't succeed, I will still be happy"
+    }
+  ],
+
+  "deFilippoText1": "Eduardo De Filippo was one of the greatest Italian playwrights, actors, and directors of the 20th century. Born in Naples, he became a central figure in Italian theatrical culture, renowned for his comedies that explore the life and social issues of the Neapolitan people. Eduardo began his career at a very young age, following in the footsteps of his father, Eduardo Scarpetta, and working with his siblings Titina and Peppino. He wrote and starred in numerous successful comedies such as",
+  "deFilippoText2": ". His works often combine humor, drama, and social criticism. He worked in cinema, both as an actor and director, bringing his comedies to the big screen. In 1981, he was appointed a life senator for his cultural merits.",
+  "deFilippoText3": "Eduardo always maintained a strong bond with Naples. Through his characters and stories, he captured the essence of Neapolitan life, highlighting the challenges but also the resilience and ingenuity of the Neapolitan people. He is remembered for many quotes that reflect his wisdom and Neapolitan spirit.",
+  "deFilippoText4": "expresses the hope that difficult times will pass.",
+  "deFilippoText5": "where he reflects on human nature and decisions.",
+  "deFilippoText6": " represents his version of theater as a form of truth. His comedies continue to be performed and loved, offering a deep and authentic look into Neapolitan life and culture.",
+  "boldTextDeFilippo": [
+    {
+      "text1": "“Napoli Milionaria”",
+      "text2": "“Filumena Marturano”",
+      "text3": "“Natale in casa Cupiello”",
+      "text4": "“Adda passà a nuttata”",
+      "text5": "“Fear is the worst advisor one can have.”",
+      "text6": "“”"
+    }
+  ],
+
+  "deCurtisText1": "",
+  "deCurtisText2": "",
+  "deCurtisText3": "",
+  "deCurtisText4": "",
+  "deCurtisText5": "",
+  "deCurtisText6": "",
+  "deCurtisText7": "",
+  "deCurtisText8": "",
+
+  "boldTextDeCurtis": [
+    {
+      "text1": "Totò",
+      "text2": "“Totò, Peppino e la Malafemmena”",
+      "text3": "“Guardie e ladri”",
+      "text4": "“Miseria e Nobiltà”",
+      "text5": "“La Livella”",
+      "text6": "“”",
+      "text7": "“”",
+      "text8": "“”"
+    }
+  ],
+
+  "sophiaLorenText1": "",
+  "sophiaLorenText2": "",
+  "sophiaLorenText3": "",
+  "sophiaLorenText4": "",
+  "sophiaLorenText5": "",
+  "sophiaLorenText6": "",
+  "sophiaLorenText7": "",
+
+  "boldTextSophiaLoren": [
+    {
+      "text1": "“Aida”",
+      "text2": "“La Ciociara”",
+      "text3": "“Ieri, oggi e domani”",
+      "text4": "“Matrimonio all'italiana”",
+      "text5": "“”",
+      "text6": "“”",
+      "text7": "“”"
+    }
+  ]
 }

@@ -43,17 +43,22 @@ const MyNav = function () {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (showLoginForm && !document.querySelector(".login-container")) {
+      // if (showLoginForm && !document.querySelector(".login-container")) {
+      //   handleCloseLoginForm();
+      // }
+      if (loginRef.current && !loginRef.current.contains(event.target)) {
         handleCloseLoginForm();
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    if (showLoginForm) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showLoginForm]);
+  }, [showLoginForm, showAdminControl]);
 
   const translations = {
     it: translationsIt,
@@ -171,7 +176,7 @@ const MyNav = function () {
                     {!user && (
                       <>
                         <button onClick={handleShowLoginForm} className="btn-none">
-                          <p>ACCESSO UTENTE</p>
+                          <p>{translations.login}</p>
                         </button>
                         <button className="btn-none" onClick={handleShowLoginForm}>
                           <svg
@@ -419,19 +424,19 @@ const MyNav = function () {
               <div className="container third">
                 <ul className="nav-step-3">
                   <li className="parent nav-item big-parent">
-                    <Link to="/#">Scopri Napoli</Link>
+                    <Link to="/#">{translations.showNaples}</Link>
                     <ul className="child">
                       <li>
-                        <Link to="/story">La Storia</Link>
+                        <Link to="/story">{translations.history}</Link>
                       </li>
                       <li>
-                        <Link to="/partenope">Partenope</Link>
+                        <Link to="/partenope">{translations.partenope}</Link>
                       </li>
                       <li>
-                        <Link to="/vesuvio">Vesuvio</Link>
+                        <Link to="/vesuvio">{translations.vesuvio}</Link>
                       </li>
                       <li>
-                        <Link to="/voci-di-napoli">Le voci di Napoli</Link>
+                        <Link to="/voci-di-napoli">{translations.voicesOfNaples}</Link>
                       </li>
                     </ul>
                   </li>
@@ -459,7 +464,7 @@ const MyNav = function () {
                     </li>
                   ))}
                   <li className="parent nav-item big-parent">
-                    <Link to="/#">Itinerario</Link>
+                    <Link to="/#">{translations.itinerary}</Link>
 
                     <ul className="child">
                       {itineraries.map((itinerary) => (

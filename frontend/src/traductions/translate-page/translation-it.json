@@ -11,5 +11,157 @@
   "whatToSeeTitle": "Cosa vedere a Napoli?",
   "whatToSee1": "Stai pensando di organizzare le tue vacanze a Napoli?",
   "whatToSee2": "Sei nel posto giusto. In questo sito abbiamo racchiuso tutti i nostri anni d'esperienza per fornirti tutte le informazioni di cui hai bisogno per un soggiorno indimenticabile. Troverai preziosi consigli su cosa visitare, dove mangiare a Napoli, i piatti tipici e le attrazioni da non perdere.",
-  "whatToSee3": "Scopri con noi tutto ciò che questa meravigliosa città ha da offrire!"
+  "whatToSee3": "Scopri con noi tutto ciò che questa meravigliosa città ha da offrire!",
+  "login": "Accesso utente",
+  "loginPass": "Password",
+  "languageIt": "Italiano",
+  "languageEn": "Inglese",
+  "languageFr": "Francese",
+  "languageSp": "Spagnolo",
+  "showNaples": "Scopri Napoli",
+  "history": "La Storia",
+  "partenope": "Partenope",
+  "vesuvio": "Vesuvio",
+  "voicesOfNaples": "Le voci di Napoli",
+  "itinerary": "Itinerario",
+  "loginAccess": "Ricordami",
+  "loginAccess2": "Password dimenticata",
+  "loginAccess3": "Accedi",
+  "loginAccess4": "Non sei ancora registrato?",
+  "loginAccess5": "Registrati",
+  "createStop": "Crea Fermata",
+  "editStop": "Modifica Fermata",
+  "name": "Nome",
+  "location": "Luogo",
+  "phone": "Telefono / Cellulare",
+  "url": "Indirizzo URL",
+  "image": "Immagine",
+  "category": "Categoria",
+  "selectCategory": "Seleziona una categoria",
+  "language": "Lingue",
+  "selectLanguage": "Seleziona una lingua",
+  "description": "Descrizione",
+  "create": "Crea",
+  "edit": "Modifica",
+  "createItinerary": "Crea Itinerario",
+  "editItinerary": "Modifica Itinerario",
+  "storyText": "Nel cuore del Mediterraneo, dove le acque azzurre del Golfo di Napoli cullano le leggende antiche, sorge il maestoso Vesuvio, custode imponente di una terra ricca di storia e cultura. Questa è la terra delle due Sicilie, un regno che ha visto sorgere e cadere imperi, dove le sue città sono state testimoni di epoche d'oro e tempi oscuri. Napoli, secondo la leggenda, è nata dall'amore della sirena Partenope. Si racconta che Partenope, respinta dall'eroe Ulisse, si gettò in mare e il suo corpo venne portato dalle onde fino alle coste della Campania, dove i suoi resti diedero vita alla città. Questo mito simboleggia il profondo legame di Napoli con il mare. È una città che respira l'antico e il moderno in ogni suo angolo.",
+  "storyText2": "Le sue strade strette e pittoresche raccontano storie di amore e di tragedie, di re e di plebei, di vittorie e di sconfitte. È una città che si aggrappa al passato mentre guarda fiduciosa al futuro. Il suo centro storico che si estende su circa 17 chilometri quadrati, nel 1995 è stato dichiarato come Patrimonio Mondiale dell'Umanità dall'Unesco, è un labirinto di vicoli, piazze, chiese e teatri storici come il San Carlo, simbolo di una tradizione artistica che ha pochi eguali al mondo.",
+  "storyText3": "A dominare il panorama e la vita dei napoletani è il Vesuvio. Le sue eruzioni, hanno plasmato la storia della regione, in particolare quella di Pompei. Il golfo, con le sue isole di Capri, Ischia e Procida, aggiunge un tocco di magia a questo panorama.",
+  "storyText4": "Capri, con i suoi Faraglioni e la Grotta Azzurra, è un gioiello di bellezza naturale che ha affascinato imperatori e artisti.",
+  "storyText5": "Ischia, con le sue terme e suoi giardini esuberanti, è un paradiso di relax e benessere.",
+  "storyText6": "rocida, con i suoi colori vivaci e le sue tradizioni marinare, conserva un fascino autentico e incontaminato.",
+  "storyText7": "Ma Napoli e i suoi dintorni non sono solo storia e arte; sono anche un trionfo di suoni e sapori. La musica napoletana, con le sue melodie struggenti e appassionate, risuona per le strade, mentre l'odore della pizza appena sfornata si mescola con quello del caffè. E così' che, tra il Vesuvio e il mare, tra Pompei e Napoli, tra la cucina e l'arte, si snoda il racconto di una terra unica al mondo. Un racconto che celebra la bellezza, la storia e l'anima vibrante del Golfo di Napoli, un Patrimonio Unesco che è un tesoro prezioso da custodire e tramandare alle future generazioni.",
+  "storyText8": "La sua storia e il suo vibrante presente si intrecciano per creare un luogo unico al mondo, una città che continua a incantare chiunque la visiti.",
+  "viewOther": "Vedi anche",
+  "partenopeText": "Partenope era una delle sirene della mitologia greca. Le sirene erano creature mitologiche metà donna e metà pesce, note per il loro canto ammaliante che attirava i marinari verso la distruzione. Secondo il mito più famoso, Ulisse riuscì a sfuggire al canto delle sirene durante il suo viaggio di ritorno a Itaca.",
+  "partenopeText2": "Ulisse, ordinò ai suoi uomini di tapparsi le orecchie con cera e si fece legare all'albero della nave per ascoltare il canto senza esserne tratto in inganno. Le sirene, furiose per il fallimento, si suicidarono gettandosi in mare. Partenope fu trasportata dalle onde fino alle coste del Golfo di Napoli, dove il suo corpo giacque e si dissolse, dando origine alla città che prese il suo nome.",
+  "partenopeText3": "La figura di Partenope ha ispirato numerose opere d'arte, poesie e canzoni. La sua leggenda è stata tramandata attraverso i secoli, diventando il simbolo di Napoli stessa. È spesso vista come simbolo di bellezza e pericolo, riflettendo il carattere della città, con la sua bellezza naturale ma anche con le sue complessità sociali e storiche.",
+  "vesuvioText": "Il Vesuvio è uno dei vulcani più famosi e studiati al mondo, situato sulla costa occidentale d'Italia vicino a Napoli. La sua storia è ricca di eventi geologici e culturali che hanno avuto un impatto significativo sulla regione circostante. Il Vesuvio è un vulcano di tipo strato, caratterizzato da una struttura a cono composta da strati alternati di lava, cenere e rocce vulcaniche. È uno dei vulcani più pericolosi al mondo a causa della sua vicinanza a zone densamente popolate. Il Vesuvio ha un cratere sommitale a forma di caldera, formatosi a seguito di varie eruzioni esplosive. Il cono attuale, chiamato Gran Cono, si trova all'interno di una caldera più ampia, chiamata Monte Somma, che è il risultato di una precedente eruzione.",
+  "vesuvioText2": "L'eruzione più famosa del Vesuvio avvenne il 24 agosto del 79 d.C., quando una violenta esplosione seppellì le città romane di Pompei, Ercolano, Stabia e Oplonti sotto una coltre di cenere e pomice. Questa eruzione è ben documentata grazie alle lettere di Plinio il Giovane, che descrissero l'evento in dettaglio. I suoi scritti hanno portato a definire questo tipo di eruzione come “eruzione pliniana”. Dopo l'eruzione del 79 d.C., il Vesuvio ha continuato ad eruttare periodicamente. Altre eruzioni significative includono quelle del 1631, che causarono numerose vittime e devastazioni, e quelle del 1906 e 1944, che furono le ultime eruzioni importanti del XX secolo.",
+  "vesuvioText3": "È uno dei vulcani più monitorati al mondo. Nel 1995, è stato istituito il Parco Nazionale del Vesuvio per proteggere e valorizzare l'area intorno al vulcano. Il parco offre numerosi sentieri escursionistici che ne permettono di esplorare i diversi aspetti geologici e naturali. Una delle attività più popolari è l'escursione fino al cratere del Gran Cono. I visitatori possono camminare fino al bordo del cratere e osservare la straordinaria vista del golfo di Napoli e delle aree circostanti.",
+  "vesuvioText4": "Data la sua pericolosità e la densità di popolazione dell'area circostante, nel 1996 è stato sviluppato un  piano di emergenza per l'evacuazione rapida in caso di eruzione. Questo piano prevede la collaborazione tra varie agenzie governative e l'educazione della popolazione sui rischi e le procedure di evacuazione.",
+
+  "voicesText": "Senza la sua storia e la sua cultura, Napoli non sarebbe quella città così unica da poter essere riconosciuta in un singolo scorcio, in un oggetto, una parola, un rito scaramantico, un'immagine. Questa città ha con i suoi figli, un rapporto speciale, in cui entrambi si plasmano a vicenda e in modo da costruire un legame d'amore viscerale.",
+  "pinoDanieleText1": "Pino Daniele è stato un influente cantante, chitarrista e cantautore italiano, noto per il suo stile unico che combinava blues, rock, jazz e musica tradizionale napoletana. Nato a Napoli, Pino Daniele ha iniziato a suonare la chitarra da giovane e ha rapidamente guadagnato fama con il suo album ",
+  "pinoDanieleText2": "nel 1977. Con il suo primo album ha presentato al mondo il suo stile unico e l'uso del dialetto napoletano. La canzone ",
+  "pinoDanieleText3": "è diventata un inno per Napoli, spesso rappresentata come una città piena di bellezza e contraddizioni. Le sue opere riflettono l'orgoglio e l'affetto per la sua terra natale, catturando l'essenza e le sfumature della vita napoletana. ",
+  "pinoDanieleText4": "Pino Daniele ha lasciato molte frasi celebri nelle sue canzoni e interviste, esprimendo il suo amore per Napoli. ",
+  "pinoDanieleText5": "evidenzia la complessità e la diversità della città. ",
+  "pinoDanieleText6": "descrive Napoli con immagini poetiche e contrasti forti. ",
+  "pinoDanieleText7": "da “Yes i know my way” esprime una speranza di rinascita per Napoli. L'amore tra Pino Daniele e Napoli si racchiude in una frase detta dal cantautore stesso ",
+  "boldTextPinoDaniele": [
+    {
+      "text1": "“Terra Mia”",
+      "text2": "“Napule è”",
+      "text3": "Napule è mille culure, Napule è mille paure",
+      "text4": "Napule è nu sole amaro, Napule è addore 'e mare",
+      "text5": "Io sto con te, ma tu non devi morire",
+      "text6": "“LA MUSICA È NAPOLI, NAPOLI È LA MIA MUSICA”"
+    }
+  ],
+
+  "massimoTroisiText1": "Massimo Troisi è stato un attore, regista e sceneggiatore italiano, noto per il suo stile comico unico e il suo profondo legame con Napoli. Nato a San Giorgio a Cremano, Troisi ha iniziato la sua carriera nel teatro, prima con il gruppo ",
+  "massimoTroisiText2": "e poi con ",
+  "massimoTroisiText3": "un trio comico che includeva anche Enzo Decaro e Lello Arena. Poi successivamente ha fatto il suo debutto cinematografico con ",
+  "massimoTroisiText4": "avendo grande successo sia di critica che di pubblico. Ha diretto e interpretato molti film di successo tra cui ",
+  "massimoTroisiText5": "Uno dei suoi film più celebri e toccanti è stato l'ultimo lavoro di Troisi ",
+  "massimoTroisiText6": ", completato poco prima della sua morte. Il film ha ricevuto numerosi riconoscimenti internazionali e una nomination all'oscar postuma per Troisi. La sua visione della città, spesso ironica ma affettuosa, si riflette nei suoi film e nelle sue commedie, dove esplora le dinamiche umane e sociali con uno sguardo sincero e compassionevole. È ricordato per molte citazioni memorabili che riflettono il suo spirito e la sua saggezza comica. ",
+  "massimoTroisiText7": ", una battuta ironica che riflette la sua capacità di scherzare suoi luoghi comuni riguardanti Napoli e i suoi abitanti. ",
+  "massimoTroisiText8": "dove sottolinea l'orgoglio e l'identità dei napoletani. ",
+  "massimoTroisiText9": "dove esprime la sua filosofia di vita, improntata alla serenità e alla soddisfazione personale indipendentemente dal successo. La sua capacità di combinare umorismo e sensibilità, insieme al suo amore per Napoli, continua a ispirare e affascinare il pubblico. ",
+  "boldTextMassimoTroisi": [
+    {
+      "text1": "“I Saraceni” ",
+      "text2": "“La Smorfia” ",
+      "text3": "“Ricomincio da tre” ",
+      "text4": "Scusate il ritardo”",
+      "text5": " “Non ci resta che piangere”",
+      "text6": " “Le vie del Signore sono finite”",
+      "text7": " “Pensavo fosse amore…invece era un calesse”",
+      "text8": "“Il Postino”",
+      "text9": "“Non è vero che i napoletani non vogliono lavorare, è che non trovano mai il lavoro che gli piace”",
+      "text10": "“Voi siete italiani? No, siamo napoletani” ",
+      "text11": "“Quando ci sarò riuscito, sarò contento, se non ci sarò riuscito, sarò contento lo stesso” "
+    }
+  ],
+
+  "deFilippoText1": "Eduardo De Filippo è stato uno dei più grandi drammaturghi, attori e registi italiani del XX secolo. Nato a Napoli, è diventato una figura centrale nella cultura teatrale italiana, famoso per le sue commedie che esplorano la vita e i problemi sociali del popolo napoletano. Eduardo, iniziò la carriera giovanissimo, seguendo le orme del padre, Eduardo Scarpetta, e lavorando con i fratelli Titina e Peppino. Ha scritto e interpretato numerose commedie di successo come ",
+  "deFilippoText2": ". Le sue opere combinano spesso umorismo, dramma e critica sociale. Ha lavorato nel cinema, sia come attore che come regista, portando le sue commedie sul grande schermo. Nel 1981 è stato nominato senatore a vita per i suoi meriti culturali.",
+  "deFilippoText3": "Eduardo ha sempre mantenuto un forte legame con Napoli. Attraverso i suoi personaggi e le sue storie, ha saputo cogliere l'essenza della vita napoletana, mettendo in luce le difficoltà, ma anche la resilienza e l'ingegno del popolo napoletano. È ricordato per molte sue citazioni che riflettono la sua saggezza e il suo spirito napoletano. ",
+  "deFilippoText4": "esprime la speranza che i momenti difficili passeranno.",
+  "deFilippoText5": "dove da una riflessione sulla natura umana e le decisioni.",
+  "deFilippoText6": " rappresenta la sua versione del teatro come una forma di verità. Le sue commedie continuano ad essere rappresentate e amate, offrendo uno sguardo profondo e autentico sulla vita e la cultura napoletana.",
+  "boldTextDeFilippo": [
+    {
+      "text1": "“Napoli Milionaria”",
+      "text2": "“Filumena Marturano”",
+      "text3": "“Natale in casa Cupiello”",
+      "text4": "“Adda passà a nuttata” ",
+      "text5": "“La paura è la peggiore consigliera che si possa avere” ",
+      "text6": "“Teatro significa vivere sul serio quello che gli altri, nella vita, recitano male” "
+    }
+  ],
+
+  "deCurtisText1": "Antonio De Curtis, conosciuto come ",
+  "deCurtisText2": ", è stato uno dei più grandi comici e attori italiani del XX secolo. Nato a Napoli, Totò è diventato una figura leggendaria del cinema e del teatro italiano. Iniziò la sua carriera nel teatro di varietà, dove sviluppò il suo stile unico di commedia basato su mimica, giochi di parole e situazioni assurde. Ha recitato in oltre 100 film, tra cui ",
+  "deCurtisText3": ". Oltre al cinema, Totò ha continuato a lavorare nel teatro e ha partecipato a programmi televisivi.",
+  "deCurtisText4": "Nel 1964 scrisse ",
+  "deCurtisText5": " una delle poesie più famose e apprezzate. Questa poesia rappresenta l'uguaglianza per Totò: “in vita possiamo avere posizioni e privilegi differenti, ma nella morte siamo tutti uguali”. La Livella è una riflessione sulla mortalità e sull'uguaglianza e Totò utilizza il dialetto napoletano e l'umorismo per trattare temi profondi come la morte e la parità tra gli esseri umani. Tra le più celebri frasi di Totò troviamo:",
+  "deCurtisText6": "che esprime il suo stile ironico e aristocratico. ",
+  "deCurtisText7": " sottolinea la sua capacità di ridere delle situazioni politiche e sociali dell'epoca. ",
+  "deCurtisText8": " rappresenta la sua capacità di mescolare umorismo e realtà. La sua capacità di far ridere, commuovere e riflettere attraverso la sua arte lo ha reso una figura indimenticabile.",
+
+  "boldTextDeCurtis": [
+    {
+      "text1": "Totò",
+      "text2": "“Totò, Peppino e la Malafemmena”",
+      "text3": "“Guardie e ladri”",
+      "text4": "“Miseria e Nobiltà”",
+      "text5": "“La Livella”",
+      "text6": " “Signori si nasce, e io lo nacqui, modestamente” ",
+      "text7": "“A proposito di politica, ci sarebbe qualcosa da mangiare?”",
+      "text8": "“Il coraggio ce l'ho, è la paura che mi manca”"
+    }
+  ],
+
+  "sophiaLorenText1": "Sophia Loren è una delle attrici più celebri del cinema italiano e internazionale. Nata a Roma e cresciuta a Pozzuoli. È diventata un'icona di bellezza e talento, con una carriera che spazia oltre sei decenni. Sophia Loren ha iniziato la sua carriera partecipando a concorsi di bellezza e recitando in piccoli ruoli cinematografici. Il suo primo successo è arrivato con il film ",
+  "sophiaLorenText2": " Ha collaborato con il regista Vittorio De Sica e l'attore Marcello Mastroianni, recitando in film iconici come ",
+  "sophiaLorenText3": ", per il quale ha vinto l'Oscar come migliore attrice, ",
+  "sophiaLorenText4": "Ha avuto una carriera di successo anche a Hollywood, lavorando con registi di fama mondiale. Ha vinto numerosi premi, tra cui due Premi Oscar, sei David di Donatello e un Leone d'oro alla carriera. Sophia Loren ha sempre mantenuto un forte legame con Napoli e la sua cultura. Ha sempre parlato con affetto delle sue origini e di come l'abbiano formata come persona e attrice. Tra le sue citazioni possiamo notare tutta la sua saggezza: ",
+  "sophiaLorenText5": "un'affermazione scherzosa che esprime il suo amore per la cucina italiana. ",
+  "sophiaLorenText6": ", un'affermazione sulla libertà di espressione.",
+  "sophiaLorenText7": ", questa frase riflette il suo spirito indipendente e la sua forza interiore. Ha lasciato un'impronta indelebile nella storia del cinema.",
+
+  "boldTextSophiaLoren": [
+    {
+      "text1": "“Aida”",
+      "text2": "“La Ciociara”",
+      "text3": "“Ieri, oggi e domani”",
+      "text4": "“Matrimonio all'italiana”",
+      "text5": "“Tutto quello che vedete lo devo agli spaghetti”",
+      "text6": "“Il vero lusso è poter dire quello che pensi”",
+      "text7": "“Una donna che segue la folla non andrà mai più lontano della folla, una donna che cammina da sola, è probabile che si ritrovi in luoghi in cui nessuno è arrivato”"
+    }
+  ]
 }
