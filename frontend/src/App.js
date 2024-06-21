@@ -30,6 +30,7 @@ import VoiceOfNaples from "./pages/VoiceOfNaples";
 import ContactForm from "./contact/ContactForm";
 import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "./traductions/LanguageContext";
+import ResetPassword from "./password/ResetPassword";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -66,6 +67,7 @@ function App() {
               <Route element={<Guest />}>
                 <Route path="/register" element={<Register />} />
               </Route>
+              <Route path="/password-reset/:token" element={<ResetPassword />} />
 
               <Route path="/story" element={<NapoliStory />} />
               <Route path="/partenope" element={<Partenope />} />

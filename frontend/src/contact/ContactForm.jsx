@@ -1,7 +1,21 @@
 import axios from "axios";
 import { useState } from "react";
+import { useLanguage } from "../traductions/LanguageContext";
+import translationsIt from "../traductions/translate-page/translation-it";
+import translationsEn from "../traductions/translate-page/translation-en";
+import translationsFr from "../traductions/translate-page/translation-fr";
+import translationsSp from "../traductions/translate-page/translation-sp";
 
 const ContactForm = () => {
+  const { language } = useLanguage();
+
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,10 +49,10 @@ const ContactForm = () => {
         <div className="col-md-8 offset-md-2">
           <div className="card stops-form">
             <div className="card-body">
-              <h3 className="card-title text-center mb-4">Contattaci</h3>
+              <h3 className="card-title text-center mb-4">{translations.contactUs}</h3>
               <form onSubmit={handleSubmit}>
                 <div className="input-field">
-                  <label htmlFor="name">Nome</label>
+                  <label htmlFor="name">{translations.name}</label>
                   <input
                     type="text"
                     className="form-control contact-input"
@@ -60,7 +74,7 @@ const ContactForm = () => {
                   />
                 </div>
                 <div className="input-field">
-                  <label htmlFor="message">Messaggio</label>
+                  <label htmlFor="message">{translations.message}</label>
                   <textarea
                     name="message"
                     className="form-control contact-input textarea"

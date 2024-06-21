@@ -4,6 +4,11 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT, updateProfileImage } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../../traductions/LanguageContext";
+import translationsIt from "../../traductions/translate-page/translation-it";
+import translationsEn from "../../traductions/translate-page/translation-en";
+import translationsFr from "../../traductions/translate-page/translation-fr";
+import translationsSp from "../../traductions/translate-page/translation-sp";
 
 const Profile = function ({ token }) {
   const [profileImage, setProfileImage] = useState(null);
@@ -12,6 +17,14 @@ const Profile = function ({ token }) {
   const [showImageBtn, setShowImageBtn] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { language } = useLanguage();
+
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
 
   const [formData, setFormData] = useState({
     name: "",
@@ -168,7 +181,11 @@ const Profile = function ({ token }) {
             <form onSubmit={handleUploadImage}>
               <div className="profile-page-img-flex">
                 <div className="profile-page-img-rel">
-                  <img src={user.profile_img} alt="" className="profile-page-img" />
+                  <img
+                    src={user.profile_img ? user.profile_img : "/image/profile-image.png"}
+                    alt=""
+                    className="profile-page-img"
+                  />
                   <div className="profile-page-img-abs" onClick={handleSvgClick}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -249,11 +266,11 @@ const Profile = function ({ token }) {
               </button>
             </div>
           </div>
-          <h2 className="mb-4">Modifica Profilo</h2>
+          <h2 className="mb-4">{translations.profile1}</h2>
           <div>
             <form onSubmit={handleUpdateProfile}>
               <div className="input-field profile">
-                <label htmlFor="name">Nome</label>
+                <label htmlFor="name">{translations.name}</label>
                 <input
                   id="name"
                   type="text"
@@ -265,7 +282,19 @@ const Profile = function ({ token }) {
               </div>
 
               <div className="input-field profile">
-                <label htmlFor="email">Indirizzo e-mail</label>
+                <label htmlFor="surname">{translations.surname}</label>
+                <input
+                  type="text"
+                  name="surname"
+                  id="surname"
+                  value={formData.surname}
+                  onChange={handleChange}
+                  className="form-control profile-input "
+                />
+              </div>
+
+              <div className="input-field profile">
+                <label htmlFor="email">{translations.profileEmail}</label>
                 <input
                   type="email"
                   name="email"
@@ -277,18 +306,7 @@ const Profile = function ({ token }) {
               </div>
 
               <div className="input-field profile">
-                <label htmlFor="surname">Cognome</label>
-                <input
-                  type="text"
-                  name="surname"
-                  id="surname"
-                  value={formData.surname}
-                  onChange={handleChange}
-                  className="form-control profile-input "
-                />
-              </div>
-              <div className="input-field profile">
-                <label htmlFor="phone">Telefono \ Cellulare</label>
+                <label htmlFor="phone">{translations.phone}</label>
                 <input
                   type="text"
                   name="phone"
@@ -299,7 +317,7 @@ const Profile = function ({ token }) {
                 />
               </div>
               <div className="input-field profile">
-                <label htmlFor="age">Età</label>
+                <label htmlFor="age">{translations.age}</label>
                 <input
                   type="number"
                   name="age"
@@ -310,16 +328,16 @@ const Profile = function ({ token }) {
                 />
               </div>
               <button type="submit" className="profile-btn">
-                Aggiorna profilo
+                {translations.profile2}
               </button>
             </form>
           </div>
 
           <div className="upload-pass">
             <form onSubmit={handleUpdatePassword}>
-              <h2 className="mb-4">Modifica password</h2>
+              <h2 className="mb-4">{translations.profile3}</h2>
               <div className="input-field profile">
-                <label htmlFor="currentPassword">Password attuale</label>
+                <label htmlFor="currentPassword">{translations.profile5}</label>
                 <input
                   type="password"
                   id="currentPassword"
@@ -330,7 +348,7 @@ const Profile = function ({ token }) {
                 />
               </div>
               <div className="input-field profile">
-                <label htmlFor="newPassword">Nuova password</label>
+                <label htmlFor="newPassword">{translations.profile6}</label>
                 <input
                   type="password"
                   id="newPassword"
@@ -341,7 +359,7 @@ const Profile = function ({ token }) {
                 />
               </div>
               <div className="input-field profile">
-                <label htmlFor="confirmPassword">Conferma nuova password</label>
+                <label htmlFor="confirmPassword">{translations.profile7}</label>
                 <input
                   type="password"
                   id="confirmPassword"
@@ -352,7 +370,7 @@ const Profile = function ({ token }) {
                 />
               </div>
               <button type="submit" className="profile-btn">
-                Aggiorna Password
+                {translations.profile4}
               </button>
             </form>
           </div>

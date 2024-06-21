@@ -21,6 +21,15 @@ const MyNav = function () {
   const user = useSelector((state) => state.user);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showAdminControl, setShowAdminControl] = useState(false);
+  const [isHovered, setIdHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIdHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIdHovered(false);
+  };
 
   const loginRef = useRef();
 
@@ -166,7 +175,9 @@ const MyNav = function () {
                     <Link className="menu-link">La grande Napoli</Link>
                   </li>
                   <li className="col-3">
-                    <Link className="menu-link">La grande Napoli</Link>
+                    <Link to="/contact" className="menu-link">
+                      {translations.footer1}
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -464,7 +475,20 @@ const MyNav = function () {
                     </li>
                   ))}
                   <li className="parent nav-item big-parent">
-                    <Link to="/#">{translations.itinerary}</Link>
+                    {user ? (
+                      <Link to="/#">{translations.itinerary}</Link>
+                    ) : (
+                      <div className="div-itin-rel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                        <div>
+                          <Link to="/#">{translations.itinerary}</Link>
+                        </div>
+                        {isHovered && (
+                          <div className="div-itin-abs">
+                            <p>Per visualizzare i nostri itinerari è necessario effettuare l'accesso</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
 
                     <ul className="child">
                       {itineraries.map((itinerary) => (

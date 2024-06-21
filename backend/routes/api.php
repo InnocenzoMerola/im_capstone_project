@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\ItinerariesController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\RateController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,19 +23,20 @@ Route::name('api.v1.')
     Route::get('/guides', [GuideController::class, 'index'])->name('guides.index');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/stops', [StopController::class, 'index'])->name('stops.index');
+    Route::get('/itineraries', [ItinerariesController::class, 'index'])->name('itineraries.index');
     Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
     
     
+    Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->name('password.forgot-password');
+    Route::post('/password-reset', [NewPasswordController::class, 'store'])->name('password.password-reset');
     
     Route::middleware('auth:sanctum', 'verified')->group(function(){
         Route::get('/guides/{id}', [GuideController::class, 'show'])->name('guides.show');
-        
-        // Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
+      
         
         Route::get('/stops/{id}', [StopController::class, 'show'])->name('stops.show');
         Route::post('/stops/{id}/assign-category', [StopController::class, 'assignCategory'])->name('stops.assignCategory'); 
         
-        Route::get('/itineraries', [ItinerariesController::class, 'index'])->name('itineraries.index');
         Route::get('/itineraries/{id}', [ItinerariesController::class, 'show'])->name('itineraries.show');
     
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');

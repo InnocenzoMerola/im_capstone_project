@@ -1,8 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import { useLanguage } from "../traductions/LanguageContext";
+import translationsIt from "../traductions/translate-page/translation-it";
+import translationsEn from "../traductions/translate-page/translation-en";
+import translationsFr from "../traductions/translate-page/translation-fr";
+import translationsSp from "../traductions/translate-page/translation-sp";
 
 const MyFooter = function () {
   const location = useLocation();
+  const { language } = useLanguage();
+
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
 
   return (
     <div className="footer-img">
@@ -10,15 +23,15 @@ const MyFooter = function () {
         <div className="container footer-cont">
           <div className="row justify-content-center">
             <div className="col-md-3">
-              <h5 className=" text-white">Contatti</h5>
-              <p>Indirizzo: Napoli</p>
+              <h5 className=" text-white">{translations.footer1}</h5>
+              <p>{translations.footer2}: Napoli</p>
               <p>
                 Email: <Link to="mailto:enzomerola02@gmail.com">enzomerola02@gmail.com</Link>
               </p>
-              <p>Telefono: +39 389 926 2208</p>
+              <p>{translations.footer3}: +39 389 926 2208</p>
             </div>
             <div className="col-md-2 ">
-              <h5 className=" text-white">Link Utili</h5>
+              <h5 className=" text-white">{translations.footer4}</h5>
               <ul>
                 {location.pathname === "/" ? (
                   <>
@@ -29,7 +42,7 @@ const MyFooter = function () {
                     </li>
                     <li>
                       <ScrollLink to="about" smooth={true} duration={200} offset={-50} className="scroll-color">
-                        Chi siamo
+                        {translations.footer5}
                       </ScrollLink>
                     </li>
                   </>
@@ -39,20 +52,20 @@ const MyFooter = function () {
                       <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <Link to="/">Chi siamo</Link>
+                      <Link to="/">{translations.footer5}</Link>
                     </li>
                   </>
                 )}
                 <li>
-                  <Link to="/contact">Contatti</Link>
+                  <Link to="/contact">{translations.footer1}</Link>
                 </li>
                 <li>
-                  <Link to="/profile">Profilo</Link>
+                  <Link to="/profile">{translations.footer6}</Link>
                 </li>
               </ul>
             </div>
             <div className="col-md-2 ">
-              <h5 className=" text-white">Social Media</h5>
+              <h5 className=" text-white">{translations.footer7}</h5>
               <ul>
                 <li>
                   <Link to="#">
@@ -110,9 +123,7 @@ const MyFooter = function () {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <p className="text-center text-white">
-                  &copy; 2024 I&M - La Tua Guida a Napoli. Tutti i diritti riservati.
-                </p>
+                <p className="text-center text-white">{translations.footer8}</p>
               </div>
             </div>
           </div>

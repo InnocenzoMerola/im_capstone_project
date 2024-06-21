@@ -3,11 +3,27 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../../redux/actions";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../traductions/LanguageContext";
+import translationsIt from "../../traductions/translate-page/translation-it";
+import translationsEn from "../../traductions/translate-page/translation-en";
+import translationsFr from "../../traductions/translate-page/translation-fr";
+import translationsSp from "../../traductions/translate-page/translation-sp";
 
 const Login = function ({ onCloseLogin, onShowRegister }) {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const [showResetForm, setShowResetForm] = useState(false);
+  const [showForgotPasswrodForm, setShowForgotPasswordForm] = useState(false);
+  const { language } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
 
   const [formData, setFormData] = useState({
     email: "",
@@ -41,109 +57,110 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     setShowPassword(!showPassword);
   };
 
-  const handleForgotPassword = (e) => {
+  const handleForgotPassword = async (e) => {
     e.preventDefault();
 
-    axios
-      .post("/api/v1/profile/reset-password", { email: formData.email, new_passord: formData.new_passord })
-      .then((response) => {
-        alert(response.data.message);
-        setShowResetForm(false);
-      })
-      .catch((error) => {
-        console.log("Error", error);
-      });
+    try {
+      const response = await axios.post("/api/v1/forgot-password", { email });
+      setMessage(response.data.status);
+      setError("");
+      setShowForgotPasswordForm(false);
+      console.log(email);
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.error && error.response.data.error.email) {
+        setError(error.response.data.error.email[0]);
+      } else {
+        setError("Qualcosa è andato storto, riprova più tardi");
+      }
+      setMessage("");
+    }
   };
 
   return (
     <div className="login-big-cont">
       <div className="login-container">
-        <form onSubmit={(e) => submitLogin(e)} noValidate>
-          <div className="input-field login">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.email}
-              required
-            />
-          </div>
-          <div className="input-field login pos-rel-pass">
-            <label htmlFor="password">Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              className="form-control"
-              id="password"
-              name="password"
-              onChange={(e) => updateInputValue(e)}
-              value={formData.password}
-              required
-            />
-            <div className="btn-show-pass-login">
-              <button className="btn-none" onClick={clickToShowPass}>
-                <img src={showPassword ? "/icons/eye.svg" : "/icons/eye-slash.svg"} alt="" />
+        {showForgotPasswrodForm ? (
+          <>
+            <h4>{translations.loginAccess7} password</h4>
+            <div className="reset-pass-rel">
+              <form onSubmit={handleForgotPassword} noValidate>
+                <div>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="form-control mt-1"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                {message && <p>{message}</p>}
+                {error && <p style={{ color: "red" }}>{error}</p>}
+                <div className="mt-2">
+                  <button type="submit" className="login-btn">
+                    {translations.loginAccess7}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </>
+        ) : (
+          <>
+            <form onSubmit={(e) => submitLogin(e)} noValidate>
+              <div className="input-field login">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  onChange={(e) => updateInputValue(e)}
+                  value={formData.email}
+                  required
+                />
+              </div>
+              <div className="input-field login pos-rel-pass">
+                <label htmlFor="password">Password</label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  onChange={(e) => updateInputValue(e)}
+                  value={formData.password}
+                  required
+                />
+                <div className="btn-show-pass-login">
+                  <button className="btn-none" onClick={clickToShowPass}>
+                    <img src={showPassword ? "/icons/eye.svg" : "/icons/eye-slash.svg"} alt="" />
+                  </button>
+                </div>
+              </div>
+              <div className="remember-me">
+                <input type="checkbox" id="remember-me" name="remember-me" />
+                <label htmlFor="remember-me">{translations.loginAccess}</label>
+              </div>
+
+              <div className="d-flex justify-content-center">
+                <button type="submit" className="login-btn">
+                  {translations.loginAccess3}
+                </button>
+              </div>
+            </form>
+            <div className="register">
+              <div className="reset-question">
+                <button type="button" onClick={() => setShowForgotPasswordForm(true)}>
+                  {translations.loginAccess2}
+                </button>
+              </div>
+              <span className="not-register">{translations.loginAccess4}</span>
+              <button onClick={onShowRegister} className="register-btn">
+                {translations.loginAccess5}
               </button>
             </div>
-          </div>
-          <div className="remember-me">
-            <input type="checkbox" id="remember-me" />
-            <label htmlFor="remember-me">Ricordami</label>
-          </div>
-          <div>
-            <button onClick={() => setShowResetForm(true)}>Password dimenticata</button>
-          </div>
-          <div className="d-flex justify-content-center">
-            <button type="submit" className="login-btn">
-              ACCEDI
-            </button>
-          </div>
-        </form>
-        <div className="register">
-          <span className="not-register">NON SEI ANCORA REGISTRATO?</span>
-          <button onClick={onShowRegister} className="register-btn">
-            REGISTRATI
-          </button>
-        </div>
-        {showResetForm && (
-          <form onSubmit={handleForgotPassword} noValidate>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="form-control"
-                value={formData.email}
-                onChange={updateInputValue}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="newPassword">Nuova password</label>
-              <input
-                type={showPassword ? "text" : "password"}
-                className="form-control"
-                id="newPassword"
-                name="newPassword"
-                onChange={updateInputValue}
-                value={formData.newPassword}
-                required
-              />
-            </div>
-            <div className="btn-show-pass-login">
-              <button className="btn-none" onClick={clickToShowPass}>
-                <img src={showPassword ? "/icons/eye.svg" : "/icons/eye-slash.svg"} alt="" />
-              </button>
-            </div>
-            <div>
-              <button type="submit" className="login-btn">
-                Resetta password
-              </button>
-            </div>
-          </form>
+          </>
         )}
       </div>
     </div>

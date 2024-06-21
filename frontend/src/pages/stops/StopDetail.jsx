@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ShowComment from "../../comments/ShowComment";
 import AddComment from "../../comments/AddComment";
-import { Badge } from "react-bootstrap";
+import { Badge, Spinner } from "react-bootstrap";
 import axios from "axios";
 import { useLanguage } from "../../traductions/LanguageContext";
 
@@ -25,7 +25,6 @@ const StopDetail = function () {
         .catch((error) => console.log("Errore ", error));
     }
   }, [id]);
-
   const fetchComments = (stopId) => {
     axios
       .get(`/api/v1/stops/${stopId}/comments`)
@@ -34,6 +33,36 @@ const StopDetail = function () {
       })
       .catch((error) => console.log("Errore nella chiamata API", error));
   };
+
+  const splitParagraphs = (text) => {
+    return text.split("\\n").map((paragraph, index) => <p key={index}>{paragraph}</p>);
+  };
+
+  if (!stopData) {
+    return <Spinner animation="grow" />;
+  }
+
+  const renderParagraph = () => {
+    switch (language) {
+      case "it":
+        return splitParagraphs(stopData.data.description_it);
+      case "en":
+        return splitParagraphs(stopData.data.description_en);
+      case "fr":
+        return splitParagraphs(stopData.data.description_fr);
+      case "sp":
+        return splitParagraphs(stopData.data.description_sp);
+      default:
+        return <p>Descizione non disponibile</p>;
+    }
+  };
+
+  // const paragraphs = {
+  //   it: stopData.data.description_it.split("\n\n").filter((p) => p !== ""),
+  //   en: stopData.data.description_en.split("\n\n").filter((p) => p !== ""),
+  //   fr: stopData.data.description_fr.split("\n\n").filter((p) => p !== ""),
+  //   sp: stopData.data.description_sp.split("\n\n").filter((p) => p !== ""),
+  // };
 
   if (!id) {
     return <div>Id non valido</div>;
@@ -49,41 +78,32 @@ const StopDetail = function () {
         <>
           <div className="container stop-detail-cont">
             <div className="row">
-              <div className="col-6">
+              <div className="col-7">
                 <div className="stop-title">
                   <h1>{stopData.data.name}</h1>
                 </div>
                 <div>
                   <img src={`/storage/${stopData.data.image}`} alt={stopData.data.name} />
                 </div>
+                <div className="stop-category">
+                  {language === "it" && <Badge>{stopData.data.categories[0].name_it}</Badge>}
+                  {language === "en" && <Badge>{stopData.data.categories[0].name_en}</Badge>}
+                  {language === "fr" && <Badge>{stopData.data.categories[0].name_fr}</Badge>}
+                  {language === "sp" && <Badge>{stopData.data.categories[0].name_sp}</Badge>}
+                </div>
                 <div className="stop-location">
                   <h6>Località: {stopData.data.location}</h6>
                 </div>
-                <div className="stop-category">
-                  <Badge>{stopData.data.categories[0].name}</Badge>
-                </div>
-                <div className="stop-description">
-                  {language === "it" && <p>{stopData.data.description_it}</p>}
-                  {language === "en" && <p>{stopData.data.description_en}</p>}
-                  {language === "fr" && <p>{stopData.data.description_fr}</p>}
-                  {language === "sp" && <p>{stopData.data.description_sp}</p>}
-                </div>
-
-                <div>
+                <div className="stop-description">{renderParagraph()}</div>
+                <div className="stop-image">
                   <img src={`/storage/${stopData.data.image2}`} alt={stopData.data.name} />
                 </div>
-                <div>
+                <div className="stop-image">
                   <img src={`/storage/${stopData.data.image3}`} alt={stopData.data.name} />
                 </div>
               </div>
-              <div className="col-6">
+              <div className="col-3 offset-1">
                 <ShowComment comments={comments} />
-                {/* <div>
-                  <img src={`/storage/${stopData.data.image3}`} alt={stopData.data.name} />
-                </div>
-                <div>
-                  <img src={`/storage/${stopData.data.image4}`} alt={stopData.data.name} />
-                </div> */}
               </div>
             </div>
           </div>

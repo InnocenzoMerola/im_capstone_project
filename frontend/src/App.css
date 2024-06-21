@@ -348,6 +348,23 @@ ul {
   background-color: #1a2123d4;
 }
 
+.div-itin-rel {
+  position: relative;
+}
+
+.div-itin-abs {
+  position: absolute;
+  background-color: #1a2123d4;
+  top: 56px;
+}
+
+.div-itin-abs p {
+  margin: 0;
+  line-height: 20px;
+  padding-block: 20px;
+  color: white;
+}
+
 /* LOGIN */
 
 .login-big-cont {
@@ -366,20 +383,6 @@ ul {
   position: absolute;
   font-weight: 400;
 }
-
-/* .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.temperature {
-  font-size: 18px;
-  font-weight: bold;
-  color: #666;
-} */
 
 .input-field {
   margin-bottom: 10px;
@@ -448,7 +451,8 @@ ul {
   font-weight: 600;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.reset-pass-btn:hover {
   background-color: #008dff;
 }
 
@@ -478,26 +482,33 @@ ul {
   top: 2px;
   right: 4px;
 }
-/* .footer {
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
+
+.reset-question button {
+  background-color: #7f7f7f;
+  border: none;
+  margin-bottom: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  color: white;
+  font-weight: 600;
 }
 
-.footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.reset-pass-rel {
+  position: relative;
 }
 
-.footer li {
-  margin-bottom: 10px;
+.reset-pass-btn {
+  width: 10rem;
+  padding-block: 4px;
+  background-color: #b2f0ff;
+  border: none;
+  font-weight: 600;
 }
 
-.footer a {
-  font-size: 16px;
-  color: #337ab7;
-  text-decoration: none;
-} */
+.btn-show-pass-reset {
+  position: absolute;
+  bottom: 55px;
+  right: 7px;
+}
 
 /* REGISTER */
 .register-total-page {
@@ -1002,4 +1013,26 @@ ul {
 
 .stop-location {
   margin-block: 2rem 1.5rem;
+}
+
+.stop-category {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stop-location {
+  margin-block: 1.5rem 1.5rem;
+}
+
+.stop-description {
+  margin-bottom: 2.5rem;
+}
+
+.stop-image {
+  margin-bottom: 4rem;
+}
+
+.comment-container {
+  margin-block: 7rem;
 }

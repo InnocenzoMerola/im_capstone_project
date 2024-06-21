@@ -26,7 +26,8 @@ class User extends Authenticatable
         'profile_img',
         'surname',
         'phone',
-        'age'
+        'age',
+        'remember_token'
     ];
 
     /**
