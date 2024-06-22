@@ -31,6 +31,7 @@ import ContactForm from "./contact/ContactForm";
 import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "./traductions/LanguageContext";
 import ResetPassword from "./password/ResetPassword";
+import ShowItinerary from "./pages/itinerary/ShowItinerary";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -82,6 +83,7 @@ function App() {
                 {/* <Route path="/create-guides" element={<CreateGuide />} /> */}
                 <Route path="/create-itineraries" element={<CreateItinerary />} />
                 <Route path="/itineraries/:id/edit" element={<EditItinerary />} />
+                <Route path="/itineraries/:id" element={<ShowItinerary />} />
                 {/* Profile */}
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/contact" element={<ContactForm />} />

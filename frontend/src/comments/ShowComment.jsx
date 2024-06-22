@@ -1,6 +1,21 @@
+import { useLanguage } from "../traductions/LanguageContext";
+import translationsIt from "../traductions/translate-page/translation-it";
+import translationsEn from "../traductions/translate-page/translation-en";
+import translationsFr from "../traductions/translate-page/translation-fr";
+import translationsSp from "../traductions/translate-page/translation-sp";
+import { useSelector } from "react-redux";
+
 const ShowComment = ({ comments }) => {
   console.log("Commenti", comments);
+  const { language } = useLanguage();
+  const user = useSelector((state) => state.user);
 
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
   const renderStars = (rating) => {
     const stars = [];
 
@@ -9,12 +24,11 @@ const ShowComment = ({ comments }) => {
         <svg
           key={i}
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="13"
+          height="13"
           fill="currentColor"
-          class="bi bi-star-fill"
+          className="bi bi-star-fill "
           viewBox="0 0 16 16"
-          className="star"
           color={i <= rating ? "#ffc107" : "#e4e5e9"}
           size={25}
           style={{ marginRight: "2px" }}
@@ -28,23 +42,34 @@ const ShowComment = ({ comments }) => {
 
   return (
     <div>
-      <h2>Commenti</h2>
-      <ul>
-        {comments.map((comment) => (
-          <li key={comment.id}>
-            {/* <strong>User:</strong> */}
-            <img src={comment.profile_img} alt="" style={{ width: "50px" }} />
-            {comment.username}
-            <br />
-            <strong>Comment:</strong>
-            {comment.comment}
-            <br />
-            <strong>Rate:</strong>
-            {renderStars(comment.rate)}
-            <br />
-          </li>
-        ))}
-      </ul>
+      <h2>{translations.comments}</h2>
+      {user ? (
+        <ul className="p-0">
+          {comments.map((comment) => (
+            <li key={comment.id} className="comments">
+              <div className="d-flex justify-content-between">
+                <div className="comment-img-cont">
+                  <img src={comment.profile_img} alt="" />
+                  <p className="m-0">{comment.username}</p>
+                </div>
+                <div className="d-flex align-items-start">
+                  <div>{renderStars(comment.rate)}</div>
+                </div>
+              </div>
+              <div className="comment-comment-cont">
+                {/* <div>
+                <p className="m-0">Comment:</p>
+              </div> */}
+                <div>
+                  <p className="m-0">{comment.comment}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>{translations.commentAccess}</p>
+      )}
     </div>
   );
 };

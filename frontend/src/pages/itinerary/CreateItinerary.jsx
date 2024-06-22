@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import translationsIt from "../../traductions/translate-page/translation-it";
 import translationsEn from "../../traductions/translate-page/translation-en";
 import translationsFr from "../../traductions/translate-page/translation-fr";
@@ -11,6 +11,7 @@ const CreateItinerary = function () {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const navigate = useNavigate();
   const { language } = useLanguage();
+  const { id } = useParams();
   const translations = {
     it: translationsIt,
     en: translationsEn,
@@ -62,7 +63,7 @@ const CreateItinerary = function () {
       })
       .then(() => {
         axios.get("/api/v1/itineraries");
-        navigate("/itineraries");
+        navigate(`/`);
       })
       .catch((error) => console.log("Errore nella chiamata API", error));
   };

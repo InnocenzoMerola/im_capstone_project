@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useLanguage } from "../traductions/LanguageContext";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const CategoryShow = function () {
   const [category, setCategory] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
   const { language } = useLanguage();
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     fetch(`/api/v1/categories/${id}`)
@@ -52,21 +54,26 @@ const CategoryShow = function () {
               <div className="card">
                 <Link to={`/stops/${stop.id}`}>
                   <img src={`/storage/${stop.image}`} className="card-img-top" alt="" />
-                  <div className="card-body">
+                  <div className="card-body card-text-color">
                     <h5>{stop.name}</h5>
-
-                    {language === "it" && <p className="card-text">{stop.description_it}</p>}
-                    {language === "en" && <p className="card-text">{stop.description_en}</p>}
-                    {language === "fr" && <p className="card-text">{stop.description_fr}</p>}
-                    {language === "sp" && <p className="card-text">{stop.description_sp}</p>}
+                    {language === "it" && <p className="card-text truncate-text">{stop.description_it}</p>}
+                    {language === "en" && <p className="card-text truncate-text">{stop.description_en}</p>}
+                    {language === "fr" && <p className="card-text truncate-text">{stop.description_fr}</p>}
+                    {language === "sp" && <p className="card-text truncate-text">{stop.description_sp}</p>}
                   </div>
                 </Link>
-                <div>
-                  <button>
-                    <Link to={`/stops/${stop.id}/edit`}>Edit</Link>
-                  </button>
-                  <button onClick={() => handleDelete(stop.id)}>Elimina</button>
-                </div>
+                {user && user.role === "admin" && (
+                  <div className="d-flex justify-content-end gap-2">
+                    <button className="btn btn-edit">
+                      <Link to={`/stops/${stop.id}/edit`} className="btn btn-edit">
+                        Edit
+                      </Link>
+                    </button>
+                    <button onClick={() => handleDelete(stop.id)} className="btn btn-danger">
+                      Elimina
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           ))}

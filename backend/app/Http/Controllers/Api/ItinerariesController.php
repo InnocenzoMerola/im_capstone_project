@@ -138,8 +138,9 @@ class ItinerariesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Itineraries $itineraries)
+    public function destroy($id)
     {
+        $itineraries = Itineraries::findOrFail($id);
         $itineraries->delete();
         return response()->json(['message' => 'Itinerario eliminato con successo'],200);
     }

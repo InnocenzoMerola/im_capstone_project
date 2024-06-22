@@ -1,10 +1,22 @@
 import axios from "axios";
 import { useState } from "react";
+import { useLanguage } from "../traductions/LanguageContext";
+import translationsIt from "../traductions/translate-page/translation-it";
+import translationsEn from "../traductions/translate-page/translation-en";
+import translationsFr from "../traductions/translate-page/translation-fr";
+import translationsSp from "../traductions/translate-page/translation-sp";
 
 const AddComment = ({ stopId, onAddComment }) => {
   const [comment, setComment] = useState("");
   const [rate, setRate] = useState(1);
+  const { language } = useLanguage();
 
+  const translations = {
+    it: translationsIt,
+    en: translationsEn,
+    fr: translationsFr,
+    sp: translationsSp,
+  }[language];
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,11 +42,11 @@ const AddComment = ({ stopId, onAddComment }) => {
         <div className="col-6 offset-3">
           <div className="card stops-form">
             <div className="card-body">
-              <h3 className="card-title text-center mb-4">Aggiungi un commento</h3>
+              <h3 className="card-title text-center mb-4">{translations.addComment}</h3>
               <form onSubmit={handleSubmit}>
                 <div className="input-field">
                   <label htmlFor="comment" className="form-floating">
-                    Commento:
+                    {translations.comment}
                   </label>
                   <textarea
                     name="comment"
@@ -48,7 +60,7 @@ const AddComment = ({ stopId, onAddComment }) => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="rate" className="form-label">
-                    Stelle:
+                    {translations.stars}
                   </label>
 
                   <div>
@@ -68,9 +80,8 @@ const AddComment = ({ stopId, onAddComment }) => {
                             width="16"
                             height="16"
                             fill="currentColor"
-                            class="bi bi-star-fill"
+                            className="bi bi-star-fill "
                             viewBox="0 0 16 16"
-                            className="star"
                             color={ratingValue <= rate ? "#ffc107" : "#e4e5e9"}
                             size={25}
                           >
@@ -98,7 +109,7 @@ const AddComment = ({ stopId, onAddComment }) => {
                 </div>
                 <div className="my-4">
                   <button type="submit" className="create-edit-btn">
-                    Commenta
+                    {translations.add}
                   </button>
                 </div>
               </form>

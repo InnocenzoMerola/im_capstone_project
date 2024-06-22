@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
-            $table->string('comment', 300)->nullable();
+            $table->string('comment', 1000)->nullable();
             $table->integer('rate')->default(0);
             $table->foreignId('user_id')->constrained();
             $table->foreignId('stop_id')->constrained();

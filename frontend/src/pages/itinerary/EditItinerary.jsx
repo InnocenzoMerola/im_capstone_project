@@ -91,7 +91,7 @@ const EditItinerary = function () {
       })
       .then((response) => {
         console.log("Itinerario aggiornato con successo");
-        navigate("/itineraries");
+        navigate(`/itineraries/${id}`);
       })
       .catch((error) => console.log("Errore durante la modifica ", error));
   };

@@ -435,7 +435,7 @@ const MyNav = function () {
               <div className="container third">
                 <ul className="nav-step-3">
                   <li className="parent nav-item big-parent">
-                    <Link to="/#">{translations.showNaples}</Link>
+                    <Link to="#">{translations.showNaples}</Link>
                     <ul className="child">
                       <li>
                         <Link to="/story">{translations.history}</Link>
@@ -453,7 +453,7 @@ const MyNav = function () {
                   </li>
                   {categories.map((category) => (
                     <li className="parent nav-item big-parent" key={category.id}>
-                      <Link to="">
+                      <Link to="#">
                         {language === "it" && category.name_it}
                         {language === "en" && category.name_en}
                         {language === "fr" && category.name_fr}
@@ -476,15 +476,15 @@ const MyNav = function () {
                   ))}
                   <li className="parent nav-item big-parent">
                     {user ? (
-                      <Link to="/#">{translations.itinerary}</Link>
+                      <Link to="#">{translations.itinerary}</Link>
                     ) : (
                       <div className="div-itin-rel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <div>
-                          <Link to="/#">{translations.itinerary}</Link>
+                          <Link to="#">{translations.itinerary}</Link>
                         </div>
                         {isHovered && (
                           <div className="div-itin-abs">
-                            <p>Per visualizzare i nostri itinerari è necessario effettuare l'accesso</p>
+                            <p>{translations.itineraryAccess}</p>
                           </div>
                         )}
                       </div>

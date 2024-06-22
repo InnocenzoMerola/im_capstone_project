@@ -5,6 +5,7 @@ import AddComment from "../../comments/AddComment";
 import { Badge, Spinner } from "react-bootstrap";
 import axios from "axios";
 import { useLanguage } from "../../traductions/LanguageContext";
+import { useSelector } from "react-redux";
 
 const StopDetail = function () {
   const [stopData, setStopData] = useState(null);
@@ -12,6 +13,7 @@ const StopDetail = function () {
   const navigate = useNavigate();
   const [comments, setComments] = useState([]);
   const { language } = useLanguage();
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     console.log("ID", id);
@@ -35,7 +37,9 @@ const StopDetail = function () {
   };
 
   const splitParagraphs = (text) => {
-    return text.split("\\n").map((paragraph, index) => <p key={index}>{paragraph}</p>);
+    if (text) {
+      return text.split("\\n").map((paragraph, index) => <p key={index}>{paragraph}</p>);
+    }
   };
 
   if (!stopData) {
@@ -86,10 +90,10 @@ const StopDetail = function () {
                   <img src={`/storage/${stopData.data.image}`} alt={stopData.data.name} />
                 </div>
                 <div className="stop-category">
-                  {language === "it" && <Badge>{stopData.data.categories[0].name_it}</Badge>}
-                  {language === "en" && <Badge>{stopData.data.categories[0].name_en}</Badge>}
-                  {language === "fr" && <Badge>{stopData.data.categories[0].name_fr}</Badge>}
-                  {language === "sp" && <Badge>{stopData.data.categories[0].name_sp}</Badge>}
+                  {language === "it" && <Badge className="category-badge">{stopData.data.categories[0].name_it}</Badge>}
+                  {language === "en" && <Badge className="category-badge">{stopData.data.categories[0].name_en}</Badge>}
+                  {language === "fr" && <Badge className="category-badge">{stopData.data.categories[0].name_fr}</Badge>}
+                  {language === "sp" && <Badge className="category-badge">{stopData.data.categories[0].name_sp}</Badge>}
                 </div>
                 <div className="stop-location">
                   <h6>Località: {stopData.data.location}</h6>
@@ -107,7 +111,7 @@ const StopDetail = function () {
               </div>
             </div>
           </div>
-          <AddComment stopId={stopData.data.id} onAddComment={handleAddComment} />
+          {user && <AddComment stopId={stopData.data.id} onAddComment={handleAddComment} />}
         </>
       )}
     </div>

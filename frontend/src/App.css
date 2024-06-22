@@ -3,6 +3,10 @@ body,
   font-family: Arial, sans-serif;
 }
 
+#root {
+  background-color: #fff0df;
+}
+
 a {
   color: white;
   text-decoration: none !important;
@@ -313,13 +317,9 @@ ul {
   margin-right: 10px;
 }
 
-.language-btn a {
-  color: white;
-}
-
 .dropdown-item:hover {
   background-color: #005ba3 !important;
-  color: black !important;
+  color: white !important;
 }
 
 .nav-user-name {
@@ -984,10 +984,34 @@ ul {
 
 .div-category-stop {
   margin-block: 8rem;
+  position: relative;
 }
 
 .category-title {
   margin-bottom: 3rem;
+}
+
+.truncate-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.btn-edit {
+  background-color: #ffd500 !important;
+}
+
+.btn-edit a {
+  color: black;
+}
+
+.card-text-color h5 {
+  color: #ff7900f7;
+}
+
+.card-text-color p {
+  color: black;
 }
 
 /* STOP DETAIL */
@@ -1005,6 +1029,10 @@ ul {
 
 .stop-title {
   margin-bottom: 2rem;
+}
+
+.bg-primary.category-badge {
+  background-color: #004b86 !important;
 }
 
 .stop-title h1 {
@@ -1035,4 +1063,53 @@ ul {
 
 .comment-container {
   margin-block: 7rem;
+}
+
+.comment-img-cont {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+}
+
+.comment-img-cont img {
+  width: 35px;
+  border-radius: 50%;
+}
+
+.comment-comment-cont {
+  display: flex;
+  margin-top: 8px;
+  gap: 6px;
+  padding: 1px 6px;
+  background-color: white;
+}
+
+.comments {
+  padding: 7px 9px 15px;
+  background-color: #004b86;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+}
+
+/* ITINERARY */
+
+.edit-btn {
+  position: absolute;
+  left: 58rem;
+  top: 60px;
+}
+
+.edit-link {
+  padding: 10px 20px;
+  background-color: #ffd500;
+  border-radius: 5px;
+}
+
+.edit-link a {
+  color: black;
+}
+
+.edit-link:hover {
+  box-shadow: 0px 0px 17px 3px #3ea7fa;
 }
