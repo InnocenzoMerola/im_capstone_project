@@ -42,7 +42,7 @@
   "footer5": "Quiénes Somos",
   "footer6": "Perfil",
   "footer7": "Redes Sociales",
-  "footer8": "© 2024 I&M - Tu Guía de Nápoles. Todos los derechos reservados.",
+  "footer8": "2024 I&M - Tu Guía de Nápoles. Todos los derechos reservados.",
 
   "profile1": "Modificar Perfil",
   "profile2": "Actualizar Perfil",
@@ -70,7 +70,8 @@
   "edit": "Modificar",
   "createItinerary": "Crear Itinerario",
   "editItinerary": "Modificar Itinerario",
-  "itineraryAccess": "Para ver nuestros itinerarios, es necesario iniciar sesión.",
+  "itineraryAccess": "Para ver nuestros itinerarios, es necesario iniciar sesión",
+  "contactAccess": "Para poder ver el formulario de contacto, es necesario iniciar sesión",
 
   "addComment": "Añadir una reseña",
   "comment": "Reseña",

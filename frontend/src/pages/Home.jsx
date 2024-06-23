@@ -49,7 +49,7 @@ const Home = function () {
   return (
     <>
       <div className="vesuvio-home" id="home">
-        <div className="d-flex h-100 on-vesuvio-text">
+        <div className="d-flex on-vesuvio-text">
           <div>
             <h1>{translations.headerTitle}</h1>
             <h2>{translations.headerSubtitle}</h2>
@@ -60,7 +60,7 @@ const Home = function () {
       <div>
         <div className="container" id="about">
           <div className="row">
-            <div className="col">
+            <div className="col-md-8 col-lg-6 ">
               <h2 className="about-us-title">{translations.aboutTitle}</h2>
               <p className="about-us-desc">
                 {translations.aboutText1}
@@ -82,16 +82,19 @@ const Home = function () {
 
         <div className="container what-see">
           <div className="row justify-content-between align-items-center">
-            <div className="col-5">
+            <div className="col-md-8 col-lg-6">
               <h2>{translations.whatToSeeTitle}</h2>
               <p>{translations.whatToSee1}</p>
               <p>{translations.whatToSee2}</p>
               <p>{translations.whatToSee2}</p>
             </div>
-            <div className="col-5 d-flex justify-content-center">
+            <div className="col-12 col-lg-5 mt-2 mt-lg-0 d-flex justify-content-center">
               <div className="row row-gap-4">
                 {subcategories.slice(0, 6).map((subcategory) => (
-                  <div key={subcategory.id} className="col-4 subcategory-home-rel">
+                  <div
+                    key={subcategory.id}
+                    className="col-8 offset-2 offset-sm-0 col-sm-6 col-md-4 col-lg-6 col-xl-4 subcategory-home-rel"
+                  >
                     <Link to={`/categories/${subcategory.id}`}>
                       <img src={subcategoryImage[subcategory.id]} alt="" className="subcategory-home-img" />
                       <div className="subcategory-home-name">

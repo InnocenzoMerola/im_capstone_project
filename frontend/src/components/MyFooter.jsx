@@ -5,10 +5,12 @@ import translationsIt from "../traductions/translate-page/translation-it";
 import translationsEn from "../traductions/translate-page/translation-en";
 import translationsFr from "../traductions/translate-page/translation-fr";
 import translationsSp from "../traductions/translate-page/translation-sp";
+import { useSelector } from "react-redux";
 
 const MyFooter = function () {
   const location = useLocation();
   const { language } = useLanguage();
+  const user = useSelector((state) => state.user);
 
   const translations = {
     it: translationsIt,
@@ -21,8 +23,8 @@ const MyFooter = function () {
     <div className="footer-img">
       <footer className="footer">
         <div className="container footer-cont">
-          <div className="row justify-content-center">
-            <div className="col-md-3">
+          <div className="row gap-2 gap-md-0 justify-content-center">
+            <div className="col-md-5 col-lg-4 col-xl-3">
               <h5 className=" text-white">{translations.footer1}</h5>
               <p>{translations.footer2}: Napoli</p>
               <p>
@@ -30,7 +32,7 @@ const MyFooter = function () {
               </p>
               <p>{translations.footer3}: +39 389 926 2208</p>
             </div>
-            <div className="col-md-2 ">
+            <div className="col-md-3 col-lg-2">
               <h5 className=" text-white">{translations.footer4}</h5>
               <ul>
                 {location.pathname === "/" ? (
@@ -56,15 +58,18 @@ const MyFooter = function () {
                     </li>
                   </>
                 )}
+
                 <li>
-                  <Link to="/contact">{translations.footer1}</Link>
+                  <Link to="/contact" className={!user ? "disabled" : ""}>
+                    {translations.footer1}
+                  </Link>
                 </li>
                 <li>
                   <Link to="/profile">{translations.footer6}</Link>
                 </li>
               </ul>
             </div>
-            <div className="col-md-2 ">
+            <div className="col-md-3 col-xl-2 ">
               <h5 className=" text-white">{translations.footer7}</h5>
               <ul>
                 <li>
@@ -82,7 +87,7 @@ const MyFooter = function () {
                     Facebook
                   </Link>
                 </li>
-                <li>
+                <li className="my-2 my-md-0">
                   <Link to="#">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +128,7 @@ const MyFooter = function () {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <p className="text-center text-white">{translations.footer8}</p>
+                <p className="text-center text-white">&copy; {translations.footer8}</p>
               </div>
             </div>
           </div>

@@ -42,7 +42,7 @@
   "footer5": "Chi siamo",
   "footer6": "Profilo",
   "footer7": "Social Media",
-  "footer8": "&copy; 2024 I&M - La Tua Guida a Napoli. Tutti i diritti riservati.",
+  "footer8": "2024 I&M - La Tua Guida a Napoli. Tutti i diritti riservati.",
 
   "profile1": "Modifica Profilo",
   "profile2": "Aggiorna profilo",
@@ -71,6 +71,7 @@
   "createItinerary": "Crea Itinerario",
   "editItinerary": "Modifica Itinerario",
   "itineraryAccess": "Per visualizzare i nostri itinerari è necessario effettuare l'accesso",
+  "contactAccess": "Per poter visualizzare il form di contatti è necessario effettuare l'accesso",
 
   "addComment": "Aggiungi una recensione",
   "comment": "Recensione",

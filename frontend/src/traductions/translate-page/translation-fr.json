@@ -42,7 +42,7 @@
   "footer5": "À Propos de Nous",
   "footer6": "Profil",
   "footer7": "Réseaux Sociaux",
-  "footer8": "© 2024 I&M - Votre Guide de Naples. Tous droits réservés.",
+  "footer8": "2024 I&M - Votre Guide de Naples. Tous droits réservés.",
 
   "profile1": "Modifier le Profil",
   "profile2": "Mettre à Jour le Profil",
@@ -70,7 +70,8 @@
   "edit": "Modifier",
   "createItinerary": "Créer Itinéraire",
   "editItinerary": "Modifier Itinéraire",
-  "itineraryAccess": "Pour consulter nos itinéraires, veuillez vous connecter.",
+  "itineraryAccess": "Pour consulter nos itinéraires, veuillez vous connecter",
+  "contactAccess": "Pour pouvoir consulter le formulaire de contact, veuillez vous connecter",
 
   "addComment": "Ajouter une critique",
   "comment": "Critique",
