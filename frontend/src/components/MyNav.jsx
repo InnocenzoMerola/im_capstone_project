@@ -26,7 +26,20 @@ const MyNav = function () {
   const [isContactHovered, setIsContactHovered] = useState(false);
   const size = windowSize();
   const [isOpen, setIsOpen] = useState(false);
+  const [showChild, setShowChild] = useState({
+    showNaples: false,
+    showItinerary: false,
+  });
+  const [showCategory, setShowCategory] = useState(null);
 
+  const handleChild = (child) => {
+    setShowChild((prevChild) => ({
+      ...prevChild,
+      ...Object.fromEntries(Object.keys(prevChild).map((key) => [key, key === child ? !prevChild[key] : false])),
+      [child]: !prevChild[child],
+    }));
+    setShowCategory(child === showCategory ? null : child);
+  };
   const openSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -183,10 +196,10 @@ const MyNav = function () {
               <button className="btn mobile-nav-btn" type="button" onClick={openSidebar}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="25"
+                  height="25"
                   fill="currentColor"
-                  className="bi bi-list"
+                  className="bi bi-list text-white"
                   viewBox="0 0 16 16"
                 >
                   <path
@@ -208,7 +221,16 @@ const MyNav = function () {
                   )}
 
                   <button onClick={openSidebar} className="close-button">
-                    x
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      className="bi bi-x-lg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
                   </button>
                 </div>
 
@@ -480,25 +502,42 @@ const MyNav = function () {
                       </ul>
                     </div>
                   </li>
-                  <li className="parent nav-item big-parent">
+                  <li
+                    className={`phone-parent nav-item phone-big-parent ${showChild.showNaples ? "view" : ""}`}
+                    onClick={() => handleChild("showNaples")}
+                  >
                     <Link to="#">{translations.showNaples}</Link>
-                    <ul className="child nav-phone">
-                      <li>
-                        <Link to="/story">{translations.history}</Link>
-                      </li>
-                      <li>
-                        <Link to="/partenope">{translations.partenope}</Link>
-                      </li>
-                      <li>
-                        <Link to="/vesuvio">{translations.vesuvio}</Link>
-                      </li>
-                      <li>
-                        <Link to="/voci-di-napoli">{translations.voicesOfNaples}</Link>
-                      </li>
-                    </ul>
+                    {showChild.showNaples && (
+                      <ul className="phone-child nav-phone">
+                        <li>
+                          <Link to="/story" onClick={closeSidebar}>
+                            {translations.history}
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/partenope" onClick={closeSidebar}>
+                            {translations.partenope}
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/vesuvio" onClick={closeSidebar}>
+                            {translations.vesuvio}
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/voci-di-napoli" onClick={closeSidebar}>
+                            {translations.voicesOfNaples}
+                          </Link>
+                        </li>
+                      </ul>
+                    )}
                   </li>
                   {categories.map((category) => (
-                    <li className="parent nav-item big-parent" key={category.id}>
+                    <li
+                      className={`phone-parent nav-item phone-big-parent ${showChild[category.id] ? "view" : ""}`}
+                      key={category.id}
+                      onClick={() => handleChild(category.id)}
+                    >
                       <Link to="#">
                         {language === "it" && category.name_it}
                         {language === "en" && category.name_en}
@@ -506,23 +545,32 @@ const MyNav = function () {
                         {language === "sp" && category.name_sp}
                       </Link>
 
-                      <ul className="child nav-phone">
-                        {category.children.map((childCategory) => (
-                          <li key={childCategory.id}>
-                            <Link to={`/categories/${childCategory.id}`}>
-                              {language === "it" && childCategory.name_it}
-                              {language === "en" && childCategory.name_en}
-                              {language === "fr" && childCategory.name_fr}
-                              {language === "sp" && childCategory.name_sp}
-                            </Link>
-                          </li>
-                        ))}
+                      <ul className="phone-child nav-phone">
+                        {showChild[category.id] && (
+                          <>
+                            {category.children.map((childCategory) => (
+                              <li key={childCategory.id}>
+                                <Link to={`/categories/${childCategory.id}`} onClick={closeSidebar}>
+                                  {language === "it" && childCategory.name_it}
+                                  {language === "en" && childCategory.name_en}
+                                  {language === "fr" && childCategory.name_fr}
+                                  {language === "sp" && childCategory.name_sp}
+                                </Link>
+                              </li>
+                            ))}
+                          </>
+                        )}
                       </ul>
                     </li>
                   ))}
-                  <li className="parent nav-item big-parent">
+                  <li
+                    className={`phone-parent nav-item phone-big-parent ${showChild.showItinerary ? "view" : ""}`}
+                    onClick={() => handleChild("showItinerary")}
+                  >
                     {user ? (
-                      <Link to="#">{translations.itinerary}</Link>
+                      <Link to="#" onClick={closeSidebar}>
+                        {translations.itinerary}
+                      </Link>
                     ) : (
                       <div className="div-itin-rel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <div>
@@ -536,12 +584,16 @@ const MyNav = function () {
                       </div>
                     )}
 
-                    <ul className="child">
-                      {itineraries.map((itinerary) => (
-                        <li key={itinerary.id}>
-                          <Link to={`/itineraries/${itinerary.id}`}>{itinerary.name_it}</Link>
-                        </li>
-                      ))}
+                    <ul className="phone-child">
+                      {showChild.showItinerary && (
+                        <>
+                          {itineraries.map((itinerary) => (
+                            <li key={itinerary.id}>
+                              <Link to={`/itineraries/${itinerary.id}`}>{itinerary.name_it}</Link>
+                            </li>
+                          ))}
+                        </>
+                      )}
                     </ul>
                   </li>
                 </ul>
