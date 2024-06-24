@@ -44,29 +44,34 @@ const ShowComment = ({ comments }) => {
     <div>
       <h2>{translations.comments}</h2>
       {user ? (
-        <ul className="p-0">
-          {comments.map((comment) => (
-            <li key={comment.id} className="comments">
-              <div className="d-flex justify-content-between">
-                <div className="comment-img-cont">
-                  <img src={comment.profile_img} alt="" />
-                  <p className="m-0">{comment.username}</p>
-                </div>
-                <div className="d-flex align-items-start">
-                  <div>{renderStars(comment.rate)}</div>
-                </div>
-              </div>
-              <div className="comment-comment-cont">
-                {/* <div>
-                <p className="m-0">Comment:</p>
-              </div> */}
-                <div>
-                  <p className="m-0">{comment.comment}</p>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <>
+          {comments ? (
+            <ul className="p-0">
+              {comments.map((comment) => (
+                <li key={comment.id} className="comments">
+                  <div className="d-flex justify-content-between">
+                    <div className="comment-img-cont">
+                      <img src={comment.profile_img} alt="" />
+                      <p className="m-0">{comment.username}</p>
+                    </div>
+                    <div className="d-flex align-items-start">
+                      <div>{renderStars(comment.rate)}</div>
+                    </div>
+                  </div>
+                  <div className="comment-comment-cont">
+                    <div>
+                      <p className="m-0">{comment.comment}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div>
+              <h3>Ancora nessuna recensione</h3>
+            </div>
+          )}
+        </>
       ) : (
         <p>{translations.commentAccess}</p>
       )}

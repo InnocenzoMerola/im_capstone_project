@@ -566,6 +566,7 @@ ul {
   border: 1px solid #e1e1e1;
   border-radius: 2rem;
   box-shadow: 2px 2px 20px 0px #58b1e6, -2px -2px 20px 1px #c8fdff;
+  background-color: white;
 }
 
 .reg-form {
@@ -807,6 +808,10 @@ ul {
   box-shadow: 0 0 20px 2px #00c8ff;
 }
 
+.create-edit-cont {
+  margin-block: 7rem;
+}
+
 /* ADMIN */
 
 .admin-absolute {
@@ -1046,6 +1051,11 @@ ul {
   background-color: #ffd500 !important;
 }
 
+.edit-img {
+  height: 200px;
+  width: 200px;
+}
+
 .btn-edit a {
   color: black;
 }
@@ -1202,6 +1212,26 @@ ul {
   .footer-cont {
     text-align: center;
   }
+
+  .story-cont {
+    text-align: center;
+  }
+
+  .textarea {
+    height: 290px;
+  }
+
+  .stops-form h3 {
+    font-size: 1.3rem;
+  }
+
+  .stops-form .card-body {
+    padding-inline: 1rem;
+  }
+
+  .stop-title h1 {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
@@ -1242,6 +1272,10 @@ ul {
 
   .footer {
     text-align: center;
+  }
+
+  .btn-edit {
+    padding: 1px 4px !important;
   }
 }
 
@@ -1311,6 +1345,10 @@ ul {
     transition: 0.3s;
     z-index: 999;
     overflow: scroll;
+  }
+
+  .not-overflow {
+    overflow: unset;
   }
 
   .sidebar.open {
@@ -1406,12 +1444,16 @@ ul {
 
   .login-container {
     width: 319px;
-    transform: translate(-9px, 11px);
+    transform: translate(5px, 11px);
   }
 
   .nav-user-img {
     width: 50px;
     height: 50px;
+  }
+
+  .no-scroll {
+    overflow: hidden;
   }
 
   /* ------------------------- */
@@ -1534,5 +1576,25 @@ ul {
   .phone-big-parent:hover > a,
   .child ~ a {
     color: white !important;
+  }
+
+  .login-container {
+    color: black;
+  }
+}
+
+/* ---- */
+
+@media screen and (max-width: 400px) {
+  .subcategory-home-name {
+    width: 7rem;
+    left: 19px;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 575px) {
+  .subcategory-home-name {
+    width: 10rem;
+    left: 20px;
   }
 }

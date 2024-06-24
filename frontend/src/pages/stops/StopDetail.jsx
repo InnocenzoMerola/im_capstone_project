@@ -82,7 +82,7 @@ const StopDetail = function () {
         <>
           <div className="container stop-detail-cont">
             <div className="row">
-              <div className="col-7">
+              <div className="col-12 col-lg-7">
                 <div className="stop-title">
                   <h1>{stopData.data.name}</h1>
                 </div>
@@ -106,7 +106,7 @@ const StopDetail = function () {
                   <img src={`/storage/${stopData.data.image3}`} alt={stopData.data.name} />
                 </div>
               </div>
-              <div className="col-3 offset-1">
+              <div className="col-12 col-sm-10 offset-sm-1 col-lg-3 offset-lg-1">
                 <ShowComment comments={comments} />
               </div>
             </div>

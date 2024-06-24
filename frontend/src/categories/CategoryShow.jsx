@@ -50,7 +50,7 @@ const CategoryShow = function () {
             {language === "sp" && <h1>{category.name_sp}</h1>}
           </div>
           {category.stops.map((stop) => (
-            <div className="col-3" key={stop.id}>
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={stop.id}>
               <div className="card">
                 <Link to={`/stops/${stop.id}`}>
                   <img src={`/storage/${stop.image}`} className="card-img-top" alt="" />

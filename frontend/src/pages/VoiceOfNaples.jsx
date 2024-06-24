@@ -21,7 +21,7 @@ const VoiceOfNaples = function () {
         <h1>{translations.voicesOfNaples}</h1>
       </div>
       <div className="row mt-3">
-        <div className="col-7">
+        <div className="col-12 col-lg-7">
           <p className="margin-person">{translations.voicesText}</p>
 
           <div className="margin-person">
@@ -177,13 +177,13 @@ const VoiceOfNaples = function () {
           </div>
         </div>
 
-        <div className="col-4 offset-1">
+        <div className="col-12 col-lg-4 offset-lg-1">
           <div>
-            <h2 className="ps-5">Vedi anche</h2>
+            <h2 className="ps-lg-5">Vedi anche</h2>
           </div>
 
           <div className="row row-gap-4 mt-4">
-            <div className="col-6 offset-1 subcategory-home-rel">
+            <div className="col-4 offset-4 col-lg-8   offset-sm-0 offset-lg-1  subcategory-home-rel">
               <Link to="/story">
                 <img src="/image/Home-mini2.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">
@@ -194,7 +194,7 @@ const VoiceOfNaples = function () {
                 </div>
               </Link>
             </div>
-            <div className="col-6 offset-1 subcategory-home-rel">
+            <div className="col-4 offset-4  col-lg-8   offset-sm-0 offset-lg-1 subcategory-home-rel">
               <Link to="/partenope">
                 <img src="/image/Home-mini.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">
@@ -205,7 +205,7 @@ const VoiceOfNaples = function () {
                 </div>
               </Link>
             </div>
-            <div className="col-6 offset-1 subcategory-home-rel">
+            <div className="col-4 offset-4  col-lg-8  offset-sm-0 offset-lg-1 subcategory-home-rel">
               <Link to="/vesuvio">
                 <img src="/image/Home-mini3.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">

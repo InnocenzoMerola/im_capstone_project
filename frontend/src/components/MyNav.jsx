@@ -40,8 +40,14 @@ const MyNav = function () {
     }));
     setShowCategory(child === showCategory ? null : child);
   };
+
   const openSidebar = () => {
     setIsOpen(!isOpen);
+    // if (isOpen === true) {
+    //   document.body.classList.remove("no-scroll");
+    // } else {
+    //   document.body.classList.add("no-scroll");
+    // }
   };
 
   const closeSidebar = () => {
@@ -208,9 +214,9 @@ const MyNav = function () {
                   />
                 </svg>
               </button>
-              <div className={`sidebar ${isOpen ? "open" : ""}`}>
+              <div className={`sidebar ${isOpen ? "open" : ""} ${showLoginForm ? "not-overflow" : ""}`}>
                 <div className="d-flex justify-content-between align-items-center px-3">
-                  {user && (
+                  {user ? (
                     <Link to="/profile" onClick={closeSidebar}>
                       <img
                         src={user.profile_img ? user.profile_img : "/image/profile-image.png"}
@@ -218,6 +224,8 @@ const MyNav = function () {
                         className="nav-user-img rounded-circle"
                       />
                     </Link>
+                  ) : (
+                    <div></div>
                   )}
 
                   <button onClick={openSidebar} className="close-button">
@@ -260,7 +268,7 @@ const MyNav = function () {
                         onMouseLeave={handleMouseLeaveContact}
                       >
                         <div>
-                          <Link to="/contact" className="menu-link">
+                          <Link to="#" className="menu-link">
                             {translations.footer1}
                           </Link>
                         </div>
@@ -276,7 +284,7 @@ const MyNav = function () {
                     <li>
                       <>
                         <button onClick={handleShowLoginForm} className="btn-none">
-                          <p>{translations.login}</p>
+                          <p className="m-0 text-white">{translations.login}</p>
                         </button>
                         <button className="btn-none" onClick={handleShowLoginForm}>
                           <svg
@@ -284,7 +292,7 @@ const MyNav = function () {
                             width="16"
                             height="16"
                             fill="currentColor"
-                            className="bi bi-lock-fill"
+                            className="bi bi-lock-fill text-white"
                             viewBox="0 0 16 16"
                           >
                             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
@@ -300,7 +308,7 @@ const MyNav = function () {
                   )}
 
                   <li className="d-flex justify-content-evenly">
-                    <div className="icon-div rounded-circle">
+                    <div className="icon-div rounded-circle" onClick={closeSidebar}>
                       <Link
                         to="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADhGNhsB2qvMNRR-2X6EhyidNy-vzgYGm9M&keywords=Innocenzo%20Merola&origin=ENTITY_SEARCH_HOME_HISTORY&sid=z-b"
                         target="_blank"
@@ -319,7 +327,7 @@ const MyNav = function () {
                       </Link>
                     </div>
 
-                    <div className="icon-div rounded-circle">
+                    <div className="icon-div rounded-circle" onClick={closeSidebar}>
                       <Link to="https://www.instagram.com/enzo__merola/" target="_blank" className="contact-link">
                         <svg width="17" height="17" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -398,7 +406,7 @@ const MyNav = function () {
                       </Link>
                     </div>
 
-                    <div className="icon-div rounded-circle">
+                    <div className="icon-div rounded-circle" onClick={closeSidebar}>
                       <Link to="/contact" className="contact-link">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -423,7 +431,7 @@ const MyNav = function () {
                       </Link>
                     </div>
 
-                    <div className="icon-div rounded-circle">
+                    <div className="icon-div rounded-circle" onClick={closeSidebar}>
                       <Link to="" target="_blank" className="contact-link">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

@@ -46,7 +46,7 @@ const ContactForm = () => {
   return (
     <div className="container my-5">
       <div className="row">
-        <div className="col-md-8 offset-md-2">
+        <div className="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
           <div className="card stops-form">
             <div className="card-body">
               <h3 className="card-title text-center mb-4">{translations.contactUs}</h3>
@@ -83,7 +83,7 @@ const ContactForm = () => {
                     required
                   />
                 </div>
-                <div className="d-flex justify-content-end">
+                <div className="d-flex justify-content-center justify-content-lg-end">
                   <button type="submit" className="contact-btn">
                     Invia
                   </button>

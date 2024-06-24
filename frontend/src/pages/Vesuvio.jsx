@@ -21,7 +21,7 @@ const Vesuvio = function () {
         <h1>{translations.vesuvio}</h1>
       </div>
       <div className="row mt-5">
-        <div className="col-7">
+        <div className="col-12 col-lg-7">
           <p>{translations.vesuvioText}</p>
           <div className="image-cont">
             <img src="/image/vesuvio.jpg" alt="" />
@@ -35,13 +35,13 @@ const Vesuvio = function () {
           <p>{translations.vesuvioText4}</p>
         </div>
 
-        <div className="col-4 offset-1">
+        <div className="col-12 col-lg-4 offset-lg-1">
           <div>
-            <h2 className="ps-5">{translations.viewOther}</h2>
+            <h2 className="ps-lg-5">{translations.viewOther}</h2>
           </div>
 
           <div className="row row-gap-4 mt-4">
-            <div className="col-6 offset-1 subcategory-home-rel">
+            <div className="col-4 offset-4  col-lg-8  offset-sm-0 offset-lg-1  subcategory-home-rel">
               <Link to="/story">
                 <img src="/image/Home-mini2.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">
@@ -52,7 +52,7 @@ const Vesuvio = function () {
                 </div>
               </Link>
             </div>
-            <div className="col-6 offset-1 subcategory-home-rel">
+            <div className="col-4 offset-4  col-lg-8  offset-sm-0 offset-lg-1 subcategory-home-rel">
               <Link to="/partenope">
                 <img src="/image/Home-mini.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">
@@ -63,7 +63,7 @@ const Vesuvio = function () {
                 </div>
               </Link>
             </div>
-            <div className="col-6 offset-1 subcategory-home-rel">
+            <div className="col-4 offset-4  col-lg-8  offset-sm-0 offset-lg-1 subcategory-home-rel">
               <Link to="/voci-di-napoli">
                 <img src="/image/Home-mini3.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">

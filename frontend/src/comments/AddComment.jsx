@@ -39,7 +39,7 @@ const AddComment = ({ stopId, onAddComment }) => {
   return (
     <div className="container comment-container">
       <div className="row">
-        <div className="col-6 offset-3">
+        <div className="col-sm-10 offset-sm-1 col-lg-6 offset-lg-3">
           <div className="card stops-form">
             <div className="card-body">
               <h3 className="card-title text-center mb-4">{translations.addComment}</h3>

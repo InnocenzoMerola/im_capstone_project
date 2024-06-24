@@ -91,10 +91,7 @@ const Home = function () {
             <div className="col-12 col-lg-5 mt-2 mt-lg-0 d-flex justify-content-center">
               <div className="row row-gap-4">
                 {subcategories.slice(0, 6).map((subcategory) => (
-                  <div
-                    key={subcategory.id}
-                    className="col-8 offset-2 offset-sm-0 col-sm-6 col-md-4 col-lg-6 col-xl-4 subcategory-home-rel"
-                  >
+                  <div key={subcategory.id} className="col-6 col-sm-6 col-md-4 col-lg-6 col-xl-4 subcategory-home-rel">
                     <Link to={`/categories/${subcategory.id}`}>
                       <img src={subcategoryImage[subcategory.id]} alt="" className="subcategory-home-img" />
                       <div className="subcategory-home-name">

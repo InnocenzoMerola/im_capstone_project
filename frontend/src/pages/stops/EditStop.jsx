@@ -183,9 +183,9 @@ const EditStop = function () {
   };
 
   return (
-    <div className="container my-5">
+    <div className="container  create-edit-cont">
       <div className="row">
-        <div className="col-md-8 offset-md-2">
+        <div className="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
           <div className="card stops-form">
             <div className="card-body">
               <h3 className="card-title text-center mb-4">{translations.editStop}</h3>
@@ -233,9 +233,18 @@ const EditStop = function () {
                     value={formData.url}
                   />
                 </div>
+
+                {formData.image && (
+                  <div className="mb-3">
+                    <label htmlFor="image" className="form-label">
+                      {translations.currentImage} 1
+                    </label>
+                    <img src={`/storage/${formData.image}`} alt="" className="edit-img mb-2" />
+                  </div>
+                )}
                 <div className="mb-3">
                   <label htmlFor="image" className="form-label">
-                    {translations.image}
+                    {translations.image} 1
                   </label>
                   <input
                     type="file"
@@ -244,9 +253,18 @@ const EditStop = function () {
                     onChange={(e) => updateImageField(e, 1)}
                   />
                 </div>
+
+                {formData.image2 && (
+                  <div className="mb-3">
+                    <label htmlFor="image2" className="form-label">
+                      {translations.currentImage} 2
+                    </label>
+                    <img src={`/storage/${formData.image2}`} alt="" className="edit-img mb-2" />
+                  </div>
+                )}
                 <div className="mb-3">
                   <label htmlFor="image2" className="form-label">
-                    {translations.image}
+                    {translations.image} 2
                   </label>
                   <input
                     type="file"
@@ -255,9 +273,18 @@ const EditStop = function () {
                     onChange={(e) => updateImageField(e, 2)}
                   />
                 </div>
+
+                {formData.image3 && (
+                  <div className="mb-3">
+                    <label htmlFor="image3" className="form-label">
+                      {translations.currentImage} 3
+                    </label>
+                    <img src={`/storage/${formData.image3}`} alt="" className="edit-img mb-2" />
+                  </div>
+                )}
                 <div className="mb-3">
                   <label htmlFor="image3" className="form-label">
-                    {translations.image}
+                    {translations.image} 3
                   </label>
                   <input
                     type="file"
@@ -266,9 +293,18 @@ const EditStop = function () {
                     onChange={(e) => updateImageField(e, 3)}
                   />
                 </div>
+
+                {formData.image4 && (
+                  <div className="mb-3">
+                    <label htmlFor="image4" className="form-label">
+                      {translations.currentImage} 4
+                    </label>
+                    <img src={`/storage/${formData.image4}`} alt="" className="edit-img mb-2" />
+                  </div>
+                )}
                 <div className="mb-3">
                   <label htmlFor="image4" className="form-label">
-                    {translations.image}
+                    {translations.image} 4
                   </label>
                   <input
                     type="file"
@@ -290,10 +326,10 @@ const EditStop = function () {
                     {categories.map((category) =>
                       category.children.map((child) => (
                         <option key={child.id} value={child.id}>
-                          {language === "it" && <p>{child.name_it}</p>}
-                          {language === "en" && <p>{child.name_en}</p>}
-                          {language === "fr" && <p>{child.name_fr}</p>}
-                          {language === "sp" && <p>{child.name_sp}</p>}
+                          {language === "it" && <>{child.name_it}</>}
+                          {language === "en" && <>{child.name_en}</>}
+                          {language === "fr" && <>{child.name_fr}</>}
+                          {language === "sp" && <>{child.name_sp}</>}
                         </option>
                       ))
                     )}

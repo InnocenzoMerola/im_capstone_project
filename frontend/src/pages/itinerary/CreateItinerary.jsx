@@ -69,9 +69,9 @@ const CreateItinerary = function () {
   };
 
   return (
-    <div className="container my-5">
+    <div className="container  create-edit-cont">
       <div className="row">
-        <div className="col-md-8 offset-md-2">
+        <div className="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
           <div className="card stops-form">
             <div className="card-body">
               <h3 className="card-title text-center mb-4">{translations.createItinerary}</h3>

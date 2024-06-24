@@ -176,7 +176,7 @@ const Profile = function ({ token }) {
   return (
     <div className="container profile-container">
       <div className="row">
-        <div className="col-4 offset-4">
+        <div className="col-12 col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
           <div className="d-flex justify-content-center mb-5 position-relative">
             <form onSubmit={handleUploadImage}>
               <div className="profile-page-img-flex">
@@ -327,9 +327,11 @@ const Profile = function ({ token }) {
                   className="form-control profile-input"
                 />
               </div>
-              <button type="submit" className="profile-btn">
-                {translations.profile2}
-              </button>
+              <div className="d-flex justify-content-center ">
+                <button type="submit" className="profile-btn">
+                  {translations.profile2}
+                </button>
+              </div>
             </form>
           </div>
 
@@ -369,9 +371,11 @@ const Profile = function ({ token }) {
                   className="form-control profile-input"
                 />
               </div>
-              <button type="submit" className="profile-btn">
-                {translations.profile4}
-              </button>
+              <div className="d-flex justify-content-center">
+                <button type="submit" className="profile-btn">
+                  {translations.profile4}
+                </button>
+              </div>
             </form>
           </div>
         </div>
