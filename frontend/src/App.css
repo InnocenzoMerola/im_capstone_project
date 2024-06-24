@@ -1232,6 +1232,9 @@ ul {
   .stop-title h1 {
     font-size: 2rem;
   }
+  .shadow-div {
+    flex-direction: column-reverse;
+  }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
@@ -1276,6 +1279,14 @@ ul {
 
   .btn-edit {
     padding: 1px 4px !important;
+  }
+
+  .shadow-div {
+    flex-direction: column-reverse;
+  }
+
+  .login-container {
+    transform: translate(-152px, 27px);
   }
 }
 
@@ -1344,7 +1355,8 @@ ul {
     padding-top: 15px;
     transition: 0.3s;
     z-index: 999;
-    overflow: scroll;
+    overflow: overlay;
+    scrollbar-width: thin;
   }
 
   .not-overflow {

@@ -65,7 +65,7 @@ const Register = function () {
     <div className="register-total-page">
       <div className="container">
         <div className="row justify-content-center shadow-div">
-          <div className="col-7 d-flex justify-content-center register-div">
+          <div className="col-12 col-md-7 d-flex justify-content-center register-div">
             <div>
               <h1 className="text-center">Ciao, utente</h1>
               <form onSubmit={(e) => submitRegister(e)} method="POST" noValidate>
@@ -150,7 +150,7 @@ const Register = function () {
               </form>
             </div>
           </div>
-          <div className="col-5 side-register">
+          <div className="col-12 col-md-5 side-register">
             <h2>Benvenuto</h2>
             <p className="text-center">
               Ti diamo il benvenuto nella meravigliosa Napoli, dove ogni strada e piazza sono testimoni di una storia
