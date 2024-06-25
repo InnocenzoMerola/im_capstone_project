@@ -99,12 +99,21 @@ const StopDetail = function () {
                   <h6>Località: {stopData.data.location}</h6>
                 </div>
                 <div className="stop-description">{renderParagraph()}</div>
-                <div className="stop-image">
-                  <img src={`/storage/${stopData.data.image2}`} alt={stopData.data.name} />
-                </div>
-                <div className="stop-image">
-                  <img src={`/storage/${stopData.data.image3}`} alt={stopData.data.name} />
-                </div>
+                {stopData.data.image2 && (
+                  <div className="stop-image">
+                    <img src={`/storage/${stopData.data.image2}`} alt={stopData.data.name} />
+                  </div>
+                )}
+                {stopData.data.image3 && (
+                  <div className="stop-image">
+                    <img src={`/storage/${stopData.data.image3}`} alt={stopData.data.name} />
+                  </div>
+                )}
+                {stopData.data.image4 && (
+                  <div className="stop-image">
+                    <img src={`/storage/${stopData.data.image4}`} alt={stopData.data.name} />
+                  </div>
+                )}
               </div>
               <div className="col-12 col-sm-10 offset-sm-1 col-lg-3 offset-lg-1">
                 <ShowComment comments={comments} />

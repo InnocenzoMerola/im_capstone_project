@@ -53,8 +53,15 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
       .catch((error) => console.log("Errore", error));
   };
 
-  const clickToShowPass = () => {
+  const clickToShowPass = (e) => {
+    e.preventDefault();
     setShowPassword(!showPassword);
+  };
+
+  const handleEnterClick = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
   };
 
   const handleForgotPassword = async (e) => {
@@ -129,6 +136,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
                   id="password"
                   name="password"
                   onChange={(e) => updateInputValue(e)}
+                  onKeyDown={(e) => handleEnterClick(e)}
                   value={formData.password}
                   required
                 />

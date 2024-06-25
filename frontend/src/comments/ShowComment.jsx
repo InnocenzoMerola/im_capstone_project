@@ -45,7 +45,7 @@ const ShowComment = ({ comments }) => {
       <h2>{translations.comments}</h2>
       {user ? (
         <>
-          {comments ? (
+          {comments && comments > 0 ? (
             <ul className="p-0">
               {comments.map((comment) => (
                 <li key={comment.id} className="comments">
@@ -67,8 +67,8 @@ const ShowComment = ({ comments }) => {
               ))}
             </ul>
           ) : (
-            <div>
-              <h3>Ancora nessuna recensione</h3>
+            <div className="mt-4">
+              <h5>Ancora nessuna recensione</h5>
             </div>
           )}
         </>

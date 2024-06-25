@@ -270,10 +270,10 @@ const CreateStop = function () {
                     {categories.map((category) =>
                       category.children.map((child) => (
                         <option key={child.id} value={child.id}>
-                          {language === "it" && <p>{child.name_it}</p>}
-                          {language === "en" && <p>{child.name_en}</p>}
-                          {language === "fr" && <p>{child.name_fr}</p>}
-                          {language === "sp" && <p>{child.name_sp}</p>}
+                          {language === "it" && <>{child.name_it}</>}
+                          {language === "en" && <>{child.name_en}</>}
+                          {language === "fr" && <>{child.name_fr}</>}
+                          {language === "sp" && <>{child.name_sp}</>}
                         </option>
                       ))
                     )}
@@ -308,6 +308,7 @@ const CreateStop = function () {
                         id="description_it"
                         name="description_it"
                         onChange={(e) => updateInputValue(e)}
+                        required
                         value={formData.description_it}
                       ></textarea>
                       <label htmlFor="floatingTextarea">{translations.description} ITA</label>
@@ -323,6 +324,7 @@ const CreateStop = function () {
                         name="description_en"
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_en}
+                        required
                       ></textarea>
 
                       <label htmlFor="floatingTextarea">{translations.description} ENG</label>
@@ -338,6 +340,7 @@ const CreateStop = function () {
                         name="description_fr"
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_fr}
+                        required
                       ></textarea>
                       <label htmlFor="floatingTextarea">{translations.description} FRA</label>
                     </div>
@@ -352,6 +355,7 @@ const CreateStop = function () {
                         name="description_sp"
                         onChange={(e) => updateInputValue(e)}
                         value={formData.description_sp}
+                        required
                       ></textarea>
                       <label htmlFor="floatingTextarea">{translations.description} SPA</label>
                     </div>

@@ -41,7 +41,7 @@ const Vesuvio = function () {
           </div>
 
           <div className="row row-gap-4 mt-4">
-            <div className="col-4 offset-4  col-lg-8  offset-sm-0 offset-lg-1  subcategory-home-rel">
+            <div className="col-6 offset-3 col-sm-4  col-lg-8  offset-sm-0 offset-lg-1  subcategory-home-rel">
               <Link to="/story">
                 <img src="/image/Home-mini2.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">
@@ -52,7 +52,7 @@ const Vesuvio = function () {
                 </div>
               </Link>
             </div>
-            <div className="col-4 offset-4  col-lg-8  offset-sm-0 offset-lg-1 subcategory-home-rel">
+            <div className="col-6 offset-3 col-sm-4  col-lg-8  offset-sm-0 offset-lg-1 subcategory-home-rel">
               <Link to="/partenope">
                 <img src="/image/Home-mini.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">
@@ -63,7 +63,7 @@ const Vesuvio = function () {
                 </div>
               </Link>
             </div>
-            <div className="col-4 offset-4  col-lg-8  offset-sm-0 offset-lg-1 subcategory-home-rel">
+            <div className="col-6 offset-3 col-sm-4  col-lg-8  offset-sm-0 offset-lg-1 subcategory-home-rel">
               <Link to="/voci-di-napoli">
                 <img src="/image/Home-mini3.jpg" alt="" className="subcategory-home-img" />
                 <div className="subcategory-voice-name">
