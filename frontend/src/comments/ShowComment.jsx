@@ -16,6 +16,7 @@ const ShowComment = ({ comments }) => {
     fr: translationsFr,
     sp: translationsSp,
   }[language];
+
   const renderStars = (rating) => {
     const stars = [];
 
@@ -68,7 +69,7 @@ const ShowComment = ({ comments }) => {
             </ul>
           ) : (
             <div className="mt-4">
-              <h5>Ancora nessuna recensione</h5>
+              <h5>{translations.notComment}</h5>
             </div>
           )}
         </>

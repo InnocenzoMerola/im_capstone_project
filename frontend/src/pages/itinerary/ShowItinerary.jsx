@@ -101,16 +101,6 @@ const ShowItinerary = function () {
 
   return itinerary ? (
     <div className="div-category-stop">
-      {user && user.role === "admin" && (
-        <div className="d-flex edit-btn gap-2">
-          <div className="edit-link">
-            <Link to={`/itineraries/${id}/edit`}>{translations.edit}</Link>
-          </div>
-          <button onClick={() => handleDelete(itinerary.id)} className="btn btn-danger">
-            Elimina
-          </button>
-        </div>
-      )}
       <div className="container">
         <div className="row row-gap-4">
           <div className="category-title">
@@ -119,8 +109,18 @@ const ShowItinerary = function () {
             {language === "fr" && <h1>{itinerary.name_fr}</h1>}
             {language === "sp" && <h1>{itinerary.name_sp}</h1>}
           </div>
+          {user && user.role === "admin" && (
+            <div className="d-flex col-12 col-lg-9 col-xl-7 justify-content-end gap-2">
+              <div className="edit-link">
+                <Link to={`/itineraries/${id}/edit`}>{translations.edit}</Link>
+              </div>
+              <button onClick={() => handleDelete(itinerary.id)} className="btn btn-danger">
+                Elimina
+              </button>
+            </div>
+          )}
           <div className="row">
-            <div className="col-7">
+            <div className="col-12 col-lg-9 col-xl-7">
               <div className="stop-description">{renderParagraph()}</div>
             </div>
           </div>

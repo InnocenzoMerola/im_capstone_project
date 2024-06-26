@@ -533,7 +533,12 @@ const MyNav = function () {
                         <ul className="child">
                           {itineraries.map((itinerary) => (
                             <li key={itinerary.id}>
-                              <Link to={`/itineraries/${itinerary.id}`}>{itinerary.name_it}</Link>
+                              <Link to={`/itineraries/${itinerary.id}`}>
+                                {language === "it" && itinerary.name_it}
+                                {language === "en" && itinerary.name_en}
+                                {language === "fr" && itinerary.name_fr}
+                                {language === "sp" && itinerary.name_sp}
+                              </Link>
                             </li>
                           ))}
                         </ul>
