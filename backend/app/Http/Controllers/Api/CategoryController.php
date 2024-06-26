@@ -17,21 +17,10 @@ class CategoryController extends Controller
     {
         $categories = Category::with('children.stops', 'stops')->whereNull('parent_id')->get();
        
-        // $translatedCategories = $categories->map(function ($category){
-        //     return [
-        //         'id' => $category->id,
-        //         'name' => $category->{'name_' . app()->getLocale()},
-        //         'children' => $category->children->map(function ($child){
-        //             return[
-        //                 'id' => $child->id,
-        //                 'name' => $child->{'name_' . app()->getLocale()},
-        //             ];
-        //         }),
-        //     ];
-        // });
+        
 
         // return response()->json($translatedCategories);
-    return $categories;
+    return response()->json($categories);
     }
 
     /**

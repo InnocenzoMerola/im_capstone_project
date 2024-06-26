@@ -1040,7 +1040,7 @@ ul {
   margin-bottom: 3rem;
 }
 
-.truncate-text {
+.stops-card-admin .truncate-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
@@ -1062,10 +1062,35 @@ ul {
 
 .card-text-color h5 {
   color: #ff7900f7;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card-text-color p {
   color: black;
+}
+
+.stops-card a {
+  cursor: no-drop;
+}
+
+.stops-card:hover,
+.stops-card-admin:hover {
+  border: 1px solid #3ea7fa;
+  box-shadow: 0px 0px 19px 0px #3ea7fa;
+}
+
+.stops-card-admin img,
+.stops-card img {
+  height: 200px;
+}
+
+.stops-card .truncate-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
 }
 
 /* STOP DETAIL */
@@ -1101,6 +1126,7 @@ ul {
   margin-top: 0.5rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .stop-location {
@@ -1146,6 +1172,19 @@ ul {
   border-radius: 15px;
 }
 
+.stop-globe {
+  display: flex;
+  border-radius: 50px;
+  width: max-content;
+  border: 1px solid black;
+  padding: 10px 13px;
+}
+
+.phone-svg {
+  border-radius: 50%;
+  border: 1px solid blue;
+}
+
 /* ITINERARY */
 
 .edit-btn {
@@ -1166,6 +1205,18 @@ ul {
 
 .edit-link:hover {
   box-shadow: 0px 0px 17px 3px #3ea7fa;
+}
+
+.spinner {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-grow {
+  --bs-spinner-width: 4rem !important;
+  --bs-spinner-height: 4rem !important;
 }
 
 /* HOMEPAGE Breakpoints */
@@ -1235,6 +1286,11 @@ ul {
   .shadow-div {
     flex-direction: column-reverse;
   }
+
+  .video {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
@@ -1287,6 +1343,10 @@ ul {
 
   .login-container {
     transform: translate(-152px, 27px);
+  }
+  .video {
+    width: 100%;
+    height: 240px;
   }
 }
 

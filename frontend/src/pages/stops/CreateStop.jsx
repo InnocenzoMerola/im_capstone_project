@@ -265,6 +265,7 @@ const CreateStop = function () {
                     name="category_id"
                     onChange={(e) => updateCategoryValue(e)}
                     value={formData.category_id}
+                    required
                   >
                     <option value="">{translations.selectCategory}</option>
                     {categories.map((category) =>

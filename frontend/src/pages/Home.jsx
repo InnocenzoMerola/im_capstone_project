@@ -74,9 +74,6 @@ const Home = function () {
                 {translations.aboutText5}
               </p>
             </div>
-            <div className="col">
-              {/* <video src="video/Napoli-drone.mp4" controls width="400" height="400" muted></video> */}
-            </div>
           </div>
         </div>
 
@@ -107,6 +104,23 @@ const Home = function () {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col col-sm-10 offset-sm-1 offset-lg-0">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/OOQcWFPpdqg?si=TRcRXtCe5B_5Jo8x"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="video"
+              ></iframe>
             </div>
           </div>
         </div>

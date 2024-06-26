@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useLanguage } from "../traductions/LanguageContext";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { Spinner } from "react-bootstrap";
 
 const CategoryShow = function () {
   const [category, setCategory] = useState(null);
@@ -39,6 +40,16 @@ const CategoryShow = function () {
       .catch((error) => console.log("Errore durante l'eliminazione della fermata", error));
   };
 
+  if (!category) {
+    return (
+      <div className="spinner">
+        <div>
+          <Spinner animation="grow" />
+        </div>
+      </div>
+    );
+  }
+
   return category ? (
     <div className="div-category-stop">
       <div className="container">
@@ -51,8 +62,8 @@ const CategoryShow = function () {
           </div>
           {category.stops.map((stop) => (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={stop.id}>
-              <div className="card">
-                <Link to={`/stops/${stop.id}`}>
+              <div className={`card ${user && user.role === "admin" ? "stops-card-admin" : "stops-card"}`}>
+                <Link to={user ? `/stops/${stop.id}` : "#"}>
                   <img src={`/storage/${stop.image}`} className="card-img-top" alt="" />
                   <div className="card-body card-text-color">
                     <h5>{stop.name}</h5>

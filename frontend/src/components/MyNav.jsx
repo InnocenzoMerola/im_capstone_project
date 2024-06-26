@@ -195,7 +195,7 @@ const MyNav = function () {
                             onMouseLeave={handleMouseLeaveContact}
                           >
                             <div>
-                              <Link to="/contact" className="menu-link">
+                              <Link to={user ? "/contact" : "#"} className="menu-link">
                                 {translations.footer1}
                               </Link>
                             </div>
@@ -368,7 +368,7 @@ const MyNav = function () {
                           </Link>
                         </div>
                         <div className="icon-div rounded-circle">
-                          <Link to="/contact" className="contact-link">
+                          <Link to={user ? "/contact" : "#"} className="contact-link">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               aria-label="Gmail"

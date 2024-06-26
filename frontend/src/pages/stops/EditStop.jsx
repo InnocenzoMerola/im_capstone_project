@@ -321,6 +321,7 @@ const EditStop = function () {
                     className="form-select  stops-input"
                     onChange={updateCategoryValue}
                     value={formData.categories}
+                    required
                   >
                     <option value="">{translations.selectCategory}</option>
                     {categories.map((category) =>

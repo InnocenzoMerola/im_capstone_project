@@ -22,7 +22,8 @@ const VoiceOfNaples = function () {
       </div>
       <div className="row mt-3">
         <div className="col-12 col-lg-7">
-          <p className="margin-person">{translations.voicesText}</p>
+          <p>{translations.voicesText}</p>
+          <img src="/image/voci-di-napoli.jpg" alt="" className=" margin-person w-100" />
 
           <div className="margin-person">
             <h4 className="mb-3 bold-text">Pino Daniele</h4>

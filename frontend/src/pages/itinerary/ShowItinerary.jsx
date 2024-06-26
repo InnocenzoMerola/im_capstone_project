@@ -69,7 +69,13 @@ const ShowItinerary = function () {
   };
 
   if (!itinerary) {
-    return <Spinner animation="grow" />;
+    return (
+      <div className="spinner">
+        <div>
+          <Spinner animation="grow" />
+        </div>
+      </div>
+    );
   }
 
   const splitParagraphs = (text) => {
