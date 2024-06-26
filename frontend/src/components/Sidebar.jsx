@@ -530,9 +530,7 @@ const Sidebar = function () {
             onClick={() => handleChild("showItinerary")}
           >
             {user ? (
-              <Link to="#" onClick={closeSidebar}>
-                {translations.itinerary}
-              </Link>
+              <Link to="#">{translations.itinerary}</Link>
             ) : (
               <div className="div-itin-rel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <div>
@@ -551,7 +549,7 @@ const Sidebar = function () {
                 <>
                   {itineraries.map((itinerary) => (
                     <li key={itinerary.id}>
-                      <Link to={`/itineraries/${itinerary.id}`}>
+                      <Link to={`/itineraries/${itinerary.id}`} onClick={closeSidebar}>
                         {language === "it" && itinerary.name_it}
                         {language === "en" && itinerary.name_en}
                         {language === "fr" && itinerary.name_fr}
