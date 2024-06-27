@@ -24,7 +24,7 @@ const Home = function () {
       .get(`/api/v1/categories`)
       .then((response) => {
         const selectedSubcategoryIds = [7, 9, 8, 3, 5, 4];
-        const filteredSubcategories = response
+        const filteredSubcategories = response.data
           .map((category) => category.children.filter((child) => selectedSubcategoryIds.includes(child.id)))
           .flat();
         setSubcategories(filteredSubcategories);

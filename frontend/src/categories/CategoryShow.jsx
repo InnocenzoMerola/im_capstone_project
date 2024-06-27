@@ -18,13 +18,8 @@ const CategoryShow = function () {
     axios
       .get(`/api/v1/categories/${id}`)
       .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          navigate("/404");
-        }
+        setCategory(response.data);
       })
-      .then((data) => setCategory(data.data))
       .catch((error) => {
         console.error("Errore nella chiamata", error);
         navigate("/404");
