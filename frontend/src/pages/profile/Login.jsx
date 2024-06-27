@@ -30,6 +30,10 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     password: "",
   });
 
+  axios.defaults.headers.common["X-CSRF-TOKEN"] = axios
+    .get("/sanctum/csrf-cookie")
+    .then((response) => response.data.csrf_token);
+
   const updateInputValue = (e) => {
     setFormData((oldFormData) => ({
       ...oldFormData,
@@ -41,8 +45,11 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     e.preventDefault();
 
     axios
-      .get("/sanctum/csrf-cookie")
-      .then(() => axios.post("/login", formData))
+      .then(() =>
+        axios.post("/login", formData, {
+          withCredentials: true,
+        })
+      )
       .then(() => axios.get("/api/user"))
       .then((response) => {
         dispatch({
