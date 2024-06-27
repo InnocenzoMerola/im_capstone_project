@@ -61,7 +61,7 @@ const CategoryShow = function () {
             {language === "fr" && <h1>{category.name_fr}</h1>}
             {language === "sp" && <h1>{category.name_sp}</h1>}
           </div>
-          {category.stops.map((stop) => (
+          {category.data.stops.map((stop) => (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={stop.id}>
               <div className={`card ${user && user.role === "admin" ? "stops-card-admin" : "stops-card"}`}>
                 <Link to={user ? `/stops/${stop.id}` : "#"}>
