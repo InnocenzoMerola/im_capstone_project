@@ -50,6 +50,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
             "Content-Type": "application/json",
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN"),
           },
+          withCredentials: true,
         })
       )
       .then(() => axios.get("/api/user"))
