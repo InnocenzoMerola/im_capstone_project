@@ -5,6 +5,7 @@ import translationsIt from "../traductions/translate-page/translation-it";
 import translationsEn from "../traductions/translate-page/translation-en";
 import translationsFr from "../traductions/translate-page/translation-fr";
 import translationsSp from "../traductions/translate-page/translation-sp";
+import axios from "axios";
 
 const Home = function () {
   const [subcategories, setSubcategories] = useState([]);
@@ -19,7 +20,8 @@ const Home = function () {
   }[language];
 
   useEffect(() => {
-    fetch(`/api/v1/categories`)
+    axios
+      .get(`/api/v1/categories`)
       .then((response) => {
         if (response.ok) {
           return response.json();
