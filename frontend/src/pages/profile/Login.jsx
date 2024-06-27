@@ -10,6 +10,10 @@ import translationsFr from "../../traductions/translate-page/translation-fr";
 import translationsSp from "../../traductions/translate-page/translation-sp";
 
 const Login = function ({ onCloseLogin, onShowRegister }) {
+  axios.defaults.withCredentials = true;
+  axios.defaults.withXSRFToken = true;
+  axios.defaults.baseURL = "http://localhost:8000";
+
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showForgotPasswrodForm, setShowForgotPasswordForm] = useState(false);
