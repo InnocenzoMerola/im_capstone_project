@@ -516,7 +516,22 @@ const MyNav = function () {
                       ))}
                       <li className="parent nav-item big-parent">
                         {user ? (
-                          <Link to="#">{translations.itinerary}</Link>
+                          <>
+                            <Link to="#">{translations.itinerary}</Link>
+
+                            <ul className="child">
+                              {itineraries.map((itinerary) => (
+                                <li key={itinerary.id}>
+                                  <Link to={`/itineraries/${itinerary.id}`}>
+                                    {language === "it" && itinerary.name_it}
+                                    {language === "en" && itinerary.name_en}
+                                    {language === "fr" && itinerary.name_fr}
+                                    {language === "sp" && itinerary.name_sp}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </>
                         ) : (
                           <div className="div-itin-rel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <div>
@@ -529,19 +544,6 @@ const MyNav = function () {
                             )}
                           </div>
                         )}
-
-                        <ul className="child">
-                          {itineraries.map((itinerary) => (
-                            <li key={itinerary.id}>
-                              <Link to={`/itineraries/${itinerary.id}`}>
-                                {language === "it" && itinerary.name_it}
-                                {language === "en" && itinerary.name_en}
-                                {language === "fr" && itinerary.name_fr}
-                                {language === "sp" && itinerary.name_sp}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
                       </li>
                     </ul>
                   </div>

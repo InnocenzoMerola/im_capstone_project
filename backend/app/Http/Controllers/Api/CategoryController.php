@@ -46,11 +46,11 @@ class CategoryController extends Controller
     {
         $category = Category::with('stops')->find($id);
         if(!$category){
-            return response(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'Not found'], 404);
         }
-        return [
+        return response()->json([
             'data' => $category
-        ];
+        ]);
     }
 
     /**

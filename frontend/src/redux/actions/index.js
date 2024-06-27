@@ -5,6 +5,15 @@ export const LOGOUT = "logout";
 export const UPDATE_USER = "update_user";
 export const UPDATE_PROFILE_IMAGE = "update_profile_img";
 
+export const login = (userData) => ({
+  type: LOGIN,
+  payload: userData,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
+});
+
 export const updateProfile = (data, token) => {
   return axios.post("/api/v1/profile/update", data, {
     headers: {

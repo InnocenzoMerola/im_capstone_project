@@ -22,7 +22,10 @@ const CategoryShow = function () {
         }
       })
       .then((data) => setCategory(data.data))
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error("Errore nella chiamata", error);
+        navigate("/404");
+      });
   }, [id]);
 
   const handleDelete = (stopId) => {

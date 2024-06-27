@@ -23,8 +23,8 @@ class ContactController extends Controller
         ];
 
         Mail::send('emails.contact', ['details' => $details], function($message) use ($details){
-            $message->to('receipient@example.com')
-            ->subject('Contact Form Message');
+            $message->to('IeMinfo21@gmail.com')
+            ->subject('Messaggio form di Contatto');
         });
 
         return response()->json(['message' => 'Email inviata correttamente']);

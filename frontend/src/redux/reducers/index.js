@@ -2,6 +2,7 @@ import { LOGIN, LOGOUT, UPDATE_PROFILE_IMAGE, UPDATE_USER } from "../actions";
 
 const initialState = {
   user: null,
+  isAuthenticated: false,
 };
 
 const mainReducer = function (state = initialState, action) {
@@ -9,12 +10,14 @@ const mainReducer = function (state = initialState, action) {
     case LOGIN:
       return {
         ...state,
+        isAuthenticated: true,
         user: action.payload,
       };
 
     case LOGOUT:
       return {
         ...state,
+        isAuthenticated: false,
         user: null,
       };
 

@@ -530,7 +530,25 @@ const Sidebar = function () {
             onClick={() => handleChild("showItinerary")}
           >
             {user ? (
-              <Link to="#">{translations.itinerary}</Link>
+              <>
+                <Link to="#">{translations.itinerary}</Link>
+                <ul className="phone-child">
+                  {showChild.showItinerary && (
+                    <>
+                      {itineraries.map((itinerary) => (
+                        <li key={itinerary.id}>
+                          <Link to={`/itineraries/${itinerary.id}`} onClick={closeSidebar}>
+                            {language === "it" && itinerary.name_it}
+                            {language === "en" && itinerary.name_en}
+                            {language === "fr" && itinerary.name_fr}
+                            {language === "sp" && itinerary.name_sp}
+                          </Link>
+                        </li>
+                      ))}
+                    </>
+                  )}
+                </ul>
+              </>
             ) : (
               <div className="div-itin-rel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <div>
@@ -543,23 +561,6 @@ const Sidebar = function () {
                 )}
               </div>
             )}
-
-            <ul className="phone-child">
-              {showChild.showItinerary && (
-                <>
-                  {itineraries.map((itinerary) => (
-                    <li key={itinerary.id}>
-                      <Link to={`/itineraries/${itinerary.id}`} onClick={closeSidebar}>
-                        {language === "it" && itinerary.name_it}
-                        {language === "en" && itinerary.name_en}
-                        {language === "fr" && itinerary.name_fr}
-                        {language === "sp" && itinerary.name_sp}
-                      </Link>
-                    </li>
-                  ))}
-                </>
-              )}
-            </ul>
           </li>
         </ul>
       </div>

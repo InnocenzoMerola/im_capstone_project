@@ -107,7 +107,7 @@ const Home = function () {
             </div>
           </div>
         </div>
-        <div className="container mt-5">
+        {/* <div className="container mt-5">
           <div className="row">
             <div className="col col-sm-10 offset-sm-1 offset-lg-0">
               <iframe
@@ -123,7 +123,7 @@ const Home = function () {
               ></iframe>
             </div>
           </div>
-        </div>
+        </div> */}
         <div>
           <img src="" alt="" />
         </div>

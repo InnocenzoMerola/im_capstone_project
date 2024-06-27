@@ -5,9 +5,11 @@ import translationsIt from "../traductions/translate-page/translation-it";
 import translationsEn from "../traductions/translate-page/translation-en";
 import translationsFr from "../traductions/translate-page/translation-fr";
 import translationsSp from "../traductions/translate-page/translation-sp";
+import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
   const { language } = useLanguage();
+  const navigate = useNavigate();
 
   const translations = {
     it: translationsIt,
@@ -36,6 +38,7 @@ const ContactForm = () => {
       .post("/api/v1/contact", formData)
       .then((response) => {
         alert(response.data.message);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

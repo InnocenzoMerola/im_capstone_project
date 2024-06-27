@@ -136,7 +136,7 @@ const Profile = function ({ token }) {
 
       dispatch(updateProfileImage(newImagePath));
 
-      alert(`Immagine aggiunta con successo. Path: ${response.data.file_path}`);
+      alert(`Immagine aggiunta con successo.`);
 
       setProfileImage("");
       setShowImageBtn(false);

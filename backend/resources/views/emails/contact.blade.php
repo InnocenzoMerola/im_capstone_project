@@ -7,7 +7,8 @@
     <title>Messaggio form di contatto</title>
 </head>
 <body>
-    <p>Nome: {{$details['name']}}</p>
+    <h1>I&M</h1>
+    <p>Username: {{$details['name']}}</p>
     <p>Email: {{$details['email']}}</p>
     <p>Messaggio: {{$details['message']}}</p>
 </body>
