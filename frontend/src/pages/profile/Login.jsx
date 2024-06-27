@@ -37,29 +37,13 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     }));
   };
 
-  // const submitLogin = (e) => {
-  //   e.preventDefault();
-
-  //   axios
-  //     .get("/sanctum/csrf-cookie")
-  //     .then(() => axios.post("/login", formData))
-  //     .then(() => axios.get("/api/user"))
-  //     .then((response) => {
-  //       dispatch({
-  //         type: LOGIN,
-  //         payload: response.data,
-  //       });
-  //     })
-  //     .catch((error) => console.log("Errore", error));
-  // };
-
   const submitLogin = (e) => {
     e.preventDefault();
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/sanctum/csrf-cookie`)
-      .then(() => axios.post(`${process.env.REACT_APP_API_URL}/login`, formData))
-      .then(() => axios.get(`${process.env.REACT_APP_API_URL}/api/user`))
+      .get("/sanctum/csrf-cookie")
+      .then(() => axios.post("/login", formData))
+      .then(() => axios.get("/api/user"))
       .then((response) => {
         dispatch({
           type: LOGIN,

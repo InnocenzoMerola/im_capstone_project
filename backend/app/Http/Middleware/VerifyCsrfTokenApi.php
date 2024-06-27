@@ -1,20 +1,16 @@
 <?php
-
 namespace App\Http\Middleware;
 
-use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
-class VerifyCsrfTokenApi
+class VerifyCsrfTokenApi extends Middleware
 {
     /**
-     * Handle an incoming request.
+     * I percorsi che non devono passare attraverso la verifica CSRF.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @var array
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-        return $next($request);
-    }
+    protected $except = [
+        'api/*', // Esempio: tutte le rotte API
+    ];
 }
