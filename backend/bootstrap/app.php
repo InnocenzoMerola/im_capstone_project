@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\AdminMiddlewere;
+use App\Http\Middleware\CorsMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -24,6 +25,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => AdminMiddlewere::class
         ]);
+
+        $middleware->alias([
+            'csrf' => CorsMiddleware::class
+        ]);
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
