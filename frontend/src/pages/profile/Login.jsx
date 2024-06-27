@@ -37,12 +37,18 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     }));
   };
 
-  const submitLogin = (e) => {
-    e.preventDefault();
-
-    axios
-      .get("/sanctum/csrf-cookie")
-      .then(() => axios.post("/login", formData))
+  async function submitLogin() {
+    await axios.get("/sanctum/csrf-cookie", {
+      withCredentials: true,
+    });
+    await axios
+      .post("/login", formData, {
+        headers: {
+          accept: "application/json",
+          "X-XSRF-TOKEN": getCookie("XSRF-TOKEN"),
+        },
+        withCredentials: true,
+      })
       .then(() => axios.get("/api/user"))
       .then((response) => {
         dispatch({
@@ -51,7 +57,9 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
         });
       })
       .catch((error) => console.log("Errore", error));
-  };
+  }
+
+  function getCookie(name) {}
 
   const clickToShowPass = (e) => {
     e.preventDefault();
