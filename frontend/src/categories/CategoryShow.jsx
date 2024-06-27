@@ -65,7 +65,7 @@ const CategoryShow = function () {
             <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={stop.id}>
               <div className={`card ${user && user.role === "admin" ? "stops-card-admin" : "stops-card"}`}>
                 <Link to={user ? `/stops/${stop.id}` : "#"}>
-                  <img src={`/storage/${stop.image}`} className="card-img-top" alt="" />
+                  <img src={process.env.REACT_APP_API_URL + `/storage/${stop.image}`} className="card-img-top" alt="" />
                   <div className="card-body card-text-color">
                     <h5>{stop.name}</h5>
                     {language === "it" && <p className="card-text truncate-text">{stop.description_it}</p>}
