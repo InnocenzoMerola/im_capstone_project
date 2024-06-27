@@ -37,18 +37,21 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     }));
   };
 
-  async function submitLogin() {
-    await axios.get("/sanctum/csrf-cookie", {
-      withCredentials: true,
-    });
-    await axios
-      .post("/login", formData, {
-        headers: {
-          accept: "application/json",
-          "X-XSRF-TOKEN": getCookie("XSRF-TOKEN"),
-        },
+  const submitLogin = (e) => {
+    e.preventDefault();
+
+    axios
+      .get("/sanctum/csrf-cookie", {
         withCredentials: true,
       })
+      .then(() =>
+        axios.post("/login", formData, {
+          headers: {
+            "Content-Type": "application/json",
+            "X-XSRF-TOKEN": getCookie("XSRF-TOKEN"),
+          },
+        })
+      )
       .then(() => axios.get("/api/user"))
       .then((response) => {
         dispatch({
@@ -57,7 +60,27 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
         });
       })
       .catch((error) => console.log("Errore", error));
-  }
+  };
+
+  // async function submitLogin() {
+  //   await axios.get("/sanctum/csrf-cookie", {
+  //     withCredentials: true,
+  //   });
+
+  //   await axios.post(
+  //     "/login",
+  //     {
+  //       email: formData.email,
+  //       password: formData.password,
+  //     },
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "X-XSRF-TOKEN": getCookie("XSRF-TOKEN"),
+  //       },
+  //     }
+  //   );
+  // }
 
   function getCookie(name) {}
 
