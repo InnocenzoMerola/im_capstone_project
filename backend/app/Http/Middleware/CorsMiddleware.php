@@ -15,12 +15,16 @@ class CorsMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $response = $next($request);
+        // $response = $next($request);
 
-        $response->headers->set('Access-Control-Allow-Origin', env('FRONTEND_URL'));
-        $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-        $response->headers->set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
+        // $response->headers->set('Access-Control-Allow-Origin', env('FRONTEND_URL'));
+        // $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        // $response->headers->set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
 
-        return $response;
+        // if($request->isMethod('OPTIONS')){
+        //     $response->setStatusCode(200);
+        // }
+
+        // return $response;
         }
 }
