@@ -64,12 +64,12 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
   };
 
   // async function submitLogin() {
-  //   await axios.get("/sanctum/csrf-cookie", {
+  //   await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
   //     withCredentials: true,
   //   });
 
   //   await axios.post(
-  //     "/login",
+  //     "http://localhost:8000/login",
   //     {
   //       email: formData.email,
   //       password: formData.password,
@@ -79,6 +79,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
   //         "Content-Type": "application/json",
   //         "X-XSRF-TOKEN": getCookie("XSRF-TOKEN"),
   //       },
+  //       withCredentials: true,
   //     }
   //   );
   // }
