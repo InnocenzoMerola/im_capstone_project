@@ -30,7 +30,7 @@ Route::name('api.v1.')
     Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->name('password.forgot-password');
     Route::post('/password-reset', [NewPasswordController::class, 'store'])->name('password.password-reset');
     
-    Route::middleware('auth:sanctum', 'verified')->group(function(){
+    Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         Route::get('/guides/{id}', [GuideController::class, 'show'])->name('guides.show');
       
         
@@ -53,7 +53,7 @@ Route::name('api.v1.')
         Route::delete('/stops/{stop}/comments/{comment}', [RateController::class, 'destroy'])->name('stops.comments.destroy');
     });
     
-    Route::middleware('auth:sanctum', 'verified', 'admin')->group(function(){
+    Route::middleware(['auth:sanctum', 'verified', 'admin'])->group(function(){
         Route::post('/stops', [StopController::class, 'store'])->name('stops.store');
         Route::get('/stops/{id}/edit', [StopController::class, 'edit'])->name('stops.edit');
         Route::put('/stops/{id}', [StopController::class, 'update'])->name('stops.update');

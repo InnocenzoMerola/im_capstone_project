@@ -10,10 +10,6 @@ import translationsFr from "../../traductions/translate-page/translation-fr";
 import translationsSp from "../../traductions/translate-page/translation-sp";
 
 const Login = function ({ onCloseLogin, onShowRegister }) {
-  axios.defaults.withCredentials = true;
-  axios.defaults.withXSRFToken = true;
-  axios.defaults.baseURL = "http://localhost:8000";
-
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showForgotPasswrodForm, setShowForgotPasswordForm] = useState(false);
@@ -41,24 +37,12 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     }));
   };
 
-  const getCsrfToken = () => {
-    const cookieValue = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("XSRF-TOKEN="))
-      .split("=")[1];
-    return cookieValue;
-  };
-
   const submitLogin = (e) => {
     e.preventDefault();
 
     axios
       .get("/sanctum/csrf-cookie")
-      .then(() => {
-        const csrfToken = getCsrfToken();
-        axios.defaults.headers.common["X-XSRF-TOKEN"] = csrfToken;
-        axios.post("/login", formData);
-      })
+      .then(() => axios.post("/login", formData))
       .then(() => axios.get("/api/user"))
       .then((response) => {
         dispatch({

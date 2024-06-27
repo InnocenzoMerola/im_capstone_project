@@ -33,10 +33,18 @@ const CategoryShow = function () {
       .then((response) => {
         console.log("Fermata eliminata con successo");
         // navigate(`/categories/${id}`);
-        setCategory((prevCategory) => ({
-          ...prevCategory,
-          stops: prevCategory.stops.filter((stop) => stop.id !== stopId),
-        }));
+        setCategory((prevCategory) => {
+          if (!prevCategory || !prevCategory.data) {
+            return prevCategory;
+          }
+          return {
+            ...prevCategory,
+            data: {
+              ...prevCategory.data,
+              stops: prevCategory.data.stops.filter((stop) => stop.id !== stopId),
+            },
+          };
+        });
       })
       .catch((error) => console.log("Errore durante l'eliminazione della fermata", error));
   };
