@@ -7,14 +7,14 @@ const Categories = function () {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/api/v1/categories")
+    axios
+      .get("/api/v1/categories")
       .then((response) => {
-        if (!response.ok) navigate("/404");
-        return response.json();
+        setCategories(response);
       })
-      .then((data) => setCategories(data))
       .catch((error) => {
         console.log("Errore nella chiamata api", error);
+        navigate("/404");
       });
   }, []);
 

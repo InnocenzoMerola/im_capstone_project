@@ -126,7 +126,7 @@ const MyNav = function () {
                     <h4 className="my-logo">I&M</h4>
                   </div>
                   <div className="logo-div">
-                    <img src={"/image/Stemma-napoli.png"} alt="" />
+                    <img src={"/image/Stemma-Napoli.png"} alt="" />
                   </div>
                 </div>
               </div>

@@ -56,10 +56,10 @@ const CategoryShow = function () {
       <div className="container">
         <div className="row row-gap-4">
           <div className="category-title">
-            {language === "it" && <h1>{category.name_it}</h1>}
-            {language === "en" && <h1>{category.name_en}</h1>}
-            {language === "fr" && <h1>{category.name_fr}</h1>}
-            {language === "sp" && <h1>{category.name_sp}</h1>}
+            {language === "it" && <h1>{category.data.name_it}</h1>}
+            {language === "en" && <h1>{category.data.name_en}</h1>}
+            {language === "fr" && <h1>{category.data.name_fr}</h1>}
+            {language === "sp" && <h1>{category.data.name_sp}</h1>}
           </div>
           {category.data.stops.map((stop) => (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={stop.id}>

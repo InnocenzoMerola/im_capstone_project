@@ -23,16 +23,15 @@ const ShowItinerary = function () {
     sp: translationsSp,
   }[language];
   useEffect(() => {
-    fetch(`/api/v1/itineraries/${id}`)
+    axios
+      .get(`/api/v1/itineraries/${id}`)
       .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          navigate("/404");
-        }
+        setItinerary(response.data);
       })
-      .then((data) => setItinerary(data.data))
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        navigate("/404");
+      });
   }, [id]);
 
   const handleDelete = (id) => {
