@@ -13,6 +13,8 @@ const CategoryShow = function () {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
+    // const apiUrl = process.env.APP_URL || "http://localhost:8000";
+
     fetch(`/api/v1/categories/${id}`)
       .then((response) => {
         if (response.ok) {

@@ -18,7 +18,9 @@ class CategoryController extends Controller
         $categories = Category::with('children.stops', 'stops')->whereNull('parent_id')->get();
        
         
-
+    if(!$categories){
+        return response()->json('Errore');
+    }
         // return response()->json($translatedCategories);
     return response()->json($categories);
     }
