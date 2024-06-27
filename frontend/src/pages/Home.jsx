@@ -23,15 +23,8 @@ const Home = function () {
     axios
       .get(`/api/v1/categories`)
       .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          navigate("/404");
-        }
-      })
-      .then((data) => {
         const selectedSubcategoryIds = [7, 9, 8, 3, 5, 4];
-        const filteredSubcategories = data
+        const filteredSubcategories = response
           .map((category) => category.children.filter((child) => selectedSubcategoryIds.includes(child.id)))
           .flat();
         setSubcategories(filteredSubcategories);
