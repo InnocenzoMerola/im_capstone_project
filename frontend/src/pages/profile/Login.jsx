@@ -30,15 +30,6 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     password: "",
   });
 
-  axios.interceptors.push({
-    request: (config) => {
-      const csrfToken = axios.get("/sanctum/csrf-cookie").then((response) => response.data.csrf_token);
-      config.headers["X-CSRF-TOKEN"] = csrfToken;
-      console.log("CSRF", csrfToken);
-      return config;
-    },
-  });
-
   const updateInputValue = (e) => {
     setFormData((oldFormData) => ({
       ...oldFormData,
@@ -50,9 +41,8 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
     e.preventDefault();
 
     axios
-      .post("/login", formData, {
-        withCredentials: true,
-      })
+      .get("/sanctum/csrf-cookie")
+      .then(() => axios.post("/login", formData))
       .then(() => axios.get("/api/user"))
       .then((response) => {
         dispatch({
