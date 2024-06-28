@@ -53,7 +53,7 @@ function App() {
       .catch((error) => console.log("Errore: ", error))
       .finally(() => setLoaded(true));
   }, [dispatch]);
-
+  // --------------
   axios.interceptors.request.use((config) => {
     const token = getCookie("XSRF-TOKEN");
     if (token) {
@@ -67,7 +67,7 @@ function App() {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(";").shift();
   }
-
+  // -------------------
   return (
     loaded && (
       <>
