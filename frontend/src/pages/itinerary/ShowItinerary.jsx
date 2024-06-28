@@ -26,7 +26,7 @@ const ShowItinerary = function () {
     axios
       .get(`/api/v1/itineraries/${id}`)
       .then((response) => {
-        setItinerary(response.data);
+        setItinerary(response.data.data);
       })
       .catch((error) => {
         console.error(error);
@@ -54,10 +54,8 @@ const ShowItinerary = function () {
     const parts = text.split("**");
     return parts.map((part, index) => {
       if (index % 2 === 1) {
-        // Odd parts (between ** **) should be in bold
         return <strong key={index}>{part}</strong>;
       } else {
-        // Even parts (outside ** **) should remain as is
         return part;
       }
     });

@@ -13,7 +13,8 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'api/*', // Esempio: tutte le rotte API
+        // 'api/*',  // Esempio: tutte le rotte API
+        'login/'
     ];
 
     protected function tokensMatch($request)
