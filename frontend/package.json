@@ -24,7 +24,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "cross-env APP_ENV=local npm run serve",
+    "prod": "cross-env APP_ENV=production npm run serve",
+    "serve": "php artisan serve"
   },
   "eslintConfig": {
     "extends": [
