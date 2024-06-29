@@ -112,7 +112,7 @@ const ShowItinerary = function () {
                 <Link to={`/itineraries/${id}/edit`}>{translations.edit}</Link>
               </div>
               <button onClick={() => handleDelete(itinerary.id)} className="btn btn-danger">
-                Elimina
+                {translations.delete}
               </button>
             </div>
           )}
