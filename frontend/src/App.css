@@ -353,7 +353,7 @@ ul {
 
 /* NAV-3 */
 .third {
-  padding: 0;
+  padding-inline: 0 !important;
 }
 
 .nav-step-3 {

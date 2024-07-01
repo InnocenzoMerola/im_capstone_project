@@ -175,13 +175,23 @@ const MyNav = function () {
                   <div className=" container-fluid container-md first">
                     <ul className="row g-0 nav-step-1">
                       <li className="col-3">
-                        <Link className="menu-link">La grande Napoli</Link>
+                        <Link to="https://www.ticketone.it/" target="_blank" className="menu-link">
+                          {translations.buy}
+                        </Link>
                       </li>
                       <li className="col-3">
-                        <Link className="menu-link">La grande Napoli</Link>
+                        <Link to="https://www.comune.napoli.it/home" target="_blank" className="menu-link">
+                          {translations.municipality}
+                        </Link>
                       </li>
                       <li className="col-3">
-                        <Link className="menu-link">La grande Napoli</Link>
+                        <Link
+                          to="https://www.booking.com/city/it/naples.it.html?aid=1610681;label=naples-5UR2tcza1R05rRY*Ur_MSwS341848315390:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-364177811:lp1008215:li:dec:dm:ppccp=UmFuZG9tSVYkc2RlIyh9YZVcNNsENnH0Cye0voMfmCQ;ws=&gclid=CjwKCAjwp4m0BhBAEiwAsdc4aPwdvzGhKw-bPMlAh6cj1FXD6B1ByYHW-LElzB-uf8z957eabiO0FRoCa6oQAvD_BwE"
+                          className="menu-link"
+                          target="_blank"
+                        >
+                          Hotel
+                        </Link>
                       </li>
                       <li className="col-3">
                         {user ? (
