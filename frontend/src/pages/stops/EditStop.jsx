@@ -7,6 +7,7 @@ import translationsIt from "../../traductions/translate-page/translation-it";
 import translationsEn from "../../traductions/translate-page/translation-en";
 import translationsFr from "../../traductions/translate-page/translation-fr";
 import translationsSp from "../../traductions/translate-page/translation-sp";
+import { Spinner } from "react-bootstrap";
 
 const EditStop = function () {
   const { id } = useParams();
@@ -16,6 +17,8 @@ const EditStop = function () {
   const [img4, setImg4] = useState(null);
   const navigate = useNavigate();
   const { language } = useLanguage();
+  const [loading, setLoading] = useState(false);
+
   const translations = {
     it: translationsIt,
     en: translationsEn,
@@ -127,6 +130,8 @@ const EditStop = function () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+
     console.log("Invio Form Modifica");
 
     const body = new FormData();
@@ -164,6 +169,7 @@ const EditStop = function () {
       .then((response) => {
         console.log("Aggiornato con successo");
         // console.log("Body ", body);
+        setLoading(false);
 
         navigate(`/stops/${id}`);
       })
@@ -183,233 +189,242 @@ const EditStop = function () {
   };
 
   return (
-    <div className="container  create-edit-cont">
-      <div className="row">
-        <div className="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
-          <div className="card stops-form">
-            <div className="card-body">
-              <h3 className="card-title text-center mb-4">{translations.editStop}</h3>
-              <form onSubmit={handleSubmit} method="put">
-                <input type="hidden" name="id" value={id} />
-                <div className="input-field">
-                  <label htmlFor="name">{translations.name}</label>
-                  <input
-                    type="text"
-                    className="form-control stops-input"
-                    name="name"
-                    onChange={updateInputValue}
-                    value={formData.name}
-                    required
-                  />
-                </div>
-                <div className="input-field">
-                  <label htmlFor="location">{translations.location}</label>
-                  <input
-                    type="text"
-                    className="form-control stops-input"
-                    name="location"
-                    onChange={updateInputValue}
-                    value={formData.location}
-                    required
-                  />
-                </div>
-                <div className="input-field">
-                  <label htmlFor="phone">{translations.phone}</label>
-                  <input
-                    type="text"
-                    className="form-control stops-input"
-                    name="phone"
-                    onChange={updateInputValue}
-                    value={formData.phone}
-                  />
-                </div>
-                <div className="input-field">
-                  <label htmlFor="url">{translations.url}</label>
-                  <input
-                    type="text"
-                    className="form-control stops-input"
-                    name="url"
-                    onChange={updateInputValue}
-                    value={formData.url}
-                  />
-                </div>
+    <>
+      {loading ? (
+        <div className="spinner-reg">
+          <div className="text-center">
+            <h2 className="mb-3">Modifica in corso...</h2>
+            <Spinner animation="grow" />
+          </div>
+        </div>
+      ) : (
+        <div className="container  create-edit-cont">
+          <div className="row">
+            <div className="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+              <div className="card stops-form">
+                <div className="card-body">
+                  <h3 className="card-title text-center mb-4">{translations.editStop}</h3>
+                  <form onSubmit={handleSubmit} method="put">
+                    <input type="hidden" name="id" value={id} />
+                    <div className="input-field">
+                      <label htmlFor="name">{translations.name}</label>
+                      <input
+                        type="text"
+                        className="form-control stops-input"
+                        name="name"
+                        onChange={updateInputValue}
+                        value={formData.name}
+                        required
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label htmlFor="location">{translations.location}</label>
+                      <input
+                        type="text"
+                        className="form-control stops-input"
+                        name="location"
+                        onChange={updateInputValue}
+                        value={formData.location}
+                        required
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label htmlFor="phone">{translations.phone}</label>
+                      <input
+                        type="text"
+                        className="form-control stops-input"
+                        name="phone"
+                        onChange={updateInputValue}
+                        value={formData.phone}
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label htmlFor="url">{translations.url}</label>
+                      <input
+                        type="text"
+                        className="form-control stops-input"
+                        name="url"
+                        onChange={updateInputValue}
+                        value={formData.url}
+                      />
+                    </div>
 
-                {formData.image && (
-                  <div className="mb-3">
-                    <label htmlFor="image" className="form-label">
-                      {translations.currentImage} 1
-                    </label>
-                    <img src={`/storage/${formData.image}`} alt="" className="edit-img mb-2" />
-                  </div>
-                )}
-                <div className="mb-3">
-                  <label htmlFor="image" className="form-label">
-                    {translations.image} 1
-                  </label>
-                  <input
-                    type="file"
-                    className="form-control stops-input"
-                    name="image"
-                    onChange={(e) => updateImageField(e, 1)}
-                  />
-                </div>
-
-                {formData.image2 && (
-                  <div className="mb-3">
-                    <label htmlFor="image2" className="form-label">
-                      {translations.currentImage} 2
-                    </label>
-                    <img src={`/storage/${formData.image2}`} alt="" className="edit-img mb-2" />
-                  </div>
-                )}
-                <div className="mb-3">
-                  <label htmlFor="image2" className="form-label">
-                    {translations.image} 2
-                  </label>
-                  <input
-                    type="file"
-                    className="form-control stops-input"
-                    name="image2"
-                    onChange={(e) => updateImageField(e, 2)}
-                  />
-                </div>
-
-                {formData.image3 && (
-                  <div className="mb-3">
-                    <label htmlFor="image3" className="form-label">
-                      {translations.currentImage} 3
-                    </label>
-                    <img src={`/storage/${formData.image3}`} alt="" className="edit-img mb-2" />
-                  </div>
-                )}
-                <div className="mb-3">
-                  <label htmlFor="image3" className="form-label">
-                    {translations.image} 3
-                  </label>
-                  <input
-                    type="file"
-                    className="form-control stops-input"
-                    name="image3"
-                    onChange={(e) => updateImageField(e, 3)}
-                  />
-                </div>
-
-                {formData.image4 && (
-                  <div className="mb-3">
-                    <label htmlFor="image4" className="form-label">
-                      {translations.currentImage} 4
-                    </label>
-                    <img src={`/storage/${formData.image4}`} alt="" className="edit-img mb-2" />
-                  </div>
-                )}
-                <div className="mb-3">
-                  <label htmlFor="image4" className="form-label">
-                    {translations.image} 4
-                  </label>
-                  <input
-                    type="file"
-                    className="form-control stops-input"
-                    name="image4"
-                    onChange={(e) => updateImageField(e, 4)}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="category" className="form-label">
-                    {translations.category}
-                  </label>
-                  <select
-                    className="form-select  stops-input"
-                    onChange={updateCategoryValue}
-                    value={formData.categories}
-                    required
-                  >
-                    <option value="">{translations.selectCategory}</option>
-                    {categories.map((category) =>
-                      category.children.map((child) => (
-                        <option key={child.id} value={child.id}>
-                          {language === "it" && <>{child.name_it}</>}
-                          {language === "en" && <>{child.name_en}</>}
-                          {language === "fr" && <>{child.name_fr}</>}
-                          {language === "sp" && <>{child.name_sp}</>}
-                        </option>
-                      ))
+                    {formData.image && (
+                      <div className="mb-3">
+                        <label htmlFor="image" className="form-label">
+                          {translations.currentImage} 1
+                        </label>
+                        <img src={`/storage/${formData.image}`} alt="" className="edit-img mb-2" />
+                      </div>
                     )}
-                  </select>
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="language" className="form-label">
-                    {translations.language}
-                  </label>
-                  <select
-                    className="form-select  stops-input mb-3"
-                    value={selectedLanguage}
-                    onChange={(e) => handleChangeLanguage(e.target.value)}
-                    id="language"
-                  >
-                    <option value="">{translations.selectLanguage}</option>
-                    <option value="ITA">{translations.languageIt}</option>
-                    <option value="ENG">{translations.languageEn}</option>
-                    <option value="FRA">{translations.languageFr} </option>
-                    <option value="SPA">{translations.languageSp}</option>
-                    {/* <option value="NAP">Napoletano </option> */}
-                  </select>
-
-                  {selectedLanguage === "" && <div className="separator-form"></div>}
-
-                  {selectedLanguage === "ITA" && (
-                    <div className="form-floating">
-                      <textarea
-                        className="form-control textarea-descript"
-                        placeholder="Descrizione ITA"
-                        onChange={updateInputValue}
-                        value={formData.description_it}
-                        name="description_it"
-                      ></textarea>
-                      <label htmlFor="floatingTextarea">{translations.description} ITA</label>
+                    <div className="mb-3">
+                      <label htmlFor="image" className="form-label">
+                        {translations.image} 1
+                      </label>
+                      <input
+                        type="file"
+                        className="form-control stops-input"
+                        name="image"
+                        onChange={(e) => updateImageField(e, 1)}
+                      />
                     </div>
-                  )}
 
-                  {selectedLanguage === "ENG" && (
-                    <div className="form-floating">
-                      <textarea
-                        className="form-control textarea-descript"
-                        placeholder="Descrizione ENG"
-                        onChange={updateInputValue}
-                        value={formData.description_en}
-                        name="description_en"
-                      ></textarea>
-                      <label htmlFor="floatingTextarea">{translations.description} ENG</label>
+                    {formData.image2 && (
+                      <div className="mb-3">
+                        <label htmlFor="image2" className="form-label">
+                          {translations.currentImage} 2
+                        </label>
+                        <img src={`/storage/${formData.image2}`} alt="" className="edit-img mb-2" />
+                      </div>
+                    )}
+                    <div className="mb-3">
+                      <label htmlFor="image2" className="form-label">
+                        {translations.image} 2
+                      </label>
+                      <input
+                        type="file"
+                        className="form-control stops-input"
+                        name="image2"
+                        onChange={(e) => updateImageField(e, 2)}
+                      />
                     </div>
-                  )}
 
-                  {selectedLanguage === "FRA" && (
-                    <div className="form-floating">
-                      <textarea
-                        className="form-control textarea-descript"
-                        placeholder="Descrizione FRA"
-                        onChange={updateInputValue}
-                        value={formData.description_fr}
-                        name="description_fr"
-                      ></textarea>
-                      <label htmlFor="floatingTextarea">{translations.description} FRA</label>
+                    {formData.image3 && (
+                      <div className="mb-3">
+                        <label htmlFor="image3" className="form-label">
+                          {translations.currentImage} 3
+                        </label>
+                        <img src={`/storage/${formData.image3}`} alt="" className="edit-img mb-2" />
+                      </div>
+                    )}
+                    <div className="mb-3">
+                      <label htmlFor="image3" className="form-label">
+                        {translations.image} 3
+                      </label>
+                      <input
+                        type="file"
+                        className="form-control stops-input"
+                        name="image3"
+                        onChange={(e) => updateImageField(e, 3)}
+                      />
                     </div>
-                  )}
 
-                  {selectedLanguage === "SPA" && (
-                    <div className="form-floating">
-                      <textarea
-                        className="form-control textarea-descript"
-                        placeholder="Descrizione SPA"
-                        onChange={updateInputValue}
-                        value={formData.description_sp}
-                        name="description_sp"
-                      ></textarea>
-                      <label htmlFor="floatingTextarea">{translations.description} SPA</label>
+                    {formData.image4 && (
+                      <div className="mb-3">
+                        <label htmlFor="image4" className="form-label">
+                          {translations.currentImage} 4
+                        </label>
+                        <img src={`/storage/${formData.image4}`} alt="" className="edit-img mb-2" />
+                      </div>
+                    )}
+                    <div className="mb-3">
+                      <label htmlFor="image4" className="form-label">
+                        {translations.image} 4
+                      </label>
+                      <input
+                        type="file"
+                        className="form-control stops-input"
+                        name="image4"
+                        onChange={(e) => updateImageField(e, 4)}
+                      />
                     </div>
-                  )}
+                    <div className="mb-3">
+                      <label htmlFor="category" className="form-label">
+                        {translations.category}
+                      </label>
+                      <select
+                        className="form-select  stops-input"
+                        onChange={updateCategoryValue}
+                        value={formData.categories}
+                        required
+                      >
+                        <option value="">{translations.selectCategory}</option>
+                        {categories.map((category) =>
+                          category.children.map((child) => (
+                            <option key={child.id} value={child.id}>
+                              {language === "it" && <>{child.name_it}</>}
+                              {language === "en" && <>{child.name_en}</>}
+                              {language === "fr" && <>{child.name_fr}</>}
+                              {language === "sp" && <>{child.name_sp}</>}
+                            </option>
+                          ))
+                        )}
+                      </select>
+                    </div>
 
-                  {/* {selectedLanguage === "NAP" && (
+                    <div className="mb-3">
+                      <label htmlFor="language" className="form-label">
+                        {translations.language}
+                      </label>
+                      <select
+                        className="form-select  stops-input mb-3"
+                        value={selectedLanguage}
+                        onChange={(e) => handleChangeLanguage(e.target.value)}
+                        id="language"
+                      >
+                        <option value="">{translations.selectLanguage}</option>
+                        <option value="ITA">{translations.languageIt}</option>
+                        <option value="ENG">{translations.languageEn}</option>
+                        <option value="FRA">{translations.languageFr} </option>
+                        <option value="SPA">{translations.languageSp}</option>
+                        {/* <option value="NAP">Napoletano </option> */}
+                      </select>
+
+                      {selectedLanguage === "" && <div className="separator-form"></div>}
+
+                      {selectedLanguage === "ITA" && (
+                        <div className="form-floating">
+                          <textarea
+                            className="form-control textarea-descript"
+                            placeholder="Descrizione ITA"
+                            onChange={updateInputValue}
+                            value={formData.description_it}
+                            name="description_it"
+                          ></textarea>
+                          <label htmlFor="floatingTextarea">{translations.description} ITA</label>
+                        </div>
+                      )}
+
+                      {selectedLanguage === "ENG" && (
+                        <div className="form-floating">
+                          <textarea
+                            className="form-control textarea-descript"
+                            placeholder="Descrizione ENG"
+                            onChange={updateInputValue}
+                            value={formData.description_en}
+                            name="description_en"
+                          ></textarea>
+                          <label htmlFor="floatingTextarea">{translations.description} ENG</label>
+                        </div>
+                      )}
+
+                      {selectedLanguage === "FRA" && (
+                        <div className="form-floating">
+                          <textarea
+                            className="form-control textarea-descript"
+                            placeholder="Descrizione FRA"
+                            onChange={updateInputValue}
+                            value={formData.description_fr}
+                            name="description_fr"
+                          ></textarea>
+                          <label htmlFor="floatingTextarea">{translations.description} FRA</label>
+                        </div>
+                      )}
+
+                      {selectedLanguage === "SPA" && (
+                        <div className="form-floating">
+                          <textarea
+                            className="form-control textarea-descript"
+                            placeholder="Descrizione SPA"
+                            onChange={updateInputValue}
+                            value={formData.description_sp}
+                            name="description_sp"
+                          ></textarea>
+                          <label htmlFor="floatingTextarea">{translations.description} SPA</label>
+                        </div>
+                      )}
+
+                      {/* {selectedLanguage === "NAP" && (
                     <div className="form-floating">
                       <textarea
                         className="form-control  textarea-descript"
@@ -421,19 +436,21 @@ const EditStop = function () {
                       <label htmlFor="floatingTextarea">Descrizione NAP</label>
                     </div>
                   )} */}
-                </div>
+                    </div>
 
-                <div className="d-flex justify-content-center">
-                  <button type="submit" className="create-edit-btn">
-                    {translations.edit}
-                  </button>
+                    <div className="d-flex justify-content-center">
+                      <button type="submit" className="create-edit-btn">
+                        {translations.edit}
+                      </button>
+                    </div>
+                  </form>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

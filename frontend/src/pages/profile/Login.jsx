@@ -8,6 +8,7 @@ import translationsIt from "../../traductions/translate-page/translation-it";
 import translationsEn from "../../traductions/translate-page/translation-en";
 import translationsFr from "../../traductions/translate-page/translation-fr";
 import translationsSp from "../../traductions/translate-page/translation-sp";
+import { Spinner } from "react-bootstrap";
 
 const Login = function ({ onCloseLogin, onShowRegister }) {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const translations = {
     it: translationsIt,
@@ -39,6 +41,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
 
   const submitLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     axios
       .get("/sanctum/csrf-cookie", {
@@ -59,8 +62,17 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
           type: LOGIN,
           payload: response.data,
         });
+        setError("");
+        setLoading(false);
       })
-      .catch((error) => console.log("Errore", error));
+      .catch((error) => {
+        if (error.response && error.response.data && error.response.data.error && error.response.data.error) {
+          setError(error.response.data.error);
+        } else {
+          setError("Username o password errate");
+        }
+        setMessage("");
+      });
   };
 
   // async function submitLogin() {
@@ -183,6 +195,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
                   </button>
                 </div>
               </div>
+              {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
               <div className="remember-me">
                 <input type="checkbox" id="remember-me" name="remember-me" />
                 <label htmlFor="remember-me">{translations.loginAccess}</label>
@@ -192,6 +205,13 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
                 <button type="submit" className="login-btn">
                   {translations.loginAccess3}
                 </button>
+                {loading && (
+                  <div className="spinner-rel">
+                    <div className="spinner-abs">
+                      <Spinner animation="border" size="sm" />
+                    </div>
+                  </div>
+                )}
               </div>
             </form>
             <div className="register">

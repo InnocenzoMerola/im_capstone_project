@@ -44,37 +44,32 @@ const ShowComment = ({ comments }) => {
   return (
     <div>
       <h2>{translations.comments}</h2>
-      {user ? (
-        <>
-          {comments && comments.length > 0 ? (
-            <ul className="p-0">
-              {comments.map((comment) => (
-                <li key={comment.id} className="comments">
-                  <div className="d-flex justify-content-between">
-                    <div className="comment-img-cont">
-                      <img src={comment.profile_img} alt="" />
-                      <p className="m-0">{comment.username}</p>
-                    </div>
-                    <div className="d-flex align-items-start">
-                      <div>{renderStars(comment.rate)}</div>
-                    </div>
-                  </div>
-                  <div className="comment-comment-cont">
-                    <div>
-                      <p className="m-0">{comment.comment}</p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <div className="mt-4">
-              <h5>{translations.notComment}</h5>
-            </div>
-          )}
-        </>
+
+      {comments && comments.length > 0 ? (
+        <ul className="p-0">
+          {comments.map((comment) => (
+            <li key={comment.id} className="comments">
+              <div className="d-flex justify-content-between">
+                <div className="comment-img-cont">
+                  <img src={comment.profile_img} alt="" />
+                  <p className="m-0">{comment.username}</p>
+                </div>
+                <div className="d-flex align-items-start">
+                  <div>{renderStars(comment.rate)}</div>
+                </div>
+              </div>
+              <div className="comment-comment-cont">
+                <div>
+                  <p className="m-0">{comment.comment}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <p>{translations.commentAccess}</p>
+        <div className="mt-4">
+          <h5>{translations.notComment}</h5>
+        </div>
       )}
     </div>
   );

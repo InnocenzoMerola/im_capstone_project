@@ -72,7 +72,7 @@ const CategoryShow = function () {
           {category.data.stops.map((stop) => (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={stop.id}>
               <div className={`card ${user && user.role === "admin" ? "stops-card-admin" : "stops-card"}`}>
-                <Link to={user ? `/stops/${stop.id}` : "#"}>
+                <Link to={user ? `/stops/${stop.id}` : "#"} className={!user ? "no-drop" : ""}>
                   <img src={process.env.REACT_APP_API_URL + `/storage/${stop.image}`} className="card-img-top" alt="" />
                   <div className="card-body card-text-color">
                     <h5>{stop.name}</h5>

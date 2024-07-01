@@ -1071,7 +1071,7 @@ ul {
   color: black;
 }
 
-.stops-card a {
+.stops-card .no-drop {
   cursor: no-drop;
 }
 
@@ -1185,6 +1185,11 @@ ul {
   border: 1px solid blue;
 }
 
+.invalid-feedback {
+  color: red;
+  display: block;
+}
+
 /* ITINERARY */
 
 .edit-btn {
@@ -1217,6 +1222,25 @@ ul {
 .spinner-grow {
   --bs-spinner-width: 4rem !important;
   --bs-spinner-height: 4rem !important;
+}
+
+.spinner-rel {
+  position: relative;
+}
+
+.spinner-abs {
+  z-index: 1000;
+  position: absolute;
+  display: flex;
+  top: 0.5rem;
+  left: 2rem;
+}
+
+.spinner-reg {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* HOMEPAGE Breakpoints */
