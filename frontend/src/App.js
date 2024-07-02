@@ -36,8 +36,8 @@ import ShowItinerary from "./pages/itinerary/ShowItinerary";
 function App() {
   axios.defaults.withCredentials = true;
   axios.defaults.withXSRFToken = true;
-  axios.defaults.baseURL = "http://localhost:8000";
-  // axios.defaults.baseURL = "https://im-benvenuti-a-napoli.it/";
+  // axios.defaults.baseURL = "http://localhost:8000";
+  axios.defaults.baseURL = "https://im-benvenuti-a-napoli.it/";
 
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
