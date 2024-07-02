@@ -23,7 +23,7 @@ class ContactController extends Controller
         ];
 
         Mail::send('emails.contact', ['details' => $details], function($message) use ($details){
-            $message->to('IeMinfo21@gmail.com')
+            $message->to('I&Minfo21@gmail.com')
             ->subject('Messaggio form di Contatto');
         });
 
