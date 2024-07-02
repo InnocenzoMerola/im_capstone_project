@@ -539,6 +539,10 @@ ul {
   position: relative;
 }
 
+.reset-pass-rel p {
+  color: black;
+}
+
 .reset-pass-btn {
   width: 10rem;
   padding-block: 4px;

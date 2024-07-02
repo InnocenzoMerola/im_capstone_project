@@ -15,6 +15,7 @@ const ResetPassword = function () {
     message: "",
     error: "",
   });
+  const [error, setError] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -52,13 +53,15 @@ const ResetPassword = function () {
         message: response.data.message,
         error: "",
       });
+      setError("");
       navigate("/");
     } catch (error) {
       setFormData({
         ...formData,
-        error: error.response?.data?.errors?.email[0] || "Qualcosa è andato storto, per favore riprova più tardi",
+        error: error?.response?.data?.errors?.email[0] || "Qualcosa è andato storto, per favore riprova più tardi",
         message: "",
       });
+      setError("Qualcosa è andato storto, per favore riprova più tardi");
     }
   };
 

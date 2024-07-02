@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../../traductions/LanguageContext";
 import translationsIt from "../../traductions/translate-page/translation-it";
 import translationsEn from "../../traductions/translate-page/translation-en";
@@ -19,6 +19,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const translations = {
     it: translationsIt,
@@ -72,6 +73,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
           setError("Username o password errate");
         }
         setMessage("");
+        setLoading(false);
       });
   };
 
@@ -115,6 +117,7 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await axios.post("/api/v1/forgot-password", { email });
@@ -122,9 +125,11 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
       setError("");
       setShowForgotPasswordForm(false);
       console.log(email);
+      setLoading(false);
+      navigate("/");
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error && error.response.data.error.email) {
-        setError(error.response.data.error.email[0]);
+        setError(error.response.data.error.email);
       } else {
         setError("Qualcosa è andato storto, riprova più tardi");
       }
@@ -154,10 +159,17 @@ const Login = function ({ onCloseLogin, onShowRegister }) {
                 </div>
                 {message && <p>{message}</p>}
                 {error && <p style={{ color: "red" }}>{error}</p>}
-                <div className="mt-2">
+                <div className="mt-2 d-flex justify-content-center">
                   <button type="submit" className="login-btn">
                     {translations.loginAccess7}
                   </button>
+                  {loading && (
+                    <div className="spinner-rel">
+                      <div className="spinner-abs">
+                        <Spinner animation="border" size="sm" />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </form>
             </div>
