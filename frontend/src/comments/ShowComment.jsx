@@ -51,7 +51,7 @@ const ShowComment = ({ comments }) => {
             <li key={comment.id} className="comments">
               <div className="d-flex justify-content-between">
                 <div className="comment-img-cont">
-                  <img src={comment.profile_img} alt="" />
+                  <img src={comment.profile_img ? comment.profile_img : "/image/profile-image.png"} alt="" />
                   <p className="m-0">{comment.username}</p>
                 </div>
                 <div className="d-flex align-items-start">

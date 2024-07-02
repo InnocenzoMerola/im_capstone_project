@@ -936,6 +936,7 @@ ul {
   background-color: #3393df;
   border-radius: 50%;
   color: white;
+  cursor: pointer;
 }
 
 .update-profile-img {
@@ -1001,6 +1002,7 @@ ul {
   position: absolute;
   right: 0px;
   border-radius: 21px;
+  cursor: pointer;
 }
 
 /* CONTATTACI */

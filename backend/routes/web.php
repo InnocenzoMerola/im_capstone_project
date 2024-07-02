@@ -8,6 +8,6 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('{any?}', function () {
-    return view('index');
-})->where("any", ".*")->name('index');
+// Route::get('{any?}', function () {
+//     return view('index');
+// })->where("any", '^(?!api\/).*$')->name('index');
